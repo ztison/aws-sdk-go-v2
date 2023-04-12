@@ -1,3 +1,19 @@
+# v1.17.4 (2023-04-10)
+
+* No change notes available for this release.
+
+# v1.17.3 (2023-04-07)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.17.2 (2023-03-21)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.17.1 (2023-03-10)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
 # v1.17.0 (2023-03-02)
 
 * **Feature**: This release adds a new field PeriodAlignment to allow the customer specifying the returned timestamp of time periods to be either the start or end time.

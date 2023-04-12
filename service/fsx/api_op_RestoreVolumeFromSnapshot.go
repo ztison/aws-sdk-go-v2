@@ -42,22 +42,18 @@ type RestoreVolumeFromSnapshotInput struct {
 	// This member is required.
 	VolumeId *string
 
-	// (Optional) An idempotency token for resource creation, in a string of up to 64
+	// (Optional) An idempotency token for resource creation, in a string of up to 63
 	// ASCII characters. This token is automatically filled on your behalf when you use
 	// the Command Line Interface (CLI) or an Amazon Web Services SDK.
 	ClientRequestToken *string
 
 	// The settings used when restoring the specified volume from snapshot.
-	//
-	// *
-	// DELETE_INTERMEDIATE_SNAPSHOTS - Deletes snapshots between the current state and
-	// the specified snapshot. If there are intermediate snapshots and this option
-	// isn't used, RestoreVolumeFromSnapshot fails.
-	//
-	// * DELETE_CLONED_VOLUMES - Deletes
-	// any dependent clone volumes created from intermediate snapshots. If there are
-	// any dependent clone volumes and this option isn't used,
-	// RestoreVolumeFromSnapshot fails.
+	//   - DELETE_INTERMEDIATE_SNAPSHOTS - Deletes snapshots between the current state
+	//   and the specified snapshot. If there are intermediate snapshots and this option
+	//   isn't used, RestoreVolumeFromSnapshot fails.
+	//   - DELETE_CLONED_VOLUMES - Deletes any dependent clone volumes created from
+	//   intermediate snapshots. If there are any dependent clone volumes and this option
+	//   isn't used, RestoreVolumeFromSnapshot fails.
 	Options []types.RestoreOpenZFSVolumeOption
 
 	noSmithyDocumentSerde

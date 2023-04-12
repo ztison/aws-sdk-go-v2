@@ -15,8 +15,8 @@ import (
 // vendors of managed rule sets. Vendors are Amazon Web Services and Amazon Web
 // Services Marketplace sellers. Vendors, you can use the managed rule set APIs to
 // provide controlled rollout of your versioned managed rule group offerings for
-// your customers. The APIs are ListManagedRuleSets, GetManagedRuleSet,
-// PutManagedRuleSetVersions, and UpdateManagedRuleSetVersionExpiryDate.
+// your customers. The APIs are ListManagedRuleSets , GetManagedRuleSet ,
+// PutManagedRuleSetVersions , and UpdateManagedRuleSetVersionExpiryDate .
 func (c *Client) ListManagedRuleSets(ctx context.Context, params *ListManagedRuleSetsInput, optFns ...func(*Options)) (*ListManagedRuleSetsOutput, error) {
 	if params == nil {
 		params = &ListManagedRuleSetsInput{}
@@ -36,15 +36,12 @@ type ListManagedRuleSetsInput struct {
 
 	// Specifies whether this is for an Amazon CloudFront distribution or for a
 	// regional application. A regional application can be an Application Load Balancer
-	// (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, a Amazon Cognito
+	// (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito
 	// user pool, or an App Runner service. To work with CloudFront, you must also
 	// specify the Region US East (N. Virginia) as follows:
-	//
-	// * CLI - Specify the Region
-	// when you use the CloudFront scope: --scope=CLOUDFRONT --region=us-east-1.
-	//
-	// * API
-	// and SDKs - For all calls, use the Region endpoint us-east-1.
+	//   - CLI - Specify the Region when you use the CloudFront scope:
+	//   --scope=CLOUDFRONT --region=us-east-1 .
+	//   - API and SDKs - For all calls, use the Region endpoint us-east-1.
 	//
 	// This member is required.
 	Scope types.Scope

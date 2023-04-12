@@ -350,8 +350,8 @@ const (
 	OrganizationConfigRuleTriggerTypeScheduledNotification                       OrganizationConfigRuleTriggerType = "ScheduledNotification"
 )
 
-// Values returns all known values for OrganizationConfigRuleTriggerType. Note that
-// this can be expanded in the future, and so it is only as up to date as the
+// Values returns all known values for OrganizationConfigRuleTriggerType. Note
+// that this can be expanded in the future, and so it is only as up to date as the
 // client. The ordering of this slice is not guaranteed to be stable across
 // updates.
 func (OrganizationConfigRuleTriggerType) Values() []OrganizationConfigRuleTriggerType {
@@ -487,8 +487,8 @@ const (
 	OwnerCustomPolicy Owner = "CUSTOM_POLICY"
 )
 
-// Values returns all known values for Owner. Note that this can be expanded in the
-// future, and so it is only as up to date as the client. The ordering of this
+// Values returns all known values for Owner. Note that this can be expanded in
+// the future, and so it is only as up to date as the client. The ordering of this
 // slice is not guaranteed to be stable across updates.
 func (Owner) Values() []Owner {
 	return []Owner{
@@ -568,8 +568,8 @@ const (
 	RemediationTargetTypeSsmDocument RemediationTargetType = "SSM_DOCUMENT"
 )
 
-// Values returns all known values for RemediationTargetType. Note that this can be
-// expanded in the future, and so it is only as up to date as the client. The
+// Values returns all known values for RemediationTargetType. Note that this can
+// be expanded in the future, and so it is only as up to date as the client. The
 // ordering of this slice is not guaranteed to be stable across updates.
 func (RemediationTargetType) Values() []RemediationTargetType {
 	return []RemediationTargetType{
@@ -603,8 +603,8 @@ const (
 	ResourceCountGroupKeyAwsRegion    ResourceCountGroupKey = "AWS_REGION"
 )
 
-// Values returns all known values for ResourceCountGroupKey. Note that this can be
-// expanded in the future, and so it is only as up to date as the client. The
+// Values returns all known values for ResourceCountGroupKey. Note that this can
+// be expanded in the future, and so it is only as up to date as the client. The
 // ordering of this slice is not guaranteed to be stable across updates.
 func (ResourceCountGroupKey) Values() []ResourceCountGroupKey {
 	return []ResourceCountGroupKey{
@@ -623,9 +623,9 @@ const (
 	ResourceEvaluationStatusSucceeded  ResourceEvaluationStatus = "SUCCEEDED"
 )
 
-// Values returns all known values for ResourceEvaluationStatus. Note that this can
-// be expanded in the future, and so it is only as up to date as the client. The
-// ordering of this slice is not guaranteed to be stable across updates.
+// Values returns all known values for ResourceEvaluationStatus. Note that this
+// can be expanded in the future, and so it is only as up to date as the client.
+// The ordering of this slice is not guaranteed to be stable across updates.
 func (ResourceEvaluationStatus) Values() []ResourceEvaluationStatus {
 	return []ResourceEvaluationStatus{
 		"IN_PROGRESS",
@@ -802,11 +802,121 @@ const (
 	ResourceTypeSESContactList                           ResourceType = "AWS::SES::ContactList"
 	ResourceTypeSESConfigurationSet                      ResourceType = "AWS::SES::ConfigurationSet"
 	ResourceTypeRoute53HostedZone                        ResourceType = "AWS::Route53::HostedZone"
+	ResourceTypeIoTEventsInput                           ResourceType = "AWS::IoTEvents::Input"
+	ResourceTypeIoTEventsDetectorModel                   ResourceType = "AWS::IoTEvents::DetectorModel"
+	ResourceTypeIoTEventsAlarmModel                      ResourceType = "AWS::IoTEvents::AlarmModel"
+	ResourceTypeServiceDiscoveryHttpNamespace            ResourceType = "AWS::ServiceDiscovery::HttpNamespace"
+	ResourceTypeEventsEventBus                           ResourceType = "AWS::Events::EventBus"
+	ResourceTypeImageBuilderContainerRecipe              ResourceType = "AWS::ImageBuilder::ContainerRecipe"
+	ResourceTypeImageBuilderDistributionConfiguration    ResourceType = "AWS::ImageBuilder::DistributionConfiguration"
+	ResourceTypeImageBuilderInfrastructureConfiguration  ResourceType = "AWS::ImageBuilder::InfrastructureConfiguration"
+	ResourceTypeDataSyncLocationObjectStorage            ResourceType = "AWS::DataSync::LocationObjectStorage"
+	ResourceTypeDataSyncLocationHDFS                     ResourceType = "AWS::DataSync::LocationHDFS"
+	ResourceTypeGlueClassifier                           ResourceType = "AWS::Glue::Classifier"
+	ResourceTypeRoute53RecoveryReadinessCell             ResourceType = "AWS::Route53RecoveryReadiness::Cell"
+	ResourceTypeRoute53RecoveryReadinessReadinessCheck   ResourceType = "AWS::Route53RecoveryReadiness::ReadinessCheck"
+	ResourceTypeECRRegistryPolicy                        ResourceType = "AWS::ECR::RegistryPolicy"
+	ResourceTypeBackupReportPlan                         ResourceType = "AWS::Backup::ReportPlan"
+	ResourceTypeLightsailCertificate                     ResourceType = "AWS::Lightsail::Certificate"
+	ResourceTypeRUMAppMonitor                            ResourceType = "AWS::RUM::AppMonitor"
+	ResourceTypeEventsEndpoint                           ResourceType = "AWS::Events::Endpoint"
+	ResourceTypeSESReceiptRuleSet                        ResourceType = "AWS::SES::ReceiptRuleSet"
+	ResourceTypeEventsArchive                            ResourceType = "AWS::Events::Archive"
+	ResourceTypeEventsApiDestination                     ResourceType = "AWS::Events::ApiDestination"
+	ResourceTypeLightsailDisk                            ResourceType = "AWS::Lightsail::Disk"
+	ResourceTypeFISExperimentTemplate                    ResourceType = "AWS::FIS::ExperimentTemplate"
+	ResourceTypeDataSyncLocationFSxWindows               ResourceType = "AWS::DataSync::LocationFSxWindows"
+	ResourceTypeSESReceiptFilter                         ResourceType = "AWS::SES::ReceiptFilter"
+	ResourceTypeGuardDutyFilter                          ResourceType = "AWS::GuardDuty::Filter"
+	ResourceTypeSESTemplate                              ResourceType = "AWS::SES::Template"
+	ResourceTypeAmazonMQBroker                           ResourceType = "AWS::AmazonMQ::Broker"
+	ResourceTypeAppConfigEnvironment                     ResourceType = "AWS::AppConfig::Environment"
+	ResourceTypeAppConfigConfigurationProfile            ResourceType = "AWS::AppConfig::ConfigurationProfile"
+	ResourceTypeCloud9EnvironmentEC2                     ResourceType = "AWS::Cloud9::EnvironmentEC2"
+	ResourceTypeEventSchemasRegistry                     ResourceType = "AWS::EventSchemas::Registry"
+	ResourceTypeEventSchemasRegistryPolicy               ResourceType = "AWS::EventSchemas::RegistryPolicy"
+	ResourceTypeEventSchemasDiscoverer                   ResourceType = "AWS::EventSchemas::Discoverer"
+	ResourceTypeFraudDetectorLabel                       ResourceType = "AWS::FraudDetector::Label"
+	ResourceTypeFraudDetectorEntityType                  ResourceType = "AWS::FraudDetector::EntityType"
+	ResourceTypeFraudDetectorVariable                    ResourceType = "AWS::FraudDetector::Variable"
+	ResourceTypeFraudDetectorOutcome                     ResourceType = "AWS::FraudDetector::Outcome"
+	ResourceTypeIoTAuthorizer                            ResourceType = "AWS::IoT::Authorizer"
+	ResourceTypeIoTSecurityProfile                       ResourceType = "AWS::IoT::SecurityProfile"
+	ResourceTypeIoTRoleAlias                             ResourceType = "AWS::IoT::RoleAlias"
+	ResourceTypeIoTDimension                             ResourceType = "AWS::IoT::Dimension"
+	ResourceTypeIoTAnalyticsDatastore                    ResourceType = "AWS::IoTAnalytics::Datastore"
+	ResourceTypeLightsailBucket                          ResourceType = "AWS::Lightsail::Bucket"
+	ResourceTypeLightsailStaticIp                        ResourceType = "AWS::Lightsail::StaticIp"
+	ResourceTypeMediaPackagePackagingGroup               ResourceType = "AWS::MediaPackage::PackagingGroup"
+	ResourceTypeRoute53RecoveryReadinessRecoveryGroup    ResourceType = "AWS::Route53RecoveryReadiness::RecoveryGroup"
+	ResourceTypeResilienceHubResiliencyPolicy            ResourceType = "AWS::ResilienceHub::ResiliencyPolicy"
+	ResourceTypeTransferWorkflow                         ResourceType = "AWS::Transfer::Workflow"
+	ResourceTypeEKSIdentityProviderConfig                ResourceType = "AWS::EKS::IdentityProviderConfig"
+	ResourceTypeEKSAddon                                 ResourceType = "AWS::EKS::Addon"
+	ResourceTypeGlueMLTransform                          ResourceType = "AWS::Glue::MLTransform"
+	ResourceTypeIoTPolicy                                ResourceType = "AWS::IoT::Policy"
+	ResourceTypeIoTMitigationAction                      ResourceType = "AWS::IoT::MitigationAction"
+	ResourceTypeIoTTwinMakerWorkspace                    ResourceType = "AWS::IoTTwinMaker::Workspace"
+	ResourceTypeIoTTwinMakerEntity                       ResourceType = "AWS::IoTTwinMaker::Entity"
+	ResourceTypeIoTAnalyticsDataset                      ResourceType = "AWS::IoTAnalytics::Dataset"
+	ResourceTypeIoTAnalyticsPipeline                     ResourceType = "AWS::IoTAnalytics::Pipeline"
+	ResourceTypeIoTAnalyticsChannel                      ResourceType = "AWS::IoTAnalytics::Channel"
+	ResourceTypeIoTSiteWiseDashboard                     ResourceType = "AWS::IoTSiteWise::Dashboard"
+	ResourceTypeIoTSiteWiseProject                       ResourceType = "AWS::IoTSiteWise::Project"
+	ResourceTypeIoTSiteWisePortal                        ResourceType = "AWS::IoTSiteWise::Portal"
+	ResourceTypeIoTSiteWiseAssetModel                    ResourceType = "AWS::IoTSiteWise::AssetModel"
+	ResourceTypeIVSChannel                               ResourceType = "AWS::IVS::Channel"
+	ResourceTypeIVSRecordingConfiguration                ResourceType = "AWS::IVS::RecordingConfiguration"
+	ResourceTypeIVSPlaybackKeyPair                       ResourceType = "AWS::IVS::PlaybackKeyPair"
+	ResourceTypeKinesisAnalyticsV2Application            ResourceType = "AWS::KinesisAnalyticsV2::Application"
+	ResourceTypeRDSGlobalCluster                         ResourceType = "AWS::RDS::GlobalCluster"
+	ResourceTypeS3MultiRegionAccessPoint                 ResourceType = "AWS::S3::MultiRegionAccessPoint"
+	ResourceTypeDeviceFarmTestGridProject                ResourceType = "AWS::DeviceFarm::TestGridProject"
+	ResourceTypeBudgetsBudgetsAction                     ResourceType = "AWS::Budgets::BudgetsAction"
+	ResourceTypeLexBot                                   ResourceType = "AWS::Lex::Bot"
+	ResourceTypeCodeGuruReviewerRepositoryAssociation    ResourceType = "AWS::CodeGuruReviewer::RepositoryAssociation"
+	ResourceTypeIoTCustomMetric                          ResourceType = "AWS::IoT::CustomMetric"
+	ResourceTypeRoute53ResolverFirewallDomainList        ResourceType = "AWS::Route53Resolver::FirewallDomainList"
+	ResourceTypeRoboMakerRobotApplicationVersion         ResourceType = "AWS::RoboMaker::RobotApplicationVersion"
+	ResourceTypeEC2TrafficMirrorSession                  ResourceType = "AWS::EC2::TrafficMirrorSession"
+	ResourceTypeIoTSiteWiseGateway                       ResourceType = "AWS::IoTSiteWise::Gateway"
+	ResourceTypeLexBotAlias                              ResourceType = "AWS::Lex::BotAlias"
+	ResourceTypeLookoutMetricsAlert                      ResourceType = "AWS::LookoutMetrics::Alert"
+	ResourceTypeIoTAccountAuditConfiguration             ResourceType = "AWS::IoT::AccountAuditConfiguration"
+	ResourceTypeEC2TrafficMirrorTarget                   ResourceType = "AWS::EC2::TrafficMirrorTarget"
+	ResourceTypeS3StorageLens                            ResourceType = "AWS::S3::StorageLens"
+	ResourceTypeIoTScheduledAudit                        ResourceType = "AWS::IoT::ScheduledAudit"
+	ResourceTypeEventsConnection                         ResourceType = "AWS::Events::Connection"
+	ResourceTypeEventSchemasSchema                       ResourceType = "AWS::EventSchemas::Schema"
+	ResourceTypeMediaPackagePackagingConfiguration       ResourceType = "AWS::MediaPackage::PackagingConfiguration"
+	ResourceTypeKinesisVideoSignalingChannel             ResourceType = "AWS::KinesisVideo::SignalingChannel"
+	ResourceTypeAppStreamDirectoryConfig                 ResourceType = "AWS::AppStream::DirectoryConfig"
+	ResourceTypeLookoutVisionProject                     ResourceType = "AWS::LookoutVision::Project"
+	ResourceTypeRoute53RecoveryControlCluster            ResourceType = "AWS::Route53RecoveryControl::Cluster"
+	ResourceTypeRoute53RecoveryControlSafetyRule         ResourceType = "AWS::Route53RecoveryControl::SafetyRule"
+	ResourceTypeRoute53RecoveryControlControlPanel       ResourceType = "AWS::Route53RecoveryControl::ControlPanel"
+	ResourceTypeRoute53RecoveryControlRoutingControl     ResourceType = "AWS::Route53RecoveryControl::RoutingControl"
+	ResourceTypeRoute53RecoveryReadinessResourceSet      ResourceType = "AWS::Route53RecoveryReadiness::ResourceSet"
+	ResourceTypeRoboMakerSimulationApplication           ResourceType = "AWS::RoboMaker::SimulationApplication"
+	ResourceTypeRoboMakerRobotApplication                ResourceType = "AWS::RoboMaker::RobotApplication"
+	ResourceTypeHealthLakeFHIRDatastore                  ResourceType = "AWS::HealthLake::FHIRDatastore"
+	ResourceTypePinpointSegment                          ResourceType = "AWS::Pinpoint::Segment"
+	ResourceTypePinpointApplicationSettings              ResourceType = "AWS::Pinpoint::ApplicationSettings"
+	ResourceTypeEventsRule                               ResourceType = "AWS::Events::Rule"
+	ResourceTypeEC2DHCPOptions                           ResourceType = "AWS::EC2::DHCPOptions"
+	ResourceTypeEC2NetworkInsightsPath                   ResourceType = "AWS::EC2::NetworkInsightsPath"
+	ResourceTypeEC2TrafficMirrorFilter                   ResourceType = "AWS::EC2::TrafficMirrorFilter"
+	ResourceTypeEc2ipam                                  ResourceType = "AWS::EC2::IPAM"
+	ResourceTypeIoTTwinMakerScene                        ResourceType = "AWS::IoTTwinMaker::Scene"
+	ResourceTypeNetworkManagerTransitGatewayRegistration ResourceType = "AWS::NetworkManager::TransitGatewayRegistration"
+	ResourceTypeCustomerProfilesDomain                   ResourceType = "AWS::CustomerProfiles::Domain"
+	ResourceTypeAutoScalingWarmPool                      ResourceType = "AWS::AutoScaling::WarmPool"
+	ResourceTypeConnectPhoneNumber                       ResourceType = "AWS::Connect::PhoneNumber"
 )
 
-// Values returns all known values for ResourceType. Note that this can be expanded
-// in the future, and so it is only as up to date as the client. The ordering of
-// this slice is not guaranteed to be stable across updates.
+// Values returns all known values for ResourceType. Note that this can be
+// expanded in the future, and so it is only as up to date as the client. The
+// ordering of this slice is not guaranteed to be stable across updates.
 func (ResourceType) Values() []ResourceType {
 	return []ResourceType{
 		"AWS::EC2::CustomerGateway",
@@ -973,6 +1083,116 @@ func (ResourceType) Values() []ResourceType {
 		"AWS::SES::ContactList",
 		"AWS::SES::ConfigurationSet",
 		"AWS::Route53::HostedZone",
+		"AWS::IoTEvents::Input",
+		"AWS::IoTEvents::DetectorModel",
+		"AWS::IoTEvents::AlarmModel",
+		"AWS::ServiceDiscovery::HttpNamespace",
+		"AWS::Events::EventBus",
+		"AWS::ImageBuilder::ContainerRecipe",
+		"AWS::ImageBuilder::DistributionConfiguration",
+		"AWS::ImageBuilder::InfrastructureConfiguration",
+		"AWS::DataSync::LocationObjectStorage",
+		"AWS::DataSync::LocationHDFS",
+		"AWS::Glue::Classifier",
+		"AWS::Route53RecoveryReadiness::Cell",
+		"AWS::Route53RecoveryReadiness::ReadinessCheck",
+		"AWS::ECR::RegistryPolicy",
+		"AWS::Backup::ReportPlan",
+		"AWS::Lightsail::Certificate",
+		"AWS::RUM::AppMonitor",
+		"AWS::Events::Endpoint",
+		"AWS::SES::ReceiptRuleSet",
+		"AWS::Events::Archive",
+		"AWS::Events::ApiDestination",
+		"AWS::Lightsail::Disk",
+		"AWS::FIS::ExperimentTemplate",
+		"AWS::DataSync::LocationFSxWindows",
+		"AWS::SES::ReceiptFilter",
+		"AWS::GuardDuty::Filter",
+		"AWS::SES::Template",
+		"AWS::AmazonMQ::Broker",
+		"AWS::AppConfig::Environment",
+		"AWS::AppConfig::ConfigurationProfile",
+		"AWS::Cloud9::EnvironmentEC2",
+		"AWS::EventSchemas::Registry",
+		"AWS::EventSchemas::RegistryPolicy",
+		"AWS::EventSchemas::Discoverer",
+		"AWS::FraudDetector::Label",
+		"AWS::FraudDetector::EntityType",
+		"AWS::FraudDetector::Variable",
+		"AWS::FraudDetector::Outcome",
+		"AWS::IoT::Authorizer",
+		"AWS::IoT::SecurityProfile",
+		"AWS::IoT::RoleAlias",
+		"AWS::IoT::Dimension",
+		"AWS::IoTAnalytics::Datastore",
+		"AWS::Lightsail::Bucket",
+		"AWS::Lightsail::StaticIp",
+		"AWS::MediaPackage::PackagingGroup",
+		"AWS::Route53RecoveryReadiness::RecoveryGroup",
+		"AWS::ResilienceHub::ResiliencyPolicy",
+		"AWS::Transfer::Workflow",
+		"AWS::EKS::IdentityProviderConfig",
+		"AWS::EKS::Addon",
+		"AWS::Glue::MLTransform",
+		"AWS::IoT::Policy",
+		"AWS::IoT::MitigationAction",
+		"AWS::IoTTwinMaker::Workspace",
+		"AWS::IoTTwinMaker::Entity",
+		"AWS::IoTAnalytics::Dataset",
+		"AWS::IoTAnalytics::Pipeline",
+		"AWS::IoTAnalytics::Channel",
+		"AWS::IoTSiteWise::Dashboard",
+		"AWS::IoTSiteWise::Project",
+		"AWS::IoTSiteWise::Portal",
+		"AWS::IoTSiteWise::AssetModel",
+		"AWS::IVS::Channel",
+		"AWS::IVS::RecordingConfiguration",
+		"AWS::IVS::PlaybackKeyPair",
+		"AWS::KinesisAnalyticsV2::Application",
+		"AWS::RDS::GlobalCluster",
+		"AWS::S3::MultiRegionAccessPoint",
+		"AWS::DeviceFarm::TestGridProject",
+		"AWS::Budgets::BudgetsAction",
+		"AWS::Lex::Bot",
+		"AWS::CodeGuruReviewer::RepositoryAssociation",
+		"AWS::IoT::CustomMetric",
+		"AWS::Route53Resolver::FirewallDomainList",
+		"AWS::RoboMaker::RobotApplicationVersion",
+		"AWS::EC2::TrafficMirrorSession",
+		"AWS::IoTSiteWise::Gateway",
+		"AWS::Lex::BotAlias",
+		"AWS::LookoutMetrics::Alert",
+		"AWS::IoT::AccountAuditConfiguration",
+		"AWS::EC2::TrafficMirrorTarget",
+		"AWS::S3::StorageLens",
+		"AWS::IoT::ScheduledAudit",
+		"AWS::Events::Connection",
+		"AWS::EventSchemas::Schema",
+		"AWS::MediaPackage::PackagingConfiguration",
+		"AWS::KinesisVideo::SignalingChannel",
+		"AWS::AppStream::DirectoryConfig",
+		"AWS::LookoutVision::Project",
+		"AWS::Route53RecoveryControl::Cluster",
+		"AWS::Route53RecoveryControl::SafetyRule",
+		"AWS::Route53RecoveryControl::ControlPanel",
+		"AWS::Route53RecoveryControl::RoutingControl",
+		"AWS::Route53RecoveryReadiness::ResourceSet",
+		"AWS::RoboMaker::SimulationApplication",
+		"AWS::RoboMaker::RobotApplication",
+		"AWS::HealthLake::FHIRDatastore",
+		"AWS::Pinpoint::Segment",
+		"AWS::Pinpoint::ApplicationSettings",
+		"AWS::Events::Rule",
+		"AWS::EC2::DHCPOptions",
+		"AWS::EC2::NetworkInsightsPath",
+		"AWS::EC2::TrafficMirrorFilter",
+		"AWS::EC2::IPAM",
+		"AWS::IoTTwinMaker::Scene",
+		"AWS::NetworkManager::TransitGatewayRegistration",
+		"AWS::CustomerProfiles::Domain",
+		"AWS::AutoScaling::WarmPool",
+		"AWS::Connect::PhoneNumber",
 	}
 }
 
@@ -1016,9 +1236,9 @@ const (
 	SortOrderDescending SortOrder = "DESCENDING"
 )
 
-// Values returns all known values for SortOrder. Note that this can be expanded in
-// the future, and so it is only as up to date as the client. The ordering of this
-// slice is not guaranteed to be stable across updates.
+// Values returns all known values for SortOrder. Note that this can be expanded
+// in the future, and so it is only as up to date as the client. The ordering of
+// this slice is not guaranteed to be stable across updates.
 func (SortOrder) Values() []SortOrder {
 	return []SortOrder{
 		"ASCENDING",

@@ -1,3 +1,23 @@
+# v1.12.2 (2023-04-10)
+
+* No change notes available for this release.
+
+# v1.12.1 (2023-04-07)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.12.0 (2023-03-30)
+
+* **Feature**: Adding a field to the replication configuration APIs to support the auto replicate new disks feature. We also deprecated RetryDataReplication.
+
+# v1.11.2 (2023-03-21)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.11.1 (2023-03-10)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
 # v1.11.0 (2023-02-27)
 
 * **Feature**: New fields were added to reflect availability zone data in source server and recovery instance description commands responses, as well as source server launch status.

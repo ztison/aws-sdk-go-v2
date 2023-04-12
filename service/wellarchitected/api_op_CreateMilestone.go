@@ -33,23 +33,23 @@ type CreateMilestoneInput struct {
 	// A unique case-sensitive string used to ensure that this request is idempotent
 	// (executes only once). You should not reuse the same token for other requests. If
 	// you retry a request with the same client request token and the same parameters
-	// after it has completed successfully, the result of the original request is
-	// returned. This token is listed as required, however, if you do not specify it,
-	// the Amazon Web Services SDKs automatically generate one for you. If you are not
-	// using the Amazon Web Services SDK or the CLI, you must provide this token or the
-	// request will fail.
+	// after the original request has completed successfully, the result of the
+	// original request is returned. This token is listed as required, however, if you
+	// do not specify it, the Amazon Web Services SDKs automatically generate one for
+	// you. If you are not using the Amazon Web Services SDK or the CLI, you must
+	// provide this token or the request will fail.
 	//
 	// This member is required.
 	ClientRequestToken *string
 
-	// The name of the milestone in a workload. Milestone names must be unique within a
-	// workload.
+	// The name of the milestone in a workload. Milestone names must be unique within
+	// a workload.
 	//
 	// This member is required.
 	MilestoneName *string
 
-	// The ID assigned to the workload. This ID is unique within an Amazon Web Services
-	// Region.
+	// The ID assigned to the workload. This ID is unique within an Amazon Web
+	// Services Region.
 	//
 	// This member is required.
 	WorkloadId *string
@@ -63,8 +63,8 @@ type CreateMilestoneOutput struct {
 	// The milestone number. A workload can have a maximum of 100 milestones.
 	MilestoneNumber int32
 
-	// The ID assigned to the workload. This ID is unique within an Amazon Web Services
-	// Region.
+	// The ID assigned to the workload. This ID is unique within an Amazon Web
+	// Services Region.
 	WorkloadId *string
 
 	// Metadata pertaining to the operation's result.

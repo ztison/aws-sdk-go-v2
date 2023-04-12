@@ -12,9 +12,9 @@ import (
 	smithyhttp "github.com/aws/smithy-go/transport/http"
 )
 
-// Deletes an existing Amazon FSx for ONTAP storage virtual machine (SVM). Prior to
-// deleting an SVM, you must delete all non-root volumes in the SVM, otherwise the
-// operation will fail.
+// Deletes an existing Amazon FSx for ONTAP storage virtual machine (SVM). Prior
+// to deleting an SVM, you must delete all non-root volumes in the SVM, otherwise
+// the operation will fail.
 func (c *Client) DeleteStorageVirtualMachine(ctx context.Context, params *DeleteStorageVirtualMachineInput, optFns ...func(*Options)) (*DeleteStorageVirtualMachineOutput, error) {
 	if params == nil {
 		params = &DeleteStorageVirtualMachineInput{}
@@ -37,7 +37,7 @@ type DeleteStorageVirtualMachineInput struct {
 	// This member is required.
 	StorageVirtualMachineId *string
 
-	// (Optional) An idempotency token for resource creation, in a string of up to 64
+	// (Optional) An idempotency token for resource creation, in a string of up to 63
 	// ASCII characters. This token is automatically filled on your behalf when you use
 	// the Command Line Interface (CLI) or an Amazon Web Services SDK.
 	ClientRequestToken *string

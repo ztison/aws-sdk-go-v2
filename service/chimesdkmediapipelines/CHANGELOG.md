@@ -1,3 +1,23 @@
+# v1.3.2 (2023-04-10)
+
+* No change notes available for this release.
+
+# v1.3.1 (2023-04-07)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.3.0 (2023-03-23)
+
+* **Feature**: This release adds Amazon Chime SDK call analytics. Call analytics include voice analytics, which provides speaker search and voice tone analysis. These capabilities can be used with Amazon Transcribe and Transcribe Call Analytics to generate machine-learning-powered insights from real-time audio.
+
+# v1.2.6 (2023-03-21)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.2.5 (2023-03-10)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
 # v1.2.4 (2023-02-22)
 
 * **Bug Fix**: Prevent nil pointer dereference when retrieving error codes.

@@ -19,7 +19,7 @@ type AccountSettings struct {
 	// The linked repository for pipeline provisioning. Required if you have
 	// environments configured for self-managed provisioning with services that include
 	// pipelines. A linked repository is a repository that has been registered with
-	// Proton. For more information, see CreateRepository.
+	// Proton. For more information, see CreateRepository .
 	PipelineProvisioningRepository *RepositoryBranch
 
 	// The Amazon Resource Name (ARN) of the service role you want to use for
@@ -63,9 +63,8 @@ type CompatibleEnvironmentTemplateInput struct {
 }
 
 // Detailed data of an Proton component resource. For more information about
-// components, see Proton components
-// (https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html) in the
-// Proton User Guide.
+// components, see Proton components (https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html)
+// in the Proton User Guide.
 type Component struct {
 
 	// The Amazon Resource Name (ARN) of the component.
@@ -104,6 +103,9 @@ type Component struct {
 	// A description of the component.
 	Description *string
 
+	// The last token the client requested.
+	LastClientRequestToken *string
+
 	// The time when a deployment of the component was last attempted.
 	LastDeploymentAttemptedAt *time.Time
 
@@ -118,8 +120,8 @@ type Component struct {
 	// when a component is attached to a service instance.
 	ServiceName *string
 
-	// The service spec that the component uses to access service inputs. Provided when
-	// a component is attached to a service instance.
+	// The service spec that the component uses to access service inputs. Provided
+	// when a component is attached to a service instance.
 	//
 	// This value conforms to the media type: application/yaml
 	ServiceSpec *string
@@ -128,9 +130,8 @@ type Component struct {
 }
 
 // Summary data of an Proton component resource. For more information about
-// components, see Proton components
-// (https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html) in the
-// Proton User Guide.
+// components, see Proton components (https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html)
+// in the Proton User Guide.
 type ComponentSummary struct {
 
 	// The Amazon Resource Name (ARN) of the component.
@@ -186,18 +187,20 @@ type ComponentSummary struct {
 // Summary counts of each Proton resource type.
 type CountsSummary struct {
 
-	// The total number of components in the Amazon Web Services account. The semantics
-	// of the components field are different from the semantics of results for other
-	// infrastructure-provisioning resources. That's because at this time components
-	// don't have associated templates, therefore they don't have the concept of
-	// staleness. The components object will only contain total and failed members.
+	// The total number of components in the Amazon Web Services account. The
+	// semantics of the components field are different from the semantics of results
+	// for other infrastructure-provisioning resources. That's because at this time
+	// components don't have associated templates, therefore they don't have the
+	// concept of staleness. The components object will only contain total and failed
+	// members.
 	Components *ResourceCountsSummary
 
 	// The total number of environment templates in the Amazon Web Services account.
+	// The environmentTemplates object will only contain total members.
 	EnvironmentTemplates *ResourceCountsSummary
 
-	// The staleness counts for Proton environments in the Amazon Web Services account.
-	// The environments object will only contain total members.
+	// The staleness counts for Proton environments in the Amazon Web Services
+	// account. The environments object will only contain total members.
 	Environments *ResourceCountsSummary
 
 	// The staleness counts for Proton pipelines in the Amazon Web Services account.
@@ -275,9 +278,8 @@ type Environment struct {
 	// scope of infrastructure that a component can provision. The environment must
 	// have a componentRoleArn to allow directly defined components to be associated
 	// with the environment. For more information about components, see Proton
-	// components
-	// (https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html) in the
-	// Proton User Guide.
+	// components (https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html)
+	// in the Proton User Guide.
 	ComponentRoleArn *string
 
 	// An environment deployment status message.
@@ -304,8 +306,8 @@ type Environment struct {
 
 	// The linked repository that you use to host your rendered infrastructure
 	// templates for self-managed provisioning. A linked repository is a repository
-	// that has been registered with Proton. For more information, see
-	// CreateRepository.
+	// that has been registered with Proton. For more information, see CreateRepository (https://docs.aws.amazon.com/proton/latest/APIReference/API_CreateRepository.html)
+	// .
 	ProvisioningRepository *RepositoryBranch
 
 	// The environment spec.
@@ -376,9 +378,8 @@ type EnvironmentAccountConnection struct {
 	// It determines the scope of infrastructure that a component can provision in the
 	// account. The environment account connection must have a componentRoleArn to
 	// allow directly defined components to be associated with any environments running
-	// in the account. For more information about components, see Proton components
-	// (https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html) in the
-	// Proton User Guide.
+	// in the account. For more information about components, see Proton components (https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html)
+	// in the Proton User Guide.
 	ComponentRoleArn *string
 
 	noSmithyDocumentSerde
@@ -440,9 +441,8 @@ type EnvironmentAccountConnectionSummary struct {
 	// It determines the scope of infrastructure that a component can provision in the
 	// account. The environment account connection must have a componentRoleArn to
 	// allow directly defined components to be associated with any environments running
-	// in the account. For more information about components, see Proton components
-	// (https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html) in the
-	// Proton User Guide.
+	// in the account. For more information about components, see Proton components (https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html)
+	// in the Proton User Guide.
 	ComponentRoleArn *string
 
 	noSmithyDocumentSerde
@@ -502,9 +502,8 @@ type EnvironmentSummary struct {
 	// scope of infrastructure that a component can provision. The environment must
 	// have a componentRoleArn to allow directly defined components to be associated
 	// with the environment. For more information about components, see Proton
-	// components
-	// (https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html) in the
-	// Proton User Guide.
+	// components (https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html)
+	// in the Proton User Guide.
 	ComponentRoleArn *string
 
 	// An environment deployment status message.
@@ -743,10 +742,10 @@ type ListServiceInstancesFilter struct {
 	// The name of a filtering criterion.
 	Key ListServiceInstancesFilterBy
 
-	// A value to filter by. With the date/time keys (*At{Before,After}), the value is
-	// a valid RFC 3339 (https://datatracker.ietf.org/doc/html/rfc3339.html) string
+	// A value to filter by. With the date/time keys ( *At{Before,After} ), the value
+	// is a valid RFC 3339 (https://datatracker.ietf.org/doc/html/rfc3339.html) string
 	// with no UTC offset and with an optional fractional precision (for example,
-	// 1985-04-12T23:20:50.52Z).
+	// 1985-04-12T23:20:50.52Z ).
 	Value *string
 
 	noSmithyDocumentSerde
@@ -775,8 +774,7 @@ type ProvisionedResource struct {
 
 	// The resource provisioning engine. At this time, CLOUDFORMATION can be used for
 	// Amazon Web Services-managed provisioning, and TERRAFORM can be used for
-	// self-managed provisioning. For more information, see Self-managed provisioning
-	// (https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html#ag-works-prov-methods-self)
+	// self-managed provisioning. For more information, see Self-managed provisioning (https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html#ag-works-prov-methods-self)
 	// in the Proton User Guide.
 	ProvisioningEngine ProvisionedResourceEngine
 
@@ -869,6 +867,12 @@ type RepositorySummary struct {
 	//
 	// This member is required.
 	Arn *string
+
+	// The Amazon Resource Name (ARN) of the of your connection that connects Proton
+	// to your repository.
+	//
+	// This member is required.
+	ConnectionArn *string
 
 	// The repository name.
 	//
@@ -974,8 +978,8 @@ type ResourceCountsSummary struct {
 	// failed to deploy.
 	Failed *int32
 
-	// The number of resources of this type in the Amazon Web Services account that are
-	// up-to-date with their template.
+	// The number of resources of this type in the Amazon Web Services account that
+	// are up-to-date with their template.
 	UpToDate *int32
 
 	noSmithyDocumentSerde
@@ -1140,8 +1144,7 @@ type Service struct {
 	Pipeline *ServicePipeline
 
 	// The Amazon Resource Name (ARN) of the repository connection. For more
-	// information, see Setting up an AWS CodeStar connection
-	// (https://docs.aws.amazon.com/proton/latest/userguide/setting-up-for-service.html#setting-up-vcontrol)
+	// information, see Setting up an AWS CodeStar connection (https://docs.aws.amazon.com/proton/latest/userguide/setting-up-for-service.html#setting-up-vcontrol)
 	// in the Proton User Guide.
 	RepositoryConnectionArn *string
 
@@ -1216,6 +1219,9 @@ type ServiceInstance struct {
 
 	// The message associated with the service instance deployment status.
 	DeploymentStatusMessage *string
+
+	// The last client request token received.
+	LastClientRequestToken *string
 
 	// The service spec that was used to create the service instance.
 	//
@@ -1387,6 +1393,67 @@ type ServiceSummary struct {
 	noSmithyDocumentSerde
 }
 
+// If a service instance is manually updated, Proton wants to prevent accidentally
+// overriding a manual change. A blocker is created because of the manual update or
+// deletion of a service instance. The summary describes the blocker as being
+// active or resolved.
+type ServiceSyncBlockerSummary struct {
+
+	// The name of the service that you want to get the sync blocker summary for. If
+	// given a service instance name and a service name, it will return the blockers
+	// only applying to the instance that is blocked. If given only a service name, it
+	// will return the blockers that apply to all of the instances. In order to get the
+	// blockers for a single instance, you will need to make two distinct calls, one to
+	// get the sync blocker summary for the service and the other to get the sync
+	// blocker for the service instance.
+	//
+	// This member is required.
+	ServiceName *string
+
+	// The latest active blockers for the synced service.
+	LatestBlockers []SyncBlocker
+
+	// The name of the service instance that you want sync your service configuration
+	// with.
+	ServiceInstanceName *string
+
+	noSmithyDocumentSerde
+}
+
+// Detailed data of the service sync configuration.
+type ServiceSyncConfig struct {
+
+	// The name of the code repository branch that holds the service code Proton will
+	// sync with.
+	//
+	// This member is required.
+	Branch *string
+
+	// The file path to the service sync configuration file.
+	//
+	// This member is required.
+	FilePath *string
+
+	// The name of the code repository that holds the service code Proton will sync
+	// with.
+	//
+	// This member is required.
+	RepositoryName *string
+
+	// The name of the repository provider that holds the repository Proton will sync
+	// with.
+	//
+	// This member is required.
+	RepositoryProvider RepositoryProvider
+
+	// The name of the service that the service instance is added to.
+	//
+	// This member is required.
+	ServiceName *string
+
+	noSmithyDocumentSerde
+}
+
 // Detailed data of an Proton service template resource.
 type ServiceTemplate struct {
 
@@ -1420,7 +1487,7 @@ type ServiceTemplate struct {
 	// data.
 	EncryptionKey *string
 
-	// If pipelineProvisioning is true, a service pipeline is included in the service
+	// If pipelineProvisioning is true , a service pipeline is included in the service
 	// template. Otherwise, a service pipeline isn't included in the service template.
 	PipelineProvisioning Provisioning
 
@@ -1459,7 +1526,7 @@ type ServiceTemplateSummary struct {
 	// The service template name as displayed in the developer interface.
 	DisplayName *string
 
-	// If pipelineProvisioning is true, a service pipeline is included in the service
+	// If pipelineProvisioning is true , a service pipeline is included in the service
 	// template, otherwise a service pipeline isn't included in the service template.
 	PipelineProvisioning Provisioning
 
@@ -1530,9 +1597,8 @@ type ServiceTemplateVersion struct {
 
 	// An array of supported component sources. Components with supported sources can
 	// be attached to service instances based on this service template version. For
-	// more information about components, see Proton components
-	// (https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html) in the
-	// Proton User Guide.
+	// more information about components, see Proton components (https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html)
+	// in the Proton User Guide.
 	SupportedComponentSources []ServiceTemplateSupportedComponentSourceType
 
 	noSmithyDocumentSerde
@@ -1589,6 +1655,62 @@ type ServiceTemplateVersionSummary struct {
 	noSmithyDocumentSerde
 }
 
+// Detailed data of the sync blocker.
+type SyncBlocker struct {
+
+	// The time when the sync blocker was created.
+	//
+	// This member is required.
+	CreatedAt *time.Time
+
+	// The reason why the sync blocker was created.
+	//
+	// This member is required.
+	CreatedReason *string
+
+	// The ID of the sync blocker.
+	//
+	// This member is required.
+	Id *string
+
+	// The status of the sync blocker.
+	//
+	// This member is required.
+	Status BlockerStatus
+
+	// The type of the sync blocker.
+	//
+	// This member is required.
+	Type BlockerType
+
+	// The contexts for the sync blocker.
+	Contexts []SyncBlockerContext
+
+	// The time the sync blocker was resolved.
+	ResolvedAt *time.Time
+
+	// The reason the sync blocker was resolved.
+	ResolvedReason *string
+
+	noSmithyDocumentSerde
+}
+
+// Detailed data of the context of the sync blocker.
+type SyncBlockerContext struct {
+
+	// The key for the sync blocker context.
+	//
+	// This member is required.
+	Key *string
+
+	// The value of the sync blocker context.
+	//
+	// This member is required.
+	Value *string
+
+	noSmithyDocumentSerde
+}
+
 // A description of a resource tag.
 type Tag struct {
 
@@ -1613,7 +1735,7 @@ type TemplateSyncConfig struct {
 	// This member is required.
 	Branch *string
 
-	// The repository name (for example, myrepos/myrepo).
+	// The repository name (for example, myrepos/myrepo ).
 	//
 	// This member is required.
 	RepositoryName *string

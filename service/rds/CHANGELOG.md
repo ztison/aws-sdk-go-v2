@@ -1,3 +1,31 @@
+# v1.42.3 (2023-04-10)
+
+* No change notes available for this release.
+
+# v1.42.2 (2023-04-07)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.42.1 (2023-04-06)
+
+* **Documentation**: Adds and updates the SDK examples
+
+# v1.42.0 (2023-03-29)
+
+* **Feature**: Add support for creating a read replica DB instance from a Multi-AZ DB cluster.
+
+# v1.41.0 (2023-03-24)
+
+* **Feature**: Added error code CreateCustomDBEngineVersionFault for when the create custom engine version for Custom engines fails.
+
+# v1.40.7 (2023-03-21)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.40.6 (2023-03-10)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
 # v1.40.5 (2023-02-22)
 
 * **Bug Fix**: Prevent nil pointer dereference when retrieving error codes.

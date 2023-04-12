@@ -1,3 +1,23 @@
+# v1.21.2 (2023-04-10)
+
+* No change notes available for this release.
+
+# v1.21.1 (2023-04-07)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.21.0 (2023-03-30)
+
+* **Feature**: Amazon Interactive Video Service (IVS) now offers customers the ability to configure IVS channels to allow insecure RTMP ingest.
+
+# v1.20.8 (2023-03-21)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.20.7 (2023-03-10)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
 # v1.20.6 (2023-03-06)
 
 * **Documentation**: Updated text description in DeleteChannel, Stream, and StreamSummary.

@@ -3378,14 +3378,14 @@ func awsAwsjson11_serializeDocumentEngineConfiguration(v *types.EngineConfigurat
 		}
 	}
 
-	if v.CoordinatorDpuSize != 0 {
+	if v.CoordinatorDpuSize != nil {
 		ok := object.Key("CoordinatorDpuSize")
-		ok.Integer(v.CoordinatorDpuSize)
+		ok.Integer(*v.CoordinatorDpuSize)
 	}
 
-	if v.DefaultExecutorDpuSize != 0 {
+	if v.DefaultExecutorDpuSize != nil {
 		ok := object.Key("DefaultExecutorDpuSize")
-		ok.Integer(v.DefaultExecutorDpuSize)
+		ok.Integer(*v.DefaultExecutorDpuSize)
 	}
 
 	{
@@ -3672,6 +3672,11 @@ func awsAwsjson11_serializeDocumentWorkGroupConfiguration(v *types.WorkGroupConf
 		}
 	}
 
+	if v.EnableMinimumEncryptionConfiguration != nil {
+		ok := object.Key("EnableMinimumEncryptionConfiguration")
+		ok.Boolean(*v.EnableMinimumEncryptionConfiguration)
+	}
+
 	if v.EnforceWorkGroupConfiguration != nil {
 		ok := object.Key("EnforceWorkGroupConfiguration")
 		ok.Boolean(*v.EnforceWorkGroupConfiguration)
@@ -3728,6 +3733,11 @@ func awsAwsjson11_serializeDocumentWorkGroupConfigurationUpdates(v *types.WorkGr
 		if err := awsAwsjson11_serializeDocumentCustomerContentEncryptionConfiguration(v.CustomerContentEncryptionConfiguration, ok); err != nil {
 			return err
 		}
+	}
+
+	if v.EnableMinimumEncryptionConfiguration != nil {
+		ok := object.Key("EnableMinimumEncryptionConfiguration")
+		ok.Boolean(*v.EnableMinimumEncryptionConfiguration)
 	}
 
 	if v.EnforceWorkGroupConfiguration != nil {

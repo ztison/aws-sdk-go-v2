@@ -8352,7 +8352,7 @@ func awsAwsjson11_deserializeDocumentEngineConfiguration(v **types.EngineConfigu
 				if err != nil {
 					return err
 				}
-				sv.CoordinatorDpuSize = int32(i64)
+				sv.CoordinatorDpuSize = ptr.Int32(int32(i64))
 			}
 
 		case "DefaultExecutorDpuSize":
@@ -8365,7 +8365,7 @@ func awsAwsjson11_deserializeDocumentEngineConfiguration(v **types.EngineConfigu
 				if err != nil {
 					return err
 				}
-				sv.DefaultExecutorDpuSize = int32(i64)
+				sv.DefaultExecutorDpuSize = ptr.Int32(int32(i64))
 			}
 
 		case "MaxConcurrentDpus":
@@ -11799,6 +11799,15 @@ func awsAwsjson11_deserializeDocumentWorkGroupConfiguration(v **types.WorkGroupC
 		case "CustomerContentEncryptionConfiguration":
 			if err := awsAwsjson11_deserializeDocumentCustomerContentEncryptionConfiguration(&sv.CustomerContentEncryptionConfiguration, value); err != nil {
 				return err
+			}
+
+		case "EnableMinimumEncryptionConfiguration":
+			if value != nil {
+				jtv, ok := value.(bool)
+				if !ok {
+					return fmt.Errorf("expected BoxedBoolean to be of type *bool, got %T instead", value)
+				}
+				sv.EnableMinimumEncryptionConfiguration = ptr.Bool(jtv)
 			}
 
 		case "EnforceWorkGroupConfiguration":

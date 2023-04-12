@@ -1,3 +1,27 @@
+# v1.23.2 (2023-04-10)
+
+* No change notes available for this release.
+
+# v1.23.1 (2023-04-07)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.23.0 (2023-03-30)
+
+* **Feature**: This feature allows Batch on EKS to support configuration of Pod Labels through Metadata for Batch on EKS Jobs.
+
+# v1.22.0 (2023-03-23)
+
+* **Feature**: This feature allows Batch to support configuration of ephemeral storage size for jobs running on FARGATE
+
+# v1.21.7 (2023-03-21)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.21.6 (2023-03-10)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
 # v1.21.5 (2023-02-22)
 
 * **Bug Fix**: Prevent nil pointer dereference when retrieving error codes.

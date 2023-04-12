@@ -4,6 +4,7 @@ package proton
 
 import (
 	"context"
+	"fmt"
 	awsmiddleware "github.com/aws/aws-sdk-go-v2/aws/middleware"
 	"github.com/aws/aws-sdk-go-v2/aws/signer/v4"
 	"github.com/aws/aws-sdk-go-v2/service/proton/types"
@@ -12,9 +13,8 @@ import (
 )
 
 // Create an Proton component. A component is an infrastructure extension for a
-// service instance. For more information about components, see Proton components
-// (https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html) in the
-// Proton User Guide.
+// service instance. For more information about components, see Proton components (https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html)
+// in the Proton User Guide.
 func (c *Client) CreateComponent(ctx context.Context, params *CreateComponentInput, optFns ...func(*Options)) (*CreateComponentOutput, error) {
 	if params == nil {
 		params = &CreateComponentInput{}
@@ -46,8 +46,8 @@ type CreateComponentInput struct {
 	// This member is required.
 	Name *string
 
-	// A path to the Infrastructure as Code (IaC) file describing infrastructure that a
-	// custom component provisions. Components support a single IaC file, even if you
+	// A path to the Infrastructure as Code (IaC) file describing infrastructure that
+	// a custom component provisions. Components support a single IaC file, even if you
 	// use Terraform as your template language.
 	//
 	// This value conforms to the media type: application/yaml
@@ -55,12 +55,15 @@ type CreateComponentInput struct {
 	// This member is required.
 	TemplateFile *string
 
+	// The client token for the created component.
+	ClientToken *string
+
 	// An optional customer-provided description of the component.
 	Description *string
 
 	// The name of the Proton environment that you want to associate this component
 	// with. You must specify this when you don't specify serviceInstanceName and
-	// serviceName.
+	// serviceName .
 	EnvironmentName *string
 
 	// The name of the service instance that you want to attach this component to. If
@@ -80,8 +83,8 @@ type CreateComponentInput struct {
 	ServiceSpec *string
 
 	// An optional list of metadata items that you can associate with the Proton
-	// component. A tag is a key-value pair. For more information, see Proton resources
-	// and tagging (https://docs.aws.amazon.com/proton/latest/userguide/resources.html)
+	// component. A tag is a key-value pair. For more information, see Proton
+	// resources and tagging (https://docs.aws.amazon.com/proton/latest/userguide/resources.html)
 	// in the Proton User Guide.
 	Tags []types.Tag
 
@@ -146,6 +149,9 @@ func (c *Client) addOperationCreateComponentMiddlewares(stack *middleware.Stack,
 	if err = smithyhttp.AddCloseResponseBodyMiddleware(stack); err != nil {
 		return err
 	}
+	if err = addIdempotencyToken_opCreateComponentMiddleware(stack, options); err != nil {
+		return err
+	}
 	if err = addOpCreateComponentValidationMiddleware(stack); err != nil {
 		return err
 	}
@@ -162,6 +168,39 @@ func (c *Client) addOperationCreateComponentMiddlewares(stack *middleware.Stack,
 		return err
 	}
 	return nil
+}
+
+type idempotencyToken_initializeOpCreateComponent struct {
+	tokenProvider IdempotencyTokenProvider
+}
+
+func (*idempotencyToken_initializeOpCreateComponent) ID() string {
+	return "OperationIdempotencyTokenAutoFill"
+}
+
+func (m *idempotencyToken_initializeOpCreateComponent) HandleInitialize(ctx context.Context, in middleware.InitializeInput, next middleware.InitializeHandler) (
+	out middleware.InitializeOutput, metadata middleware.Metadata, err error,
+) {
+	if m.tokenProvider == nil {
+		return next.HandleInitialize(ctx, in)
+	}
+
+	input, ok := in.Parameters.(*CreateComponentInput)
+	if !ok {
+		return out, metadata, fmt.Errorf("expected middleware input to be of type *CreateComponentInput ")
+	}
+
+	if input.ClientToken == nil {
+		t, err := m.tokenProvider.GetIdempotencyToken()
+		if err != nil {
+			return out, metadata, err
+		}
+		input.ClientToken = &t
+	}
+	return next.HandleInitialize(ctx, in)
+}
+func addIdempotencyToken_opCreateComponentMiddleware(stack *middleware.Stack, cfg Options) error {
+	return stack.Initialize.Add(&idempotencyToken_initializeOpCreateComponent{tokenProvider: cfg.IdempotencyTokenProvider}, middleware.Before)
 }
 
 func newServiceMetadataMiddleware_opCreateComponent(region string) *awsmiddleware.RegisterServiceMetadata {

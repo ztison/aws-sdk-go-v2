@@ -1,3 +1,23 @@
+# v1.20.3 (2023-04-10)
+
+* No change notes available for this release.
+
+# v1.20.2 (2023-04-07)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.20.1 (2023-03-21)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.20.0 (2023-03-20)
+
+* **Feature**: This release makes following few changes. db-cluster-identifier is now a required parameter of create-db-instance. describe-db-cluster will now return PendingModifiedValues and GlobalClusterIdentifier fields in the response.
+
+# v1.19.5 (2023-03-10)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
 # v1.19.4 (2023-02-22)
 
 * **Bug Fix**: Prevent nil pointer dereference when retrieving error codes.

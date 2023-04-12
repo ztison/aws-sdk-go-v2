@@ -2,6 +2,40 @@
 
 package types
 
+type BlockerStatus string
+
+// Enum values for BlockerStatus
+const (
+	BlockerStatusActive   BlockerStatus = "ACTIVE"
+	BlockerStatusResolved BlockerStatus = "RESOLVED"
+)
+
+// Values returns all known values for BlockerStatus. Note that this can be
+// expanded in the future, and so it is only as up to date as the client. The
+// ordering of this slice is not guaranteed to be stable across updates.
+func (BlockerStatus) Values() []BlockerStatus {
+	return []BlockerStatus{
+		"ACTIVE",
+		"RESOLVED",
+	}
+}
+
+type BlockerType string
+
+// Enum values for BlockerType
+const (
+	BlockerTypeAutomated BlockerType = "AUTOMATED"
+)
+
+// Values returns all known values for BlockerType. Note that this can be expanded
+// in the future, and so it is only as up to date as the client. The ordering of
+// this slice is not guaranteed to be stable across updates.
+func (BlockerType) Values() []BlockerType {
+	return []BlockerType{
+		"AUTOMATED",
+	}
+}
+
 type ComponentDeploymentUpdateType string
 
 // Enum values for ComponentDeploymentUpdateType
@@ -129,9 +163,10 @@ const (
 	ListServiceInstancesFilterByCreatedAtAfter                  ListServiceInstancesFilterBy = "createdAtAfter"
 )
 
-// Values returns all known values for ListServiceInstancesFilterBy. Note that this
-// can be expanded in the future, and so it is only as up to date as the client.
-// The ordering of this slice is not guaranteed to be stable across updates.
+// Values returns all known values for ListServiceInstancesFilterBy. Note that
+// this can be expanded in the future, and so it is only as up to date as the
+// client. The ordering of this slice is not guaranteed to be stable across
+// updates.
 func (ListServiceInstancesFilterBy) Values() []ListServiceInstancesFilterBy {
 	return []ListServiceInstancesFilterBy{
 		"name",
@@ -200,9 +235,9 @@ const (
 	ProvisioningCustomerManaged Provisioning = "CUSTOMER_MANAGED"
 )
 
-// Values returns all known values for Provisioning. Note that this can be expanded
-// in the future, and so it is only as up to date as the client. The ordering of
-// this slice is not guaranteed to be stable across updates.
+// Values returns all known values for Provisioning. Note that this can be
+// expanded in the future, and so it is only as up to date as the client. The
+// ordering of this slice is not guaranteed to be stable across updates.
 func (Provisioning) Values() []Provisioning {
 	return []Provisioning{
 		"CUSTOMER_MANAGED",
@@ -268,9 +303,9 @@ const (
 	ResourceDeploymentStatusSucceeded  ResourceDeploymentStatus = "SUCCEEDED"
 )
 
-// Values returns all known values for ResourceDeploymentStatus. Note that this can
-// be expanded in the future, and so it is only as up to date as the client. The
-// ordering of this slice is not guaranteed to be stable across updates.
+// Values returns all known values for ResourceDeploymentStatus. Note that this
+// can be expanded in the future, and so it is only as up to date as the client.
+// The ordering of this slice is not guaranteed to be stable across updates.
 func (ResourceDeploymentStatus) Values() []ResourceDeploymentStatus {
 	return []ResourceDeploymentStatus{
 		"IN_PROGRESS",
@@ -354,10 +389,10 @@ const (
 	ServiceTemplateSupportedComponentSourceTypeDirectlyDefined ServiceTemplateSupportedComponentSourceType = "DIRECTLY_DEFINED"
 )
 
-// Values returns all known values for ServiceTemplateSupportedComponentSourceType.
-// Note that this can be expanded in the future, and so it is only as up to date as
-// the client. The ordering of this slice is not guaranteed to be stable across
-// updates.
+// Values returns all known values for
+// ServiceTemplateSupportedComponentSourceType. Note that this can be expanded in
+// the future, and so it is only as up to date as the client. The ordering of this
+// slice is not guaranteed to be stable across updates.
 func (ServiceTemplateSupportedComponentSourceType) Values() []ServiceTemplateSupportedComponentSourceType {
 	return []ServiceTemplateSupportedComponentSourceType{
 		"DIRECTLY_DEFINED",
@@ -372,9 +407,9 @@ const (
 	SortOrderDescending SortOrder = "DESCENDING"
 )
 
-// Values returns all known values for SortOrder. Note that this can be expanded in
-// the future, and so it is only as up to date as the client. The ordering of this
-// slice is not guaranteed to be stable across updates.
+// Values returns all known values for SortOrder. Note that this can be expanded
+// in the future, and so it is only as up to date as the client. The ordering of
+// this slice is not guaranteed to be stable across updates.
 func (SortOrder) Values() []SortOrder {
 	return []SortOrder{
 		"ASCENDING",
@@ -386,7 +421,10 @@ type SyncType string
 
 // Enum values for SyncType
 const (
+	// Syncs environment and service templates to Proton.
 	SyncTypeTemplateSync SyncType = "TEMPLATE_SYNC"
+	// Syncs services and service instances to Proton.
+	SyncTypeServiceSync SyncType = "SERVICE_SYNC"
 )
 
 // Values returns all known values for SyncType. Note that this can be expanded in
@@ -395,6 +433,7 @@ const (
 func (SyncType) Values() []SyncType {
 	return []SyncType{
 		"TEMPLATE_SYNC",
+		"SERVICE_SYNC",
 	}
 }
 
@@ -406,9 +445,9 @@ const (
 	TemplateTypeService     TemplateType = "SERVICE"
 )
 
-// Values returns all known values for TemplateType. Note that this can be expanded
-// in the future, and so it is only as up to date as the client. The ordering of
-// this slice is not guaranteed to be stable across updates.
+// Values returns all known values for TemplateType. Note that this can be
+// expanded in the future, and so it is only as up to date as the client. The
+// ordering of this slice is not guaranteed to be stable across updates.
 func (TemplateType) Values() []TemplateType {
 	return []TemplateType{
 		"ENVIRONMENT",
@@ -426,8 +465,8 @@ const (
 	TemplateVersionStatusPublished              TemplateVersionStatus = "PUBLISHED"
 )
 
-// Values returns all known values for TemplateVersionStatus. Note that this can be
-// expanded in the future, and so it is only as up to date as the client. The
+// Values returns all known values for TemplateVersionStatus. Note that this can
+// be expanded in the future, and so it is only as up to date as the client. The
 // ordering of this slice is not guaranteed to be stable across updates.
 func (TemplateVersionStatus) Values() []TemplateVersionStatus {
 	return []TemplateVersionStatus{

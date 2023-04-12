@@ -34,9 +34,9 @@ func (e *AuthorizationAlreadyExistsFault) ErrorCode() string {
 }
 func (e *AuthorizationAlreadyExistsFault) ErrorFault() smithy.ErrorFault { return smithy.FaultClient }
 
-// The specified CIDR IP range or Amazon EC2 security group might not be authorized
-// for the specified DB security group. Or, RDS might not be authorized to perform
-// necessary actions using IAM on your behalf.
+// The specified CIDR IP range or Amazon EC2 security group might not be
+// authorized for the specified DB security group. Or, RDS might not be authorized
+// to perform necessary actions using IAM on your behalf.
 type AuthorizationNotFoundFault struct {
 	Message *string
 
@@ -193,6 +193,32 @@ func (e *CertificateNotFoundFault) ErrorCode() string {
 	return *e.ErrorCodeOverride
 }
 func (e *CertificateNotFoundFault) ErrorFault() smithy.ErrorFault { return smithy.FaultClient }
+
+// An error occurred while trying to create the CEV.
+type CreateCustomDBEngineVersionFault struct {
+	Message *string
+
+	ErrorCodeOverride *string
+
+	noSmithyDocumentSerde
+}
+
+func (e *CreateCustomDBEngineVersionFault) Error() string {
+	return fmt.Sprintf("%s: %s", e.ErrorCode(), e.ErrorMessage())
+}
+func (e *CreateCustomDBEngineVersionFault) ErrorMessage() string {
+	if e.Message == nil {
+		return ""
+	}
+	return *e.Message
+}
+func (e *CreateCustomDBEngineVersionFault) ErrorCode() string {
+	if e == nil || e.ErrorCodeOverride == nil {
+		return "CreateCustomDBEngineVersionFault"
+	}
+	return *e.ErrorCodeOverride
+}
+func (e *CreateCustomDBEngineVersionFault) ErrorFault() smithy.ErrorFault { return smithy.FaultClient }
 
 // CustomAvailabilityZoneId doesn't refer to an existing custom Availability Zone
 // identifier.
@@ -523,8 +549,8 @@ func (e *DBClusterQuotaExceededFault) ErrorCode() string {
 }
 func (e *DBClusterQuotaExceededFault) ErrorFault() smithy.ErrorFault { return smithy.FaultClient }
 
-// The specified IAM role Amazon Resource Name (ARN) is already associated with the
-// specified DB cluster.
+// The specified IAM role Amazon Resource Name (ARN) is already associated with
+// the specified DB cluster.
 type DBClusterRoleAlreadyExistsFault struct {
 	Message *string
 
@@ -958,8 +984,8 @@ func (e *DBParameterGroupQuotaExceededFault) ErrorFault() smithy.ErrorFault {
 	return smithy.FaultClient
 }
 
-// The specified proxy name must be unique for all proxies owned by your Amazon Web
-// Services account in the specified Amazon Web Services Region.
+// The specified proxy name must be unique for all proxies owned by your Amazon
+// Web Services account in the specified Amazon Web Services Region.
 type DBProxyAlreadyExistsFault struct {
 	Message *string
 
@@ -1282,8 +1308,8 @@ func (e *DBSecurityGroupNotSupportedFault) ErrorCode() string {
 }
 func (e *DBSecurityGroupNotSupportedFault) ErrorFault() smithy.ErrorFault { return smithy.FaultClient }
 
-// The request would result in the user exceeding the allowed number of DB security
-// groups.
+// The request would result in the user exceeding the allowed number of DB
+// security groups.
 type DBSecurityGroupQuotaExceededFault struct {
 	Message *string
 
@@ -1843,9 +1869,9 @@ func (e *InstanceQuotaExceededFault) ErrorCode() string {
 }
 func (e *InstanceQuotaExceededFault) ErrorFault() smithy.ErrorFault { return smithy.FaultClient }
 
-// The requested operation can't be performed because there aren't enough available
-// IP addresses in the proxy's subnets. Add more CIDR blocks to the VPC or remove
-// IP address that aren't required from the subnets.
+// The requested operation can't be performed because there aren't enough
+// available IP addresses in the proxy's subnets. Add more CIDR blocks to the VPC
+// or remove IP address that aren't required from the subnets.
 type InsufficientAvailableIPsInSubnetFault struct {
 	Message *string
 
@@ -2018,7 +2044,7 @@ func (e *InvalidCustomDBEngineVersionStateFault) ErrorFault() smithy.ErrorFault 
 }
 
 // Capacity isn't a valid Aurora Serverless DB cluster capacity. Valid capacity
-// values are 2, 4, 8, 16, 32, 64, 128, and 256.
+// values are 2 , 4 , 8 , 16 , 32 , 64 , 128 , and 256 .
 type InvalidDBClusterCapacityFault struct {
 	Message *string
 
@@ -2044,8 +2070,8 @@ func (e *InvalidDBClusterCapacityFault) ErrorCode() string {
 }
 func (e *InvalidDBClusterCapacityFault) ErrorFault() smithy.ErrorFault { return smithy.FaultClient }
 
-// The requested operation can't be performed on the endpoint while the endpoint is
-// in this state.
+// The requested operation can't be performed on the endpoint while the endpoint
+// is in this state.
 type InvalidDBClusterEndpointStateFault struct {
 	Message *string
 
@@ -2609,8 +2635,8 @@ func (e *InvalidS3BucketFault) ErrorCode() string {
 }
 func (e *InvalidS3BucketFault) ErrorFault() smithy.ErrorFault { return smithy.FaultClient }
 
-// The requested subnet is invalid, or multiple subnets were requested that are not
-// all in a common VPC.
+// The requested subnet is invalid, or multiple subnets were requested that are
+// not all in a common VPC.
 type InvalidSubnet struct {
 	Message *string
 
@@ -2690,7 +2716,7 @@ func (e *KMSKeyNotAccessibleFault) ErrorCode() string {
 func (e *KMSKeyNotAccessibleFault) ErrorFault() smithy.ErrorFault { return smithy.FaultClient }
 
 // The network type is invalid for the DB instance. Valid nework type values are
-// IPV4 and DUAL.
+// IPV4 and DUAL .
 type NetworkTypeNotSupported struct {
 	Message *string
 

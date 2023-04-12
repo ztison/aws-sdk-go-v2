@@ -11,11 +11,11 @@ import (
 	smithyhttp "github.com/aws/smithy-go/transport/http"
 )
 
-// Imports resources to AWS Resilience Hub application draft version from different
-// input sources. For more information about the input sources supported by AWS
+// Imports resources to Resilience Hub application draft version from different
+// input sources. For more information about the input sources supported by
 // Resilience Hub, see Discover the structure and describe your Resilience Hub
-// application
-// (https://docs.aws.amazon.com/resilience-hub/latest/userguide/discover-structure.html).
+// application (https://docs.aws.amazon.com/resilience-hub/latest/userguide/discover-structure.html)
+// .
 func (c *Client) ImportResourcesToDraftAppVersion(ctx context.Context, params *ImportResourcesToDraftAppVersionInput, optFns ...func(*Options)) (*ImportResourcesToDraftAppVersionOutput, error) {
 	if params == nil {
 		params = &ImportResourcesToDraftAppVersionInput{}
@@ -33,20 +33,23 @@ func (c *Client) ImportResourcesToDraftAppVersion(ctx context.Context, params *I
 
 type ImportResourcesToDraftAppVersionInput struct {
 
-	// The Amazon Resource Name (ARN) of the AWS Resilience Hub application. The format
-	// for this ARN is: arn:partition:resiliencehub:region:account:app/app-id. For more
-	// information about ARNs, see  Amazon Resource Names (ARNs)
-	// (https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in
-	// the AWS General Reference guide.
+	// The Amazon Resource Name (ARN) of the Resilience Hub application. The format
+	// for this ARN is: arn: partition :resiliencehub: region : account :app/ app-id .
+	// For more information about ARNs, see Amazon Resource Names (ARNs) (https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)
+	// in the AWS General Reference guide.
 	//
 	// This member is required.
 	AppArn *string
 
-	// The import strategy you would like to set to import resources into AWS
-	// Resilience Hub application.
+	// The input sources of the Amazon Elastic Kubernetes Service resources you need
+	// to import.
+	EksSources []types.EksSource
+
+	// The import strategy you would like to set to import resources into Resilience
+	// Hub application.
 	ImportStrategy types.ResourceImportStrategyType
 
-	// The Amazon Resource Names (ARNs) for the resources that you want to import.
+	// The Amazon Resource Names (ARNs) for the resources.
 	SourceArns []string
 
 	// A list of terraform file s3 URLs you need to import.
@@ -57,11 +60,10 @@ type ImportResourcesToDraftAppVersionInput struct {
 
 type ImportResourcesToDraftAppVersionOutput struct {
 
-	// The Amazon Resource Name (ARN) of the AWS Resilience Hub application. The format
-	// for this ARN is: arn:partition:resiliencehub:region:account:app/app-id. For more
-	// information about ARNs, see  Amazon Resource Names (ARNs)
-	// (https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in
-	// the AWS General Reference guide.
+	// The Amazon Resource Name (ARN) of the Resilience Hub application. The format
+	// for this ARN is: arn: partition :resiliencehub: region : account :app/ app-id .
+	// For more information about ARNs, see Amazon Resource Names (ARNs) (https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)
+	// in the AWS General Reference guide.
 	//
 	// This member is required.
 	AppArn *string
@@ -76,10 +78,14 @@ type ImportResourcesToDraftAppVersionOutput struct {
 	// This member is required.
 	Status types.ResourceImportStatusType
 
-	// The Amazon Resource Names (ARNs) for the resources that you imported.
+	// The input sources of the Amazon Elastic Kubernetes Service resources you have
+	// imported.
+	EksSources []types.EksSource
+
+	// The Amazon Resource Names (ARNs) for the resources you have imported.
 	SourceArns []string
 
-	// A list of terraform file s3 URLs you need to import.
+	// A list of terraform file s3 URLs you have imported.
 	TerraformSources []types.TerraformSource
 
 	// Metadata pertaining to the operation's result.

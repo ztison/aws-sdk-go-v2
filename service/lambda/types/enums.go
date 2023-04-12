@@ -10,9 +10,9 @@ const (
 	ArchitectureArm64 Architecture = "arm64"
 )
 
-// Values returns all known values for Architecture. Note that this can be expanded
-// in the future, and so it is only as up to date as the client. The ordering of
-// this slice is not guaranteed to be stable across updates.
+// Values returns all known values for Architecture. Note that this can be
+// expanded in the future, and so it is only as up to date as the client. The
+// ordering of this slice is not guaranteed to be stable across updates.
 func (Architecture) Values() []Architecture {
 	return []Architecture{
 		"x86_64",
@@ -45,9 +45,9 @@ const (
 	EndPointTypeKafkaBootstrapServers EndPointType = "KAFKA_BOOTSTRAP_SERVERS"
 )
 
-// Values returns all known values for EndPointType. Note that this can be expanded
-// in the future, and so it is only as up to date as the client. The ordering of
-// this slice is not guaranteed to be stable across updates.
+// Values returns all known values for EndPointType. Note that this can be
+// expanded in the future, and so it is only as up to date as the client. The
+// ordering of this slice is not guaranteed to be stable across updates.
 func (EndPointType) Values() []EndPointType {
 	return []EndPointType{
 		"KAFKA_BOOTSTRAP_SERVERS",
@@ -82,9 +82,9 @@ const (
 	FullDocumentDefault      FullDocument = "Default"
 )
 
-// Values returns all known values for FullDocument. Note that this can be expanded
-// in the future, and so it is only as up to date as the client. The ordering of
-// this slice is not guaranteed to be stable across updates.
+// Values returns all known values for FullDocument. Note that this can be
+// expanded in the future, and so it is only as up to date as the client. The
+// ordering of this slice is not guaranteed to be stable across updates.
 func (FullDocument) Values() []FullDocument {
 	return []FullDocument{
 		"UpdateLookup",
@@ -159,6 +159,24 @@ func (InvocationType) Values() []InvocationType {
 		"Event",
 		"RequestResponse",
 		"DryRun",
+	}
+}
+
+type InvokeMode string
+
+// Enum values for InvokeMode
+const (
+	InvokeModeBuffered       InvokeMode = "BUFFERED"
+	InvokeModeResponseStream InvokeMode = "RESPONSE_STREAM"
+)
+
+// Values returns all known values for InvokeMode. Note that this can be expanded
+// in the future, and so it is only as up to date as the client. The ordering of
+// this slice is not guaranteed to be stable across updates.
+func (InvokeMode) Values() []InvokeMode {
+	return []InvokeMode{
+		"BUFFERED",
+		"RESPONSE_STREAM",
 	}
 }
 
@@ -292,6 +310,25 @@ func (ProvisionedConcurrencyStatusEnum) Values() []ProvisionedConcurrencyStatusE
 		"IN_PROGRESS",
 		"READY",
 		"FAILED",
+	}
+}
+
+type ResponseStreamingInvocationType string
+
+// Enum values for ResponseStreamingInvocationType
+const (
+	ResponseStreamingInvocationTypeRequestResponse ResponseStreamingInvocationType = "RequestResponse"
+	ResponseStreamingInvocationTypeDryRun          ResponseStreamingInvocationType = "DryRun"
+)
+
+// Values returns all known values for ResponseStreamingInvocationType. Note that
+// this can be expanded in the future, and so it is only as up to date as the
+// client. The ordering of this slice is not guaranteed to be stable across
+// updates.
+func (ResponseStreamingInvocationType) Values() []ResponseStreamingInvocationType {
+	return []ResponseStreamingInvocationType{
+		"RequestResponse",
+		"DryRun",
 	}
 }
 
@@ -441,8 +478,8 @@ const (
 	StateFailed   State = "Failed"
 )
 
-// Values returns all known values for State. Note that this can be expanded in the
-// future, and so it is only as up to date as the client. The ordering of this
+// Values returns all known values for State. Note that this can be expanded in
+// the future, and so it is only as up to date as the client. The ordering of this
 // slice is not guaranteed to be stable across updates.
 func (State) Values() []State {
 	return []State{

@@ -1,3 +1,19 @@
+# v1.2.4 (2023-04-10)
+
+* No change notes available for this release.
+
+# v1.2.3 (2023-04-07)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.2.2 (2023-03-21)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.2.1 (2023-03-10)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
 # v1.2.0 (2023-03-02)
 
 * **Feature**: This release fixes some input parameter range and patterns.

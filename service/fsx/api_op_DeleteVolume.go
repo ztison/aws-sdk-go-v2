@@ -35,7 +35,7 @@ type DeleteVolumeInput struct {
 	// This member is required.
 	VolumeId *string
 
-	// (Optional) An idempotency token for resource creation, in a string of up to 64
+	// (Optional) An idempotency token for resource creation, in a string of up to 63
 	// ASCII characters. This token is automatically filled on your behalf when you use
 	// the Command Line Interface (CLI) or an Amazon Web Services SDK.
 	ClientRequestToken *string
@@ -55,7 +55,7 @@ type DeleteVolumeInput struct {
 type DeleteVolumeOutput struct {
 
 	// The lifecycle state of the volume being deleted. If the DeleteVolume operation
-	// is successful, this value is DELETING.
+	// is successful, this value is DELETING .
 	Lifecycle types.VolumeLifecycle
 
 	// Returned after a DeleteVolume request, showing the status of the delete request.

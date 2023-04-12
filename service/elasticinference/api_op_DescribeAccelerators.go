@@ -13,7 +13,13 @@ import (
 )
 
 // Describes information over a provided set of accelerators belonging to an
-// account.
+// account. February 15, 2023: Starting April 15, 2023, AWS will not onboard new
+// customers to Amazon Elastic Inference (EI), and will help current customers
+// migrate their workloads to options that offer better price and performance.
+// After April 15, 2023, new customers will not be able to launch instances with
+// Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2. However,
+// customers who have used Amazon EI at least once during the past 30-day period
+// are considered current customers and will be able to continue using the service.
 func (c *Client) DescribeAccelerators(ctx context.Context, params *DescribeAcceleratorsInput, optFns ...func(*Options)) (*DescribeAcceleratorsOutput, error) {
 	if params == nil {
 		params = &DescribeAcceleratorsInput{}
@@ -39,11 +45,11 @@ type DescribeAcceleratorsInput struct {
 	// filter for. instance-id: can provide a list of EC2 instance ids to filter for.
 	Filters []types.Filter
 
-	// The total number of items to return in the command's output. If the total number
-	// of items available is more than the value specified, a NextToken is provided in
-	// the command's output. To resume pagination, provide the NextToken value in the
-	// starting-token argument of a subsequent command. Do not use the NextToken
-	// response element directly outside of the AWS CLI.
+	// The total number of items to return in the command's output. If the total
+	// number of items available is more than the value specified, a NextToken is
+	// provided in the command's output. To resume pagination, provide the NextToken
+	// value in the starting-token argument of a subsequent command. Do not use the
+	// NextToken response element directly outside of the AWS CLI.
 	MaxResults int32
 
 	// A token to specify where to start paginating. This is the NextToken from a
@@ -139,11 +145,11 @@ var _ DescribeAcceleratorsAPIClient = (*Client)(nil)
 // DescribeAcceleratorsPaginatorOptions is the paginator options for
 // DescribeAccelerators
 type DescribeAcceleratorsPaginatorOptions struct {
-	// The total number of items to return in the command's output. If the total number
-	// of items available is more than the value specified, a NextToken is provided in
-	// the command's output. To resume pagination, provide the NextToken value in the
-	// starting-token argument of a subsequent command. Do not use the NextToken
-	// response element directly outside of the AWS CLI.
+	// The total number of items to return in the command's output. If the total
+	// number of items available is more than the value specified, a NextToken is
+	// provided in the command's output. To resume pagination, provide the NextToken
+	// value in the starting-token argument of a subsequent command. Do not use the
+	// NextToken response element directly outside of the AWS CLI.
 	Limit int32
 
 	// Set to true if pagination should stop if the service returns a pagination token

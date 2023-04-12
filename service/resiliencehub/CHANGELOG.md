@@ -1,3 +1,27 @@
+# v1.10.3 (2023-04-10)
+
+* No change notes available for this release.
+
+# v1.10.2 (2023-04-07)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.10.1 (2023-03-31)
+
+* **Documentation**: Adding EKS related documentation for appTemplateBody
+
+# v1.10.0 (2023-03-22)
+
+* **Feature**: This release provides customers with the ability to import resources from within an EKS cluster and assess the resiliency of EKS cluster workloads.
+
+# v1.9.3 (2023-03-21)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.9.2 (2023-03-10)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
 # v1.9.1 (2023-02-22)
 
 * **Bug Fix**: Prevent nil pointer dereference when retrieving error codes.

@@ -12,8 +12,8 @@ import (
 	smithyhttp "github.com/aws/smithy-go/transport/http"
 )
 
-// Lists your AWS Resilience Hub applications. You can filter applications using
-// only one filter at a time or without using any filter. If you try to filter
+// Lists your Resilience Hub applications. You can filter applications using only
+// one filter at a time or without using any filter. If you try to filter
 // applications using multiple filters, you will get the following error: An error
 // occurred (ValidationException) when calling the ListApps operation: Only one
 // filter is supported for this operation.
@@ -34,16 +34,15 @@ func (c *Client) ListApps(ctx context.Context, params *ListAppsInput, optFns ...
 
 type ListAppsInput struct {
 
-	// The Amazon Resource Name (ARN) of the AWS Resilience Hub application. The format
-	// for this ARN is: arn:partition:resiliencehub:region:account:app/app-id. For more
-	// information about ARNs, see  Amazon Resource Names (ARNs)
-	// (https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in
-	// the AWS General Reference guide.
+	// The Amazon Resource Name (ARN) of the Resilience Hub application. The format
+	// for this ARN is: arn: partition :resiliencehub: region : account :app/ app-id .
+	// For more information about ARNs, see Amazon Resource Names (ARNs) (https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)
+	// in the AWS General Reference guide.
 	AppArn *string
 
 	// The maximum number of results to include in the response. If more results exist
-	// than the specified MaxResults value, a token is included in the response so that
-	// the remaining results can be retrieved.
+	// than the specified MaxResults value, a token is included in the response so
+	// that the remaining results can be retrieved.
 	MaxResults *int32
 
 	// The name for the one of the listed applications.
@@ -57,7 +56,7 @@ type ListAppsInput struct {
 
 type ListAppsOutput struct {
 
-	// Summaries for the AWS Resilience Hub application.
+	// Summaries for the Resilience Hub application.
 	//
 	// This member is required.
 	AppSummaries []types.AppSummary
@@ -141,8 +140,8 @@ var _ ListAppsAPIClient = (*Client)(nil)
 // ListAppsPaginatorOptions is the paginator options for ListApps
 type ListAppsPaginatorOptions struct {
 	// The maximum number of results to include in the response. If more results exist
-	// than the specified MaxResults value, a token is included in the response so that
-	// the remaining results can be retrieved.
+	// than the specified MaxResults value, a token is included in the response so
+	// that the remaining results can be retrieved.
 	Limit int32
 
 	// Set to true if pagination should stop if the service returns a pagination token

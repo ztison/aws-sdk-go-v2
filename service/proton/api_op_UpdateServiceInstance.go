@@ -4,6 +4,7 @@ package proton
 
 import (
 	"context"
+	"fmt"
 	awsmiddleware "github.com/aws/aws-sdk-go-v2/aws/middleware"
 	"github.com/aws/aws-sdk-go-v2/aws/signer/v4"
 	"github.com/aws/aws-sdk-go-v2/service/proton/types"
@@ -14,10 +15,9 @@ import (
 // Update a service instance. There are a few modes for updating a service
 // instance. The deploymentType field defines the mode. You can't update a service
 // instance while its deployment status, or the deployment status of a component
-// attached to it, is IN_PROGRESS. For more information about components, see
-// Proton components
-// (https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html) in the
-// Proton User Guide.
+// attached to it, is IN_PROGRESS . For more information about components, see
+// Proton components (https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html)
+// in the Proton User Guide.
 func (c *Client) UpdateServiceInstance(ctx context.Context, params *UpdateServiceInstanceInput, optFns ...func(*Options)) (*UpdateServiceInstanceOutput, error) {
 	if params == nil {
 		params = &UpdateServiceInstanceInput{}
@@ -61,6 +61,9 @@ type UpdateServiceInstanceInput struct {
 	//
 	// This member is required.
 	ServiceName *string
+
+	// The client token of the service instance to update.
+	ClientToken *string
 
 	// The formatted specification that defines the service instance update.
 	//
@@ -134,6 +137,9 @@ func (c *Client) addOperationUpdateServiceInstanceMiddlewares(stack *middleware.
 	if err = smithyhttp.AddCloseResponseBodyMiddleware(stack); err != nil {
 		return err
 	}
+	if err = addIdempotencyToken_opUpdateServiceInstanceMiddleware(stack, options); err != nil {
+		return err
+	}
 	if err = addOpUpdateServiceInstanceValidationMiddleware(stack); err != nil {
 		return err
 	}
@@ -150,6 +156,39 @@ func (c *Client) addOperationUpdateServiceInstanceMiddlewares(stack *middleware.
 		return err
 	}
 	return nil
+}
+
+type idempotencyToken_initializeOpUpdateServiceInstance struct {
+	tokenProvider IdempotencyTokenProvider
+}
+
+func (*idempotencyToken_initializeOpUpdateServiceInstance) ID() string {
+	return "OperationIdempotencyTokenAutoFill"
+}
+
+func (m *idempotencyToken_initializeOpUpdateServiceInstance) HandleInitialize(ctx context.Context, in middleware.InitializeInput, next middleware.InitializeHandler) (
+	out middleware.InitializeOutput, metadata middleware.Metadata, err error,
+) {
+	if m.tokenProvider == nil {
+		return next.HandleInitialize(ctx, in)
+	}
+
+	input, ok := in.Parameters.(*UpdateServiceInstanceInput)
+	if !ok {
+		return out, metadata, fmt.Errorf("expected middleware input to be of type *UpdateServiceInstanceInput ")
+	}
+
+	if input.ClientToken == nil {
+		t, err := m.tokenProvider.GetIdempotencyToken()
+		if err != nil {
+			return out, metadata, err
+		}
+		input.ClientToken = &t
+	}
+	return next.HandleInitialize(ctx, in)
+}
+func addIdempotencyToken_opUpdateServiceInstanceMiddleware(stack *middleware.Stack, cfg Options) error {
+	return stack.Initialize.Add(&idempotencyToken_initializeOpUpdateServiceInstance{tokenProvider: cfg.IdempotencyTokenProvider}, middleware.Before)
 }
 
 func newServiceMetadataMiddleware_opUpdateServiceInstance(region string) *awsmiddleware.RegisterServiceMetadata {

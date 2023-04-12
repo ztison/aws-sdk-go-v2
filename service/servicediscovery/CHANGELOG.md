@@ -1,3 +1,27 @@
+# v1.21.2 (2023-04-10)
+
+* No change notes available for this release.
+
+# v1.21.1 (2023-04-07)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.21.0 (2023-03-23)
+
+* **Feature**: Reverted the throttling exception RequestLimitExceeded for AWS Cloud Map APIs introduced in SDK version 1.12.424 2023-03-09 to previous exception specified in the ErrorCode.
+
+# v1.20.3 (2023-03-21)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.20.2 (2023-03-17)
+
+* No change notes available for this release.
+
+# v1.20.1 (2023-03-10)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
 # v1.20.0 (2023-03-09)
 
 * **Feature**: Updated all AWS Cloud Map APIs to provide consistent throttling exception (RequestLimitExceeded)

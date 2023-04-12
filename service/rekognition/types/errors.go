@@ -310,10 +310,10 @@ func (e *InvalidS3ObjectException) ErrorCode() string {
 func (e *InvalidS3ObjectException) ErrorFault() smithy.ErrorFault { return smithy.FaultClient }
 
 // An Amazon Rekognition service limit was exceeded. For example, if you start too
-// many Amazon Rekognition Video jobs concurrently, calls to start operations
-// (StartLabelDetection, for example) will raise a LimitExceededException exception
-// (HTTP status code: 400) until the number of concurrently running jobs is below
-// the Amazon Rekognition service limit.
+// many Amazon Rekognition Video jobs concurrently, calls to start operations (
+// StartLabelDetection , for example) will raise a LimitExceededException
+// exception (HTTP status code: 400) until the number of concurrently running jobs
+// is below the Amazon Rekognition service limit.
 type LimitExceededException struct {
 	Message *string
 
@@ -551,6 +551,35 @@ func (e *ServiceQuotaExceededException) ErrorCode() string {
 	return *e.ErrorCodeOverride
 }
 func (e *ServiceQuotaExceededException) ErrorFault() smithy.ErrorFault { return smithy.FaultClient }
+
+// Occurs when a given sessionId is not found.
+type SessionNotFoundException struct {
+	Message *string
+
+	ErrorCodeOverride *string
+
+	Code   *string
+	Logref *string
+
+	noSmithyDocumentSerde
+}
+
+func (e *SessionNotFoundException) Error() string {
+	return fmt.Sprintf("%s: %s", e.ErrorCode(), e.ErrorMessage())
+}
+func (e *SessionNotFoundException) ErrorMessage() string {
+	if e.Message == nil {
+		return ""
+	}
+	return *e.Message
+}
+func (e *SessionNotFoundException) ErrorCode() string {
+	if e == nil || e.ErrorCodeOverride == nil {
+		return "SessionNotFoundException"
+	}
+	return *e.ErrorCodeOverride
+}
+func (e *SessionNotFoundException) ErrorFault() smithy.ErrorFault { return smithy.FaultClient }
 
 // Amazon Rekognition is temporarily unable to process the request. Try your call
 // again.

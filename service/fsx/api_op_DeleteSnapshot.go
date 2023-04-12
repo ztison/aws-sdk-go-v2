@@ -39,7 +39,7 @@ type DeleteSnapshotInput struct {
 	// This member is required.
 	SnapshotId *string
 
-	// (Optional) An idempotency token for resource creation, in a string of up to 64
+	// (Optional) An idempotency token for resource creation, in a string of up to 63
 	// ASCII characters. This token is automatically filled on your behalf when you use
 	// the Command Line Interface (CLI) or an Amazon Web Services SDK.
 	ClientRequestToken *string
@@ -50,7 +50,7 @@ type DeleteSnapshotInput struct {
 type DeleteSnapshotOutput struct {
 
 	// The lifecycle status of the snapshot. If the DeleteSnapshot operation is
-	// successful, this status is DELETING.
+	// successful, this status is DELETING .
 	Lifecycle types.SnapshotLifecycle
 
 	// The ID of the deleted snapshot.

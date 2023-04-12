@@ -41,19 +41,12 @@ type ListComponentsInput struct {
 	ByName bool
 
 	// Use the following filters to streamline results:
-	//
-	// * description
-	//
-	// * name
-	//
-	// *
-	// platform
-	//
-	// * supportedOsVersion
-	//
-	// * type
-	//
-	// * version
+	//   - description
+	//   - name
+	//   - platform
+	//   - supportedOsVersion
+	//   - type
+	//   - version
 	Filters []types.Filter
 
 	// The maximum items to return in a request.
@@ -78,9 +71,9 @@ type ListComponentsOutput struct {
 	// ../. You can assign values for the first three, and can filter on all of them.
 	ComponentVersionList []types.ComponentVersion
 
-	// The next token used for paginated responses. When this is not empty, there are
-	// additional elements that the service has not included in this request. Use this
-	// token with the next request to retrieve additional objects.
+	// The next token used for paginated responses. When this field isn't empty, there
+	// are additional elements that the service has'ot included in this request. Use
+	// this token with the next request to retrieve additional objects.
 	NextToken *string
 
 	// The request ID that uniquely identifies this request.

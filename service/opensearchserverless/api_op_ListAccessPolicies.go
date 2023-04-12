@@ -39,12 +39,12 @@ type ListAccessPoliciesInput struct {
 	// You can use nextToken to get the next page of results. The default is 20.
 	MaxResults *int32
 
-	// If your initial ListAccessPolicies operation returns a nextToken, you can
+	// If your initial ListAccessPolicies operation returns a nextToken , you can
 	// include the returned nextToken in subsequent ListAccessPolicies operations,
 	// which returns results in the next page.
 	NextToken *string
 
-	// Resource filters (can be collection or indexes) that policies can apply to.
+	// Resource filters (can be collections or indexes) that policies can apply to.
 	Resource []string
 
 	noSmithyDocumentSerde

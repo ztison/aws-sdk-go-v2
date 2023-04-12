@@ -52,9 +52,9 @@ const (
 	ComponentVisibilityScopePublic  ComponentVisibilityScope = "PUBLIC"
 )
 
-// Values returns all known values for ComponentVisibilityScope. Note that this can
-// be expanded in the future, and so it is only as up to date as the client. The
-// ordering of this slice is not guaranteed to be stable across updates.
+// Values returns all known values for ComponentVisibilityScope. Note that this
+// can be expanded in the future, and so it is only as up to date as the client.
+// The ordering of this slice is not guaranteed to be stable across updates.
 func (ComponentVisibilityScope) Values() []ComponentVisibilityScope {
 	return []ComponentVisibilityScope{
 		"PRIVATE",
@@ -171,6 +171,7 @@ const (
 	EffectiveDeploymentExecutionStatusTimedOut   EffectiveDeploymentExecutionStatus = "TIMED_OUT"
 	EffectiveDeploymentExecutionStatusCanceled   EffectiveDeploymentExecutionStatus = "CANCELED"
 	EffectiveDeploymentExecutionStatusRejected   EffectiveDeploymentExecutionStatus = "REJECTED"
+	EffectiveDeploymentExecutionStatusSucceeded  EffectiveDeploymentExecutionStatus = "SUCCEEDED"
 )
 
 // Values returns all known values for EffectiveDeploymentExecutionStatus. Note
@@ -186,6 +187,7 @@ func (EffectiveDeploymentExecutionStatus) Values() []EffectiveDeploymentExecutio
 		"TIMED_OUT",
 		"CANCELED",
 		"REJECTED",
+		"SUCCEEDED",
 	}
 }
 
@@ -285,8 +287,8 @@ const (
 	LambdaEventSourceTypeIotCore LambdaEventSourceType = "IOT_CORE"
 )
 
-// Values returns all known values for LambdaEventSourceType. Note that this can be
-// expanded in the future, and so it is only as up to date as the client. The
+// Values returns all known values for LambdaEventSourceType. Note that this can
+// be expanded in the future, and so it is only as up to date as the client. The
 // ordering of this slice is not guaranteed to be stable across updates.
 func (LambdaEventSourceType) Values() []LambdaEventSourceType {
 	return []LambdaEventSourceType{

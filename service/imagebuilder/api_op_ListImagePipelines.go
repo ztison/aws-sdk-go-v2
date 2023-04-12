@@ -31,20 +31,12 @@ func (c *Client) ListImagePipelines(ctx context.Context, params *ListImagePipeli
 type ListImagePipelinesInput struct {
 
 	// Use the following filters to streamline results:
-	//
-	// * description
-	//
-	// *
-	// distributionConfigurationArn
-	//
-	// * imageRecipeArn
-	//
-	// *
-	// infrastructureConfigurationArn
-	//
-	// * name
-	//
-	// * status
+	//   - description
+	//   - distributionConfigurationArn
+	//   - imageRecipeArn
+	//   - infrastructureConfigurationArn
+	//   - name
+	//   - status
 	Filters []types.Filter
 
 	// The maximum items to return in a request.
@@ -62,9 +54,9 @@ type ListImagePipelinesOutput struct {
 	// The list of image pipelines.
 	ImagePipelineList []types.ImagePipeline
 
-	// The next token used for paginated responses. When this is not empty, there are
-	// additional elements that the service has not included in this request. Use this
-	// token with the next request to retrieve additional objects.
+	// The next token used for paginated responses. When this field isn't empty, there
+	// are additional elements that the service has'ot included in this request. Use
+	// this token with the next request to retrieve additional objects.
 	NextToken *string
 
 	// The request ID that uniquely identifies this request.

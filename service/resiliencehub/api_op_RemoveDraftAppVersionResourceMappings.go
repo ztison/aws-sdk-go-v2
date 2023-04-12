@@ -28,11 +28,10 @@ func (c *Client) RemoveDraftAppVersionResourceMappings(ctx context.Context, para
 
 type RemoveDraftAppVersionResourceMappingsInput struct {
 
-	// The Amazon Resource Name (ARN) of the AWS Resilience Hub application. The format
-	// for this ARN is: arn:partition:resiliencehub:region:account:app/app-id. For more
-	// information about ARNs, see  Amazon Resource Names (ARNs)
-	// (https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in
-	// the AWS General Reference guide.
+	// The Amazon Resource Name (ARN) of the Resilience Hub application. The format
+	// for this ARN is: arn: partition :resiliencehub: region : account :app/ app-id .
+	// For more information about ARNs, see Amazon Resource Names (ARNs) (https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)
+	// in the AWS General Reference guide.
 	//
 	// This member is required.
 	AppArn *string
@@ -40,6 +39,11 @@ type RemoveDraftAppVersionResourceMappingsInput struct {
 	// The names of the registered applications you want to remove from the resource
 	// mappings.
 	AppRegistryAppNames []string
+
+	// The names of the Amazon Elastic Kubernetes Service clusters and namespaces you
+	// want to remove from the resource mappings. This parameter accepts values in
+	// "eks-cluster/namespace" format.
+	EksSourceNames []string
 
 	// The names of the CloudFormation stacks you want to remove from the resource
 	// mappings.
@@ -60,11 +64,10 @@ type RemoveDraftAppVersionResourceMappingsInput struct {
 
 type RemoveDraftAppVersionResourceMappingsOutput struct {
 
-	// The Amazon Resource Name (ARN) of the AWS Resilience Hub application. The format
-	// for this ARN is: arn:partition:resiliencehub:region:account:app/app-id. For more
-	// information about ARNs, see  Amazon Resource Names (ARNs)
-	// (https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in
-	// the AWS General Reference guide.
+	// The Amazon Resource Name (ARN) of the Resilience Hub application. The format
+	// for this ARN is: arn: partition :resiliencehub: region : account :app/ app-id .
+	// For more information about ARNs, see Amazon Resource Names (ARNs) (https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)
+	// in the AWS General Reference guide.
 	AppArn *string
 
 	// The version of the application.

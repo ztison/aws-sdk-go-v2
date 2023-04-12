@@ -16,20 +16,11 @@ import (
 	"time"
 )
 
-// Returns configuration information about the specified Object Lambda Access Point
-// The following actions are related to GetAccessPointForObjectLambda:
-//
-// *
-// CreateAccessPointForObjectLambda
-// (https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessPointForObjectLambda.html)
-//
-// *
-// DeleteAccessPointForObjectLambda
-// (https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPointForObjectLambda.html)
-//
-// *
-// ListAccessPointsForObjectLambda
-// (https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPointsForObjectLambda.html)
+// Returns configuration information about the specified Object Lambda Access
+// Point The following actions are related to GetAccessPointForObjectLambda :
+//   - CreateAccessPointForObjectLambda (https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessPointForObjectLambda.html)
+//   - DeleteAccessPointForObjectLambda (https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPointForObjectLambda.html)
+//   - ListAccessPointsForObjectLambda (https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPointsForObjectLambda.html)
 func (c *Client) GetAccessPointForObjectLambda(ctx context.Context, params *GetAccessPointForObjectLambdaInput, optFns ...func(*Options)) (*GetAccessPointForObjectLambdaOutput, error) {
 	if params == nil {
 		params = &GetAccessPointForObjectLambdaInput{}
@@ -62,6 +53,9 @@ type GetAccessPointForObjectLambdaInput struct {
 }
 
 type GetAccessPointForObjectLambdaOutput struct {
+
+	// The alias of the Object Lambda Access Point.
+	Alias *types.ObjectLambdaAccessPointAlias
 
 	// The date and time when the specified Object Lambda Access Point was created.
 	CreationDate *time.Time

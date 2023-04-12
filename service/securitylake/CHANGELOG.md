@@ -1,3 +1,27 @@
+# v1.3.4 (2023-04-10)
+
+* No change notes available for this release.
+
+# v1.3.3 (2023-04-07)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.3.2 (2023-03-22)
+
+* No change notes available for this release.
+
+# v1.3.1 (2023-03-21)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.3.0 (2023-03-15)
+
+* **Feature**: Make Create/Get/ListSubscribers APIs return resource share ARN and name so they can be used to validate the RAM resource share to accept. GetDatalake can be used to track status of UpdateDatalake and DeleteDatalake requests.
+
+# v1.2.5 (2023-03-10)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
 # v1.2.4 (2023-02-22)
 
 * **Bug Fix**: Prevent nil pointer dereference when retrieving error codes.

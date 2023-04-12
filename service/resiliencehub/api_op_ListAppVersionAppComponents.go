@@ -12,7 +12,7 @@ import (
 	smithyhttp "github.com/aws/smithy-go/transport/http"
 )
 
-// Lists all the Application Components in the AWS Resilience Hub application.
+// Lists all the Application Components in the Resilience Hub application.
 func (c *Client) ListAppVersionAppComponents(ctx context.Context, params *ListAppVersionAppComponentsInput, optFns ...func(*Options)) (*ListAppVersionAppComponentsOutput, error) {
 	if params == nil {
 		params = &ListAppVersionAppComponentsInput{}
@@ -30,11 +30,10 @@ func (c *Client) ListAppVersionAppComponents(ctx context.Context, params *ListAp
 
 type ListAppVersionAppComponentsInput struct {
 
-	// The Amazon Resource Name (ARN) of the AWS Resilience Hub application. The format
-	// for this ARN is: arn:partition:resiliencehub:region:account:app/app-id. For more
-	// information about ARNs, see  Amazon Resource Names (ARNs)
-	// (https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in
-	// the AWS General Reference guide.
+	// The Amazon Resource Name (ARN) of the Resilience Hub application. The format
+	// for this ARN is: arn: partition :resiliencehub: region : account :app/ app-id .
+	// For more information about ARNs, see Amazon Resource Names (ARNs) (https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)
+	// in the AWS General Reference guide.
 	//
 	// This member is required.
 	AppArn *string
@@ -44,7 +43,7 @@ type ListAppVersionAppComponentsInput struct {
 	// This member is required.
 	AppVersion *string
 
-	// Maximum number of Application Components to be displayed per AWS Resilience Hub
+	// Maximum number of Application Components to be displayed per Resilience Hub
 	// application version.
 	MaxResults *int32
 
@@ -56,16 +55,15 @@ type ListAppVersionAppComponentsInput struct {
 
 type ListAppVersionAppComponentsOutput struct {
 
-	// The Amazon Resource Name (ARN) of the AWS Resilience Hub application. The format
-	// for this ARN is: arn:partition:resiliencehub:region:account:app/app-id. For more
-	// information about ARNs, see  Amazon Resource Names (ARNs)
-	// (https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in
-	// the AWS General Reference guide.
+	// The Amazon Resource Name (ARN) of the Resilience Hub application. The format
+	// for this ARN is: arn: partition :resiliencehub: region : account :app/ app-id .
+	// For more information about ARNs, see Amazon Resource Names (ARNs) (https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)
+	// in the AWS General Reference guide.
 	//
 	// This member is required.
 	AppArn *string
 
-	// The AWS Resilience Hub application version.
+	// The Resilience Hub application version.
 	//
 	// This member is required.
 	AppVersion *string
@@ -156,7 +154,7 @@ var _ ListAppVersionAppComponentsAPIClient = (*Client)(nil)
 // ListAppVersionAppComponentsPaginatorOptions is the paginator options for
 // ListAppVersionAppComponents
 type ListAppVersionAppComponentsPaginatorOptions struct {
-	// Maximum number of Application Components to be displayed per AWS Resilience Hub
+	// Maximum number of Application Components to be displayed per Resilience Hub
 	// application version.
 	Limit int32
 

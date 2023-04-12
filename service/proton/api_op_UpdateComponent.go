@@ -4,6 +4,7 @@ package proton
 
 import (
 	"context"
+	"fmt"
 	awsmiddleware "github.com/aws/aws-sdk-go-v2/aws/middleware"
 	"github.com/aws/aws-sdk-go-v2/aws/signer/v4"
 	"github.com/aws/aws-sdk-go-v2/service/proton/types"
@@ -14,9 +15,9 @@ import (
 // Update a component. There are a few modes for updating a component. The
 // deploymentType field defines the mode. You can't update a component while its
 // deployment status, or the deployment status of a service instance attached to
-// it, is IN_PROGRESS. For more information about components, see Proton components
-// (https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html) in the
-// Proton User Guide.
+// it, is IN_PROGRESS . For more information about components, see Proton
+// components (https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html)
+// in the Proton User Guide.
 func (c *Client) UpdateComponent(ctx context.Context, params *UpdateComponentInput, optFns ...func(*Options)) (*UpdateComponentOutput, error) {
 	if params == nil {
 		params = &UpdateComponentInput{}
@@ -38,7 +39,7 @@ type UpdateComponentInput struct {
 	// NONE In this mode, a deployment doesn't occur. Only the requested metadata
 	// parameters are updated. You can only specify description in this mode.
 	// CURRENT_VERSION In this mode, the component is deployed and updated with the new
-	// serviceSpec, templateSource, and/or type that you provide. Only requested
+	// serviceSpec , templateSource , and/or type that you provide. Only requested
 	// parameters are updated.
 	//
 	// This member is required.
@@ -48,6 +49,9 @@ type UpdateComponentInput struct {
 	//
 	// This member is required.
 	Name *string
+
+	// The client token for the updated component.
+	ClientToken *string
 
 	// An optional customer-provided description of the component.
 	Description *string
@@ -72,8 +76,8 @@ type UpdateComponentInput struct {
 	// This value conforms to the media type: application/yaml
 	ServiceSpec *string
 
-	// A path to the Infrastructure as Code (IaC) file describing infrastructure that a
-	// custom component provisions. Components support a single IaC file, even if you
+	// A path to the Infrastructure as Code (IaC) file describing infrastructure that
+	// a custom component provisions. Components support a single IaC file, even if you
 	// use Terraform as your template language.
 	//
 	// This value conforms to the media type: application/yaml
@@ -140,6 +144,9 @@ func (c *Client) addOperationUpdateComponentMiddlewares(stack *middleware.Stack,
 	if err = smithyhttp.AddCloseResponseBodyMiddleware(stack); err != nil {
 		return err
 	}
+	if err = addIdempotencyToken_opUpdateComponentMiddleware(stack, options); err != nil {
+		return err
+	}
 	if err = addOpUpdateComponentValidationMiddleware(stack); err != nil {
 		return err
 	}
@@ -156,6 +163,39 @@ func (c *Client) addOperationUpdateComponentMiddlewares(stack *middleware.Stack,
 		return err
 	}
 	return nil
+}
+
+type idempotencyToken_initializeOpUpdateComponent struct {
+	tokenProvider IdempotencyTokenProvider
+}
+
+func (*idempotencyToken_initializeOpUpdateComponent) ID() string {
+	return "OperationIdempotencyTokenAutoFill"
+}
+
+func (m *idempotencyToken_initializeOpUpdateComponent) HandleInitialize(ctx context.Context, in middleware.InitializeInput, next middleware.InitializeHandler) (
+	out middleware.InitializeOutput, metadata middleware.Metadata, err error,
+) {
+	if m.tokenProvider == nil {
+		return next.HandleInitialize(ctx, in)
+	}
+
+	input, ok := in.Parameters.(*UpdateComponentInput)
+	if !ok {
+		return out, metadata, fmt.Errorf("expected middleware input to be of type *UpdateComponentInput ")
+	}
+
+	if input.ClientToken == nil {
+		t, err := m.tokenProvider.GetIdempotencyToken()
+		if err != nil {
+			return out, metadata, err
+		}
+		input.ClientToken = &t
+	}
+	return next.HandleInitialize(ctx, in)
+}
+func addIdempotencyToken_opUpdateComponentMiddleware(stack *middleware.Stack, cfg Options) error {
+	return stack.Initialize.Add(&idempotencyToken_initializeOpUpdateComponent{tokenProvider: cfg.IdempotencyTokenProvider}, middleware.Before)
 }
 
 func newServiceMetadataMiddleware_opUpdateComponent(region string) *awsmiddleware.RegisterServiceMetadata {

@@ -32,20 +32,14 @@ func (c *Client) RestoreDBClusterFromSnapshot(ctx context.Context, params *Resto
 	return out, nil
 }
 
-// Represents the input to RestoreDBClusterFromSnapshot.
+// Represents the input to RestoreDBClusterFromSnapshot .
 type RestoreDBClusterFromSnapshotInput struct {
 
 	// The name of the cluster to create from the snapshot or cluster snapshot. This
 	// parameter isn't case sensitive. Constraints:
-	//
-	// * Must contain from 1 to 63
-	// letters, numbers, or hyphens.
-	//
-	// * The first character must be a letter.
-	//
-	// * Cannot
-	// end with a hyphen or contain two consecutive hyphens.
-	//
+	//   - Must contain from 1 to 63 letters, numbers, or hyphens.
+	//   - The first character must be a letter.
+	//   - Cannot end with a hyphen or contain two consecutive hyphens.
 	// Example: my-snapshot-id
 	//
 	// This member is required.
@@ -57,12 +51,10 @@ type RestoreDBClusterFromSnapshotInput struct {
 	// This member is required.
 	Engine *string
 
-	// The identifier for the snapshot or cluster snapshot to restore from. You can use
-	// either the name or the Amazon Resource Name (ARN) to specify a cluster snapshot.
-	// However, you can use only the ARN to specify a snapshot. Constraints:
-	//
-	// * Must
-	// match the identifier of an existing snapshot.
+	// The identifier for the snapshot or cluster snapshot to restore from. You can
+	// use either the name or the Amazon Resource Name (ARN) to specify a cluster
+	// snapshot. However, you can use only the ARN to specify a snapshot. Constraints:
+	//   - Must match the identifier of an existing snapshot.
 	//
 	// This member is required.
 	SnapshotIdentifier *string
@@ -71,14 +63,23 @@ type RestoreDBClusterFromSnapshotInput struct {
 	// restored DB cluster can be created in.
 	AvailabilityZones []string
 
+	// The name of the DB cluster parameter group to associate with this DB cluster.
+	// Type: String. Required: No. If this argument is omitted, the default DB cluster
+	// parameter group is used. If supplied, must match the name of an existing default
+	// DB cluster parameter group. The string must consist of from 1 to 255 letters,
+	// numbers or hyphens. Its first character must be a letter, and it cannot end with
+	// a hyphen or contain two consecutive hyphens.
+	DBClusterParameterGroupName *string
+
 	// The name of the subnet group to use for the new cluster. Constraints: If
-	// provided, must match the name of an existing DBSubnetGroup. Example:
+	// provided, must match the name of an existing DBSubnetGroup . Example:
 	// mySubnetgroup
 	DBSubnetGroupName *string
 
-	// Specifies whether this cluster can be deleted. If DeletionProtection is enabled,
-	// the cluster cannot be deleted unless it is modified and DeletionProtection is
-	// disabled. DeletionProtection protects clusters from being accidentally deleted.
+	// Specifies whether this cluster can be deleted. If DeletionProtection is
+	// enabled, the cluster cannot be deleted unless it is modified and
+	// DeletionProtection is disabled. DeletionProtection protects clusters from being
+	// accidentally deleted.
 	DeletionProtection *bool
 
 	// A list of log types that must be enabled for exporting to Amazon CloudWatch
@@ -95,18 +96,15 @@ type RestoreDBClusterFromSnapshotInput struct {
 	// new cluster, then you can use the KMS key alias instead of the ARN for the KMS
 	// encryption key. If you do not specify a value for the KmsKeyId parameter, then
 	// the following occurs:
-	//
-	// * If the snapshot or cluster snapshot in
-	// SnapshotIdentifier is encrypted, then the restored cluster is encrypted using
-	// the KMS key that was used to encrypt the snapshot or the cluster snapshot.
-	//
-	// * If
-	// the snapshot or the cluster snapshot in SnapshotIdentifier is not encrypted,
-	// then the restored DB cluster is not encrypted.
+	//   - If the snapshot or cluster snapshot in SnapshotIdentifier is encrypted, then
+	//   the restored cluster is encrypted using the KMS key that was used to encrypt the
+	//   snapshot or the cluster snapshot.
+	//   - If the snapshot or the cluster snapshot in SnapshotIdentifier is not
+	//   encrypted, then the restored DB cluster is not encrypted.
 	KmsKeyId *string
 
 	// The port number on which the new cluster accepts connections. Constraints: Must
-	// be a value from 1150 to 65535. Default: The same port as the original cluster.
+	// be a value from 1150 to 65535 . Default: The same port as the original cluster.
 	Port *int32
 
 	// The tags to be assigned to the restored cluster.

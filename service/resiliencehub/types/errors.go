@@ -67,8 +67,8 @@ func (e *ConflictException) ErrorCode() string {
 }
 func (e *ConflictException) ErrorFault() smithy.ErrorFault { return smithy.FaultClient }
 
-// This exception occurs when there is an internal failure in the AWS Resilience
-// Hub service.
+// This exception occurs when there is an internal failure in the Resilience Hub
+// service.
 type InternalServerException struct {
 	Message *string
 
@@ -151,8 +151,8 @@ func (e *ServiceQuotaExceededException) ErrorCode() string {
 }
 func (e *ServiceQuotaExceededException) ErrorFault() smithy.ErrorFault { return smithy.FaultClient }
 
-// This exception occurs when you have exceeded the limit on the number of requests
-// per second.
+// This exception occurs when you have exceeded the limit on the number of
+// requests per second.
 type ThrottlingException struct {
 	Message *string
 

@@ -31,13 +31,9 @@ func (c *Client) ListImageRecipes(ctx context.Context, params *ListImageRecipesI
 type ListImageRecipesInput struct {
 
 	// Use the following filters to streamline results:
-	//
-	// * name
-	//
-	// * parentImage
-	//
-	// *
-	// platform
+	//   - name
+	//   - parentImage
+	//   - platform
 	Filters []types.Filter
 
 	// The maximum items to return in a request.
@@ -47,10 +43,10 @@ type ListImageRecipesInput struct {
 	// previously truncated response.
 	NextToken *string
 
-	// The owner defines which image recipes you want to list. By default, this request
-	// will only show image recipes owned by your account. You can use this field to
-	// specify if you want to view image recipes owned by yourself, by Amazon, or those
-	// image recipes that have been shared with you by other customers.
+	// The owner defines which image recipes you want to list. By default, this
+	// request will only show image recipes owned by your account. You can use this
+	// field to specify if you want to view image recipes owned by yourself, by Amazon,
+	// or those image recipes that have been shared with you by other customers.
 	Owner types.Ownership
 
 	noSmithyDocumentSerde
@@ -61,9 +57,9 @@ type ListImageRecipesOutput struct {
 	// The list of image pipelines.
 	ImageRecipeSummaryList []types.ImageRecipeSummary
 
-	// The next token used for paginated responses. When this is not empty, there are
-	// additional elements that the service has not included in this request. Use this
-	// token with the next request to retrieve additional objects.
+	// The next token used for paginated responses. When this field isn't empty, there
+	// are additional elements that the service has'ot included in this request. Use
+	// this token with the next request to retrieve additional objects.
 	NextToken *string
 
 	// The request ID that uniquely identifies this request.

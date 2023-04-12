@@ -36,12 +36,8 @@ type ListConstraintsForPortfolioInput struct {
 	PortfolioId *string
 
 	// The language code.
-	//
-	// * en - English (default)
-	//
-	// * jp - Japanese
-	//
-	// * zh - Chinese
+	//   - jp - Japanese
+	//   - zh - Chinese
 	AcceptLanguage *string
 
 	// The maximum number of items to return with this call.

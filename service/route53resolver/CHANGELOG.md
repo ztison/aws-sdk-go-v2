@@ -1,3 +1,23 @@
+# v1.17.5 (2023-04-10)
+
+* No change notes available for this release.
+
+# v1.17.4 (2023-04-07)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.17.3 (2023-03-21)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.17.2 (2023-03-13)
+
+* No change notes available for this release.
+
+# v1.17.1 (2023-03-10)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
 # v1.17.0 (2023-03-08)
 
 * **Feature**: Add dual-stack and IPv6 support for Route 53 Resolver Endpoint,Add IPv6 target IP in Route 53 Resolver Forwarding Rule

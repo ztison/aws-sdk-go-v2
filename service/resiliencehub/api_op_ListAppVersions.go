@@ -12,7 +12,7 @@ import (
 	smithyhttp "github.com/aws/smithy-go/transport/http"
 )
 
-// Lists the different versions for the AWS Resilience Hub applications.
+// Lists the different versions for the Resilience Hub applications.
 func (c *Client) ListAppVersions(ctx context.Context, params *ListAppVersionsInput, optFns ...func(*Options)) (*ListAppVersionsOutput, error) {
 	if params == nil {
 		params = &ListAppVersionsInput{}
@@ -30,18 +30,17 @@ func (c *Client) ListAppVersions(ctx context.Context, params *ListAppVersionsInp
 
 type ListAppVersionsInput struct {
 
-	// The Amazon Resource Name (ARN) of the AWS Resilience Hub application. The format
-	// for this ARN is: arn:partition:resiliencehub:region:account:app/app-id. For more
-	// information about ARNs, see  Amazon Resource Names (ARNs)
-	// (https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in
-	// the AWS General Reference guide.
+	// The Amazon Resource Name (ARN) of the Resilience Hub application. The format
+	// for this ARN is: arn: partition :resiliencehub: region : account :app/ app-id .
+	// For more information about ARNs, see Amazon Resource Names (ARNs) (https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)
+	// in the AWS General Reference guide.
 	//
 	// This member is required.
 	AppArn *string
 
 	// The maximum number of results to include in the response. If more results exist
-	// than the specified MaxResults value, a token is included in the response so that
-	// the remaining results can be retrieved.
+	// than the specified MaxResults value, a token is included in the response so
+	// that the remaining results can be retrieved.
 	MaxResults *int32
 
 	// Null, or the token from a previous call to get the next set of results.
@@ -140,8 +139,8 @@ var _ ListAppVersionsAPIClient = (*Client)(nil)
 // ListAppVersionsPaginatorOptions is the paginator options for ListAppVersions
 type ListAppVersionsPaginatorOptions struct {
 	// The maximum number of results to include in the response. If more results exist
-	// than the specified MaxResults value, a token is included in the response so that
-	// the remaining results can be retrieved.
+	// than the specified MaxResults value, a token is included in the response so
+	// that the remaining results can be retrieved.
 	Limit int32
 
 	// Set to true if pagination should stop if the service returns a pagination token

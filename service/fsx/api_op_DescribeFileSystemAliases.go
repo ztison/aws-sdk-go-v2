@@ -39,7 +39,7 @@ type DescribeFileSystemAliasesInput struct {
 	// This member is required.
 	FileSystemId *string
 
-	// (Optional) An idempotency token for resource creation, in a string of up to 64
+	// (Optional) An idempotency token for resource creation, in a string of up to 63
 	// ASCII characters. This token is automatically filled on your behalf when you use
 	// the Command Line Interface (CLI) or an Amazon Web Services SDK.
 	ClientRequestToken *string
@@ -61,8 +61,8 @@ type DescribeFileSystemAliasesInput struct {
 // The response object for DescribeFileSystemAliases operation.
 type DescribeFileSystemAliasesOutput struct {
 
-	// An array of one or more DNS aliases currently associated with the specified file
-	// system.
+	// An array of one or more DNS aliases currently associated with the specified
+	// file system.
 	Aliases []types.Alias
 
 	// Present if there are more DNS aliases than returned in the response (String).

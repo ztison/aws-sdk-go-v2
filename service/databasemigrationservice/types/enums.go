@@ -54,9 +54,9 @@ const (
 	CannedAclForObjectsValueBucketOwnerFullControl CannedAclForObjectsValue = "bucket-owner-full-control"
 )
 
-// Values returns all known values for CannedAclForObjectsValue. Note that this can
-// be expanded in the future, and so it is only as up to date as the client. The
-// ordering of this slice is not guaranteed to be stable across updates.
+// Values returns all known values for CannedAclForObjectsValue. Note that this
+// can be expanded in the future, and so it is only as up to date as the client.
+// The ordering of this slice is not guaranteed to be stable across updates.
 func (CannedAclForObjectsValue) Values() []CannedAclForObjectsValue {
 	return []CannedAclForObjectsValue{
 		"none",
@@ -260,15 +260,33 @@ const (
 	EndpointSettingTypeValueEnum    EndpointSettingTypeValue = "enum"
 )
 
-// Values returns all known values for EndpointSettingTypeValue. Note that this can
-// be expanded in the future, and so it is only as up to date as the client. The
-// ordering of this slice is not guaranteed to be stable across updates.
+// Values returns all known values for EndpointSettingTypeValue. Note that this
+// can be expanded in the future, and so it is only as up to date as the client.
+// The ordering of this slice is not guaranteed to be stable across updates.
 func (EndpointSettingTypeValue) Values() []EndpointSettingTypeValue {
 	return []EndpointSettingTypeValue{
 		"string",
 		"boolean",
 		"integer",
 		"enum",
+	}
+}
+
+type KafkaSaslMechanism string
+
+// Enum values for KafkaSaslMechanism
+const (
+	KafkaSaslMechanismScramSha512 KafkaSaslMechanism = "scram-sha-512"
+	KafkaSaslMechanismPlain       KafkaSaslMechanism = "plain"
+)
+
+// Values returns all known values for KafkaSaslMechanism. Note that this can be
+// expanded in the future, and so it is only as up to date as the client. The
+// ordering of this slice is not guaranteed to be stable across updates.
+func (KafkaSaslMechanism) Values() []KafkaSaslMechanism {
+	return []KafkaSaslMechanism{
+		"scram-sha-512",
+		"plain",
 	}
 }
 
@@ -282,8 +300,8 @@ const (
 	KafkaSecurityProtocolSaslSsl           KafkaSecurityProtocol = "sasl-ssl"
 )
 
-// Values returns all known values for KafkaSecurityProtocol. Note that this can be
-// expanded in the future, and so it is only as up to date as the client. The
+// Values returns all known values for KafkaSecurityProtocol. Note that this can
+// be expanded in the future, and so it is only as up to date as the client. The
 // ordering of this slice is not guaranteed to be stable across updates.
 func (KafkaSecurityProtocol) Values() []KafkaSecurityProtocol {
 	return []KafkaSecurityProtocol{
@@ -473,9 +491,10 @@ const (
 	ReplicationEndpointTypeValueTarget ReplicationEndpointTypeValue = "target"
 )
 
-// Values returns all known values for ReplicationEndpointTypeValue. Note that this
-// can be expanded in the future, and so it is only as up to date as the client.
-// The ordering of this slice is not guaranteed to be stable across updates.
+// Values returns all known values for ReplicationEndpointTypeValue. Note that
+// this can be expanded in the future, and so it is only as up to date as the
+// client. The ordering of this slice is not guaranteed to be stable across
+// updates.
 func (ReplicationEndpointTypeValue) Values() []ReplicationEndpointTypeValue {
 	return []ReplicationEndpointTypeValue{
 		"source",
@@ -527,9 +546,9 @@ const (
 	SslSecurityProtocolValueSslEncryption SslSecurityProtocolValue = "ssl-encryption"
 )
 
-// Values returns all known values for SslSecurityProtocolValue. Note that this can
-// be expanded in the future, and so it is only as up to date as the client. The
-// ordering of this slice is not guaranteed to be stable across updates.
+// Values returns all known values for SslSecurityProtocolValue. Note that this
+// can be expanded in the future, and so it is only as up to date as the client.
+// The ordering of this slice is not guaranteed to be stable across updates.
 func (SslSecurityProtocolValue) Values() []SslSecurityProtocolValue {
 	return []SslSecurityProtocolValue{
 		"plaintext",
@@ -566,13 +585,35 @@ const (
 	TargetDbTypeMultipleDatabases TargetDbType = "multiple-databases"
 )
 
-// Values returns all known values for TargetDbType. Note that this can be expanded
-// in the future, and so it is only as up to date as the client. The ordering of
-// this slice is not guaranteed to be stable across updates.
+// Values returns all known values for TargetDbType. Note that this can be
+// expanded in the future, and so it is only as up to date as the client. The
+// ordering of this slice is not guaranteed to be stable across updates.
 func (TargetDbType) Values() []TargetDbType {
 	return []TargetDbType{
 		"specific-database",
 		"multiple-databases",
+	}
+}
+
+type TlogAccessMode string
+
+// Enum values for TlogAccessMode
+const (
+	TlogAccessModeBackupOnly   TlogAccessMode = "BackupOnly"
+	TlogAccessModePreferBackup TlogAccessMode = "PreferBackup"
+	TlogAccessModePreferTlog   TlogAccessMode = "PreferTlog"
+	TlogAccessModeTlogOnly     TlogAccessMode = "TlogOnly"
+)
+
+// Values returns all known values for TlogAccessMode. Note that this can be
+// expanded in the future, and so it is only as up to date as the client. The
+// ordering of this slice is not guaranteed to be stable across updates.
+func (TlogAccessMode) Values() []TlogAccessMode {
+	return []TlogAccessMode{
+		"BackupOnly",
+		"PreferBackup",
+		"PreferTlog",
+		"TlogOnly",
 	}
 }
 

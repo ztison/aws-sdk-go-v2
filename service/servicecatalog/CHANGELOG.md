@@ -1,3 +1,40 @@
+# v1.18.2 (2023-04-10)
+
+* No change notes available for this release.
+
+# v1.18.1 (2023-04-07)
+
+* **Documentation**: Updates description for property
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.18.0 (2023-04-05)
+
+* **Feature**: removed incorrect product type value
+
+# v1.17.0 (2023-04-03)
+
+* **Feature**: This release introduces Service Catalog support for Terraform open source. It enables 1. The notify* APIs to Service Catalog. These APIs are used by the terraform engine to notify the result of the provisioning engine execution. 2. Adds a new TERRAFORM_OPEN_SOURCE product type in CreateProduct API.
+
+# v1.16.10 (2023-03-30)
+
+* No change notes available for this release.
+
+# v1.16.9 (2023-03-29)
+
+* No change notes available for this release.
+
+# v1.16.8 (2023-03-23)
+
+* No change notes available for this release.
+
+# v1.16.7 (2023-03-21)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.16.6 (2023-03-10)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
 # v1.16.5 (2023-02-24)
 
 * **Documentation**: Documentation updates for Service Catalog

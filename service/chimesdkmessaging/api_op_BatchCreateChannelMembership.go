@@ -11,7 +11,7 @@ import (
 	smithyhttp "github.com/aws/smithy-go/transport/http"
 )
 
-// Adds a specified number of users to a channel.
+// Adds a specified number of users and bots to a channel.
 func (c *Client) BatchCreateChannelMembership(ctx context.Context, params *BatchCreateChannelMembershipInput, optFns ...func(*Options)) (*BatchCreateChannelMembershipOutput, error) {
 	if params == nil {
 		params = &BatchCreateChannelMembershipInput{}
@@ -29,17 +29,18 @@ func (c *Client) BatchCreateChannelMembership(ctx context.Context, params *Batch
 
 type BatchCreateChannelMembershipInput struct {
 
-	// The ARN of the channel to which you're adding users.
+	// The ARN of the channel to which you're adding users or bots.
 	//
 	// This member is required.
 	ChannelArn *string
 
-	// The AppInstanceUserArn of the user that makes the API call.
+	// The ARN of the AppInstanceUser or AppInstanceBot that makes the API call.
 	//
 	// This member is required.
 	ChimeBearer *string
 
-	// The AppInstanceUserArns of the members you want to add to the channel.
+	// The ARNs of the members you want to add to the channel. Only AppInstanceUsers
+	// and AppInstanceBots can be added as a channel member.
 	//
 	// This member is required.
 	MemberArns []string
@@ -48,9 +49,9 @@ type BatchCreateChannelMembershipInput struct {
 	// in a SubChannel for a moderator in an elastic channel.
 	SubChannelId *string
 
-	// The membership type of a user, DEFAULT or HIDDEN. Default members are always
-	// returned as part of ListChannelMemberships. Hidden members are only returned if
-	// the type filter in ListChannelMemberships equals HIDDEN. Otherwise hidden
+	// The membership type of a user, DEFAULT or HIDDEN . Default members are always
+	// returned as part of ListChannelMemberships . Hidden members are only returned if
+	// the type filter in ListChannelMemberships equals HIDDEN . Otherwise hidden
 	// members are not returned. This is only supported by moderators.
 	Type types.ChannelMembershipType
 
@@ -62,8 +63,8 @@ type BatchCreateChannelMembershipOutput struct {
 	// The list of channel memberships in the response.
 	BatchChannelMemberships *types.BatchChannelMemberships
 
-	// If the action fails for one or more of the memberships in the request, a list of
-	// the memberships is returned, along with error codes and error messages.
+	// If the action fails for one or more of the memberships in the request, a list
+	// of the memberships is returned, along with error codes and error messages.
 	Errors []types.BatchCreateChannelMembershipError
 
 	// Metadata pertaining to the operation's result.

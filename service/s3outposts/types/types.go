@@ -10,9 +10,8 @@ import (
 // Amazon S3 on Outposts Access Points simplify managing data access at scale for
 // shared datasets in S3 on Outposts. S3 on Outposts uses endpoints to connect to
 // Outposts buckets so that you can perform actions within your virtual private
-// cloud (VPC). For more information, see  Accessing S3 on Outposts using VPC-only
-// access points
-// (https://docs.aws.amazon.com/AmazonS3/latest/userguide/WorkingWithS3Outposts.html)
+// cloud (VPC). For more information, see Accessing S3 on Outposts using VPC-only
+// access points (https://docs.aws.amazon.com/AmazonS3/latest/userguide/WorkingWithS3Outposts.html)
 // in the Amazon Simple Storage Service User Guide.
 type Endpoint struct {
 
@@ -31,6 +30,9 @@ type Endpoint struct {
 	// The Amazon Resource Name (ARN) of the endpoint.
 	EndpointArn *string
 
+	// The failure reason, if any, for a create or delete endpoint operation.
+	FailedReason *FailedReason
+
 	// The network interface of the endpoint.
 	NetworkInterfaces []NetworkInterface
 
@@ -48,6 +50,18 @@ type Endpoint struct {
 
 	// The ID of the VPC used for the endpoint.
 	VpcId *string
+
+	noSmithyDocumentSerde
+}
+
+// The failure reason, if any, for a create or delete endpoint operation.
+type FailedReason struct {
+
+	// The failure code, if any, for a create or delete endpoint operation.
+	ErrorCode *string
+
+	// Additional error details describing the endpoint failure and recommended action.
+	Message *string
 
 	noSmithyDocumentSerde
 }

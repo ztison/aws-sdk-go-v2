@@ -1,3 +1,31 @@
+# v1.20.2 (2023-04-10)
+
+* No change notes available for this release.
+
+# v1.20.1 (2023-04-07)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.20.0 (2023-03-30)
+
+* **Feature**: Added EKS Runtime Monitoring feature support to existing detector, finding APIs and introducing new Coverage APIs
+
+# v1.19.0 (2023-03-23)
+
+* **Feature**: Adds AutoEnableOrganizationMembers attribute to DescribeOrganizationConfiguration and UpdateOrganizationConfiguration APIs.
+
+# v1.18.1 (2023-03-21)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.18.0 (2023-03-16)
+
+* **Feature**: Updated 9 APIs for feature enablement to reflect expansion of GuardDuty to features. Added new APIs and updated existing APIs to support RDS Protection GA.
+
+# v1.17.7 (2023-03-10)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
 # v1.17.6 (2023-02-23)
 
 * **Documentation**: Updated API and data types descriptions for CreateFilter, UpdateFilter, and TriggerDetails.

@@ -34,19 +34,21 @@ type ConflictType string
 
 // Enum values for ConflictType
 const (
-	ConflictTypeAnotherActiveStream                ConflictType = "ANOTHER_ACTIVE_STREAM"
-	ConflictTypeDomainNotActive                    ConflictType = "DOMAIN_NOT_ACTIVE"
-	ConflictTypeCannotChangeSpeakerAfterEnrollment ConflictType = "CANNOT_CHANGE_SPEAKER_AFTER_ENROLLMENT"
-	ConflictTypeEnrollmentAlreadyExists            ConflictType = "ENROLLMENT_ALREADY_EXISTS"
-	ConflictTypeSpeakerNotSet                      ConflictType = "SPEAKER_NOT_SET"
-	ConflictTypeSpeakerOptedOut                    ConflictType = "SPEAKER_OPTED_OUT"
-	ConflictTypeConcurrentChanges                  ConflictType = "CONCURRENT_CHANGES"
-	ConflictTypeDomainLockedFromEncryptionUpdates  ConflictType = "DOMAIN_LOCKED_FROM_ENCRYPTION_UPDATES"
+	ConflictTypeAnotherActiveStream                      ConflictType = "ANOTHER_ACTIVE_STREAM"
+	ConflictTypeDomainNotActive                          ConflictType = "DOMAIN_NOT_ACTIVE"
+	ConflictTypeCannotChangeSpeakerAfterEnrollment       ConflictType = "CANNOT_CHANGE_SPEAKER_AFTER_ENROLLMENT"
+	ConflictTypeEnrollmentAlreadyExists                  ConflictType = "ENROLLMENT_ALREADY_EXISTS"
+	ConflictTypeSpeakerNotSet                            ConflictType = "SPEAKER_NOT_SET"
+	ConflictTypeSpeakerOptedOut                          ConflictType = "SPEAKER_OPTED_OUT"
+	ConflictTypeConcurrentChanges                        ConflictType = "CONCURRENT_CHANGES"
+	ConflictTypeDomainLockedFromEncryptionUpdates        ConflictType = "DOMAIN_LOCKED_FROM_ENCRYPTION_UPDATES"
+	ConflictTypeCannotDeleteNonEmptyWatchlist            ConflictType = "CANNOT_DELETE_NON_EMPTY_WATCHLIST"
+	ConflictTypeFraudsterMustBelongToAtLeastOneWatchlist ConflictType = "FRAUDSTER_MUST_BELONG_TO_AT_LEAST_ONE_WATCHLIST"
 )
 
-// Values returns all known values for ConflictType. Note that this can be expanded
-// in the future, and so it is only as up to date as the client. The ordering of
-// this slice is not guaranteed to be stable across updates.
+// Values returns all known values for ConflictType. Note that this can be
+// expanded in the future, and so it is only as up to date as the client. The
+// ordering of this slice is not guaranteed to be stable across updates.
 func (ConflictType) Values() []ConflictType {
 	return []ConflictType{
 		"ANOTHER_ACTIVE_STREAM",
@@ -57,6 +59,8 @@ func (ConflictType) Values() []ConflictType {
 		"SPEAKER_OPTED_OUT",
 		"CONCURRENT_CHANGES",
 		"DOMAIN_LOCKED_FROM_ENCRYPTION_UPDATES",
+		"CANNOT_DELETE_NON_EMPTY_WATCHLIST",
+		"FRAUDSTER_MUST_BELONG_TO_AT_LEAST_ONE_WATCHLIST",
 	}
 }
 
@@ -69,9 +73,9 @@ const (
 	DomainStatusSuspended DomainStatus = "SUSPENDED"
 )
 
-// Values returns all known values for DomainStatus. Note that this can be expanded
-// in the future, and so it is only as up to date as the client. The ordering of
-// this slice is not guaranteed to be stable across updates.
+// Values returns all known values for DomainStatus. Note that this can be
+// expanded in the future, and so it is only as up to date as the client. The
+// ordering of this slice is not guaranteed to be stable across updates.
 func (DomainStatus) Values() []DomainStatus {
 	return []DomainStatus{
 		"ACTIVE",
@@ -106,9 +110,9 @@ const (
 	ExistingEnrollmentActionOverwrite ExistingEnrollmentAction = "OVERWRITE"
 )
 
-// Values returns all known values for ExistingEnrollmentAction. Note that this can
-// be expanded in the future, and so it is only as up to date as the client. The
-// ordering of this slice is not guaranteed to be stable across updates.
+// Values returns all known values for ExistingEnrollmentAction. Note that this
+// can be expanded in the future, and so it is only as up to date as the client.
+// The ordering of this slice is not guaranteed to be stable across updates.
 func (ExistingEnrollmentAction) Values() []ExistingEnrollmentAction {
 	return []ExistingEnrollmentAction{
 		"SKIP",
@@ -207,11 +211,12 @@ const (
 	ResourceTypeFraudster         ResourceType = "FRAUDSTER"
 	ResourceTypeSession           ResourceType = "SESSION"
 	ResourceTypeSpeaker           ResourceType = "SPEAKER"
+	ResourceTypeWatchlist         ResourceType = "WATCHLIST"
 )
 
-// Values returns all known values for ResourceType. Note that this can be expanded
-// in the future, and so it is only as up to date as the client. The ordering of
-// this slice is not guaranteed to be stable across updates.
+// Values returns all known values for ResourceType. Note that this can be
+// expanded in the future, and so it is only as up to date as the client. The
+// ordering of this slice is not guaranteed to be stable across updates.
 func (ResourceType) Values() []ResourceType {
 	return []ResourceType{
 		"BATCH_JOB",
@@ -220,6 +225,7 @@ func (ResourceType) Values() []ResourceType {
 		"FRAUDSTER",
 		"SESSION",
 		"SPEAKER",
+		"WATCHLIST",
 	}
 }
 

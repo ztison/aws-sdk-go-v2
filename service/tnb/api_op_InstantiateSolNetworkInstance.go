@@ -15,8 +15,8 @@ import (
 // in Amazon Web Services TNB that can be deployed and on which life-cycle
 // operations (like terminate, update, and delete) can be performed. Before you can
 // instantiate a network instance, you have to create a network instance. For more
-// information, see CreateSolNetworkInstance
-// (https://docs.aws.amazon.com/TNB/latest/APIReference/API_CreateSolNetworkInstance.html).
+// information, see CreateSolNetworkInstance (https://docs.aws.amazon.com/tnb/latest/APIReference/API_CreateSolNetworkInstance.html)
+// .
 func (c *Client) InstantiateSolNetworkInstance(ctx context.Context, params *InstantiateSolNetworkInstanceInput, optFns ...func(*Options)) (*InstantiateSolNetworkInstanceOutput, error) {
 	if params == nil {
 		params = &InstantiateSolNetworkInstanceInput{}
@@ -44,19 +44,31 @@ type InstantiateSolNetworkInstanceInput struct {
 
 	// A check for whether you have the required permissions for the action without
 	// actually making the request and provides an error response. If you have the
-	// required permissions, the error response is DryRunOperation. Otherwise, it is
-	// UnauthorizedOperation.
+	// required permissions, the error response is DryRunOperation . Otherwise, it is
+	// UnauthorizedOperation .
 	DryRun *bool
+
+	// A tag is a label that you assign to an Amazon Web Services resource. Each tag
+	// consists of a key and an optional value. When you use this API, the tags are
+	// transferred to the network operation that is created. Use tags to search and
+	// filter your resources or track your Amazon Web Services costs.
+	Tags map[string]string
 
 	noSmithyDocumentSerde
 }
 
 type InstantiateSolNetworkInstanceOutput struct {
 
-	// The identifier of the network instance.
+	// The identifier of the network operation.
 	//
 	// This member is required.
 	NsLcmOpOccId *string
+
+	// A tag is a label that you assign to an Amazon Web Services resource. Each tag
+	// consists of a key and an optional value. When you use this API, the tags are
+	// transferred to the network operation that is created. Use tags to search and
+	// filter your resources or track your Amazon Web Services costs.
+	Tags map[string]string
 
 	// Metadata pertaining to the operation's result.
 	ResultMetadata middleware.Metadata

@@ -32,22 +32,19 @@ func (c *Client) SearchProvisionedProducts(ctx context.Context, params *SearchPr
 type SearchProvisionedProductsInput struct {
 
 	// The language code.
-	//
-	// * en - English (default)
-	//
-	// * jp - Japanese
-	//
-	// * zh - Chinese
+	//   - jp - Japanese
+	//   - zh - Chinese
 	AcceptLanguage *string
 
-	// The access level to use to obtain results. The default is User.
+	// The access level to use to obtain results. The default is User .
 	AccessLevelFilter *types.AccessLevelFilter
 
-	// The search filters. When the key is SearchQuery, the searchable fields are arn,
-	// createdTime, id, lastRecordId, idempotencyToken, name, physicalId, productId,
-	// provisioningArtifact, type, status, tags, userArn, userArnSession,
-	// lastProvisioningRecordId, lastSuccessfulProvisioningRecordId, productName, and
-	// provisioningArtifactName. Example: "SearchQuery":["status:AVAILABLE"]
+	// The search filters. When the key is SearchQuery , the searchable fields are arn
+	// , createdTime , id , lastRecordId , idempotencyToken , name , physicalId ,
+	// productId , provisioningArtifact , type , status , tags , userArn ,
+	// userArnSession , lastProvisioningRecordId , lastSuccessfulProvisioningRecordId ,
+	// productName , and provisioningArtifactName . Example:
+	// "SearchQuery":["status:AVAILABLE"]
 	Filters map[string][]string
 
 	// The maximum number of items to return with this call.
@@ -58,7 +55,7 @@ type SearchProvisionedProductsInput struct {
 	PageToken *string
 
 	// The sort field. If no value is specified, the results are not sorted. The valid
-	// values are arn, id, name, and lastRecordId.
+	// values are arn , id , name , and lastRecordId .
 	SortBy *string
 
 	// The sort order. If no value is specified, the results are not sorted.

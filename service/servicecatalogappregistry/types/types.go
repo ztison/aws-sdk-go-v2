@@ -7,8 +7,8 @@ import (
 	"time"
 )
 
-// Represents a Amazon Web Services Service Catalog AppRegistry application that is
-// the top-level node in a hierarchy of related cloud resource abstractions.
+// Represents a Amazon Web Services Service Catalog AppRegistry application that
+// is the top-level node in a hierarchy of related cloud resource abstractions.
 type Application struct {
 
 	// The Amazon resource name (ARN) that specifies the application across services.
@@ -63,10 +63,10 @@ type ApplicationSummary struct {
 	noSmithyDocumentSerde
 }
 
-// Includes all of the Service Catalog AppRegistry settings.
+// Includes all of the AppRegistry settings.
 type AppRegistryConfiguration struct {
 
-	// Includes the definition of a tagQuery.
+	// Includes the definition of a tagQuery .
 	TagQueryConfiguration *TagQueryConfiguration
 
 	noSmithyDocumentSerde
@@ -109,11 +109,14 @@ type AttributeGroupDetails struct {
 	// The Amazon resource name (ARN) that specifies the attribute group.
 	Arn *string
 
+	// The service principal that created the attribute group.
+	CreatedBy *string
+
 	// The unique identifier of the attribute group.
 	Id *string
 
 	// This field is no longer supported. We recommend you don't use the field when
-	// using ListAttributeGroupsForApplication. The name of the attribute group.
+	// using ListAttributeGroupsForApplication . The name of the attribute group.
 	//
 	// Deprecated: This field is deprecated. We recommend not using the field when
 	// using ListAttributeGroupsForApplication.
@@ -128,6 +131,9 @@ type AttributeGroupSummary struct {
 	// The Amazon resource name (ARN) that specifies the attribute group across
 	// services.
 	Arn *string
+
+	// The service principal that created the attribute group.
+	CreatedBy *string
 
 	// The ISO-8601 formatted timestamp of the moment the attribute group was created.
 	CreationTime *time.Time
@@ -197,9 +203,9 @@ type ResourceGroup struct {
 
 	// The state of the propagation process for the resource group. The states
 	// includes: CREATING if the resource group is in the process of being created.
-	// CREATE_COMPLETE if the resource group was created successfully. CREATE_FAILED if
-	// the resource group failed to be created. UPDATING if the resource group is in
-	// the process of being updated. UPDATE_COMPLETE if the resource group updated
+	// CREATE_COMPLETE if the resource group was created successfully. CREATE_FAILED
+	// if the resource group failed to be created. UPDATING if the resource group is
+	// in the process of being updated. UPDATE_COMPLETE if the resource group updated
 	// successfully. UPDATE_FAILED if the resource group could not update successfully.
 	State ResourceGroupState
 
@@ -233,7 +239,7 @@ type ResourceIntegrations struct {
 	noSmithyDocumentSerde
 }
 
-// The definition of tagQuery. Specifies which resources are associated with an
+// The definition of tagQuery . Specifies which resources are associated with an
 // application.
 type TagQueryConfiguration struct {
 

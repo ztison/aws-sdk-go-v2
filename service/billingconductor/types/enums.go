@@ -13,9 +13,10 @@ const (
 	AssociateResourceErrorReasonInvalidBillingPeriodRange AssociateResourceErrorReason = "INVALID_BILLING_PERIOD_RANGE"
 )
 
-// Values returns all known values for AssociateResourceErrorReason. Note that this
-// can be expanded in the future, and so it is only as up to date as the client.
-// The ordering of this slice is not guaranteed to be stable across updates.
+// Values returns all known values for AssociateResourceErrorReason. Note that
+// this can be expanded in the future, and so it is only as up to date as the
+// client. The ordering of this slice is not guaranteed to be stable across
+// updates.
 func (AssociateResourceErrorReason) Values() []AssociateResourceErrorReason {
 	return []AssociateResourceErrorReason{
 		"INVALID_ARN",
@@ -76,9 +77,9 @@ const (
 	CurrencyCodeCny CurrencyCode = "CNY"
 )
 
-// Values returns all known values for CurrencyCode. Note that this can be expanded
-// in the future, and so it is only as up to date as the client. The ordering of
-// this slice is not guaranteed to be stable across updates.
+// Values returns all known values for CurrencyCode. Note that this can be
+// expanded in the future, and so it is only as up to date as the client. The
+// ordering of this slice is not guaranteed to be stable across updates.
 func (CurrencyCode) Values() []CurrencyCode {
 	return []CurrencyCode{
 		"USD",
@@ -129,6 +130,7 @@ const (
 	PricingRuleScopeGlobal        PricingRuleScope = "GLOBAL"
 	PricingRuleScopeService       PricingRuleScope = "SERVICE"
 	PricingRuleScopeBillingEntity PricingRuleScope = "BILLING_ENTITY"
+	PricingRuleScopeSku           PricingRuleScope = "SKU"
 )
 
 // Values returns all known values for PricingRuleScope. Note that this can be
@@ -139,6 +141,7 @@ func (PricingRuleScope) Values() []PricingRuleScope {
 		"GLOBAL",
 		"SERVICE",
 		"BILLING_ENTITY",
+		"SKU",
 	}
 }
 
@@ -219,6 +222,10 @@ const (
 	ValidationExceptionReasonIllegalType                       ValidationExceptionReason = "ILLEGAL_TYPE"
 	ValidationExceptionReasonIllegalEndedBillinggroup          ValidationExceptionReason = "ILLEGAL_ENDED_BILLINGGROUP"
 	ValidationExceptionReasonIllegalTieringInput               ValidationExceptionReason = "ILLEGAL_TIERING_INPUT"
+	ValidationExceptionReasonIllegalOperation                  ValidationExceptionReason = "ILLEGAL_OPERATION"
+	ValidationExceptionReasonIllegalUsageType                  ValidationExceptionReason = "ILLEGAL_USAGE_TYPE"
+	ValidationExceptionReasonInvalidSkuCombo                   ValidationExceptionReason = "INVALID_SKU_COMBO"
+	ValidationExceptionReasonInvalidFilter                     ValidationExceptionReason = "INVALID_FILTER"
 )
 
 // Values returns all known values for ValidationExceptionReason. Note that this
@@ -279,5 +286,9 @@ func (ValidationExceptionReason) Values() []ValidationExceptionReason {
 		"ILLEGAL_TYPE",
 		"ILLEGAL_ENDED_BILLINGGROUP",
 		"ILLEGAL_TIERING_INPUT",
+		"ILLEGAL_OPERATION",
+		"ILLEGAL_USAGE_TYPE",
+		"INVALID_SKU_COMBO",
+		"INVALID_FILTER",
 	}
 }

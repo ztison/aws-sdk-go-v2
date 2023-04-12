@@ -1,3 +1,31 @@
+# v1.11.4 (2023-04-10)
+
+* No change notes available for this release.
+
+# v1.11.3 (2023-04-07)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.11.2 (2023-03-31)
+
+* No change notes available for this release.
+
+# v1.11.1 (2023-03-23)
+
+* No change notes available for this release.
+
+# v1.11.0 (2023-03-22)
+
+* **Feature**: This release adds support of adding metadata when creating a new scene or updating an existing scene.
+
+# v1.10.6 (2023-03-21)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.10.5 (2023-03-10)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
 # v1.10.4 (2023-02-22)
 
 * **Bug Fix**: Prevent nil pointer dereference when retrieving error codes.
