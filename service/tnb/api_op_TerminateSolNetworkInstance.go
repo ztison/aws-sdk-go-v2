@@ -10,10 +10,10 @@ import (
 	smithyhttp "github.com/aws/smithy-go/transport/http"
 )
 
-// Terminates a network instance. A network instance is a single network created in
-// Amazon Web Services TNB that can be deployed and on which life-cycle operations
-// (like terminate, update, and delete) can be performed. You must terminate a
-// network instance before you can delete it.
+// Terminates a network instance. A network instance is a single network created
+// in Amazon Web Services TNB that can be deployed and on which life-cycle
+// operations (like terminate, update, and delete) can be performed. You must
+// terminate a network instance before you can delete it.
 func (c *Client) TerminateSolNetworkInstance(ctx context.Context, params *TerminateSolNetworkInstanceInput, optFns ...func(*Options)) (*TerminateSolNetworkInstanceOutput, error) {
 	if params == nil {
 		params = &TerminateSolNetworkInstanceInput{}
@@ -36,13 +36,25 @@ type TerminateSolNetworkInstanceInput struct {
 	// This member is required.
 	NsInstanceId *string
 
+	// A tag is a label that you assign to an Amazon Web Services resource. Each tag
+	// consists of a key and an optional value. When you use this API, the tags are
+	// transferred to the network operation that is created. Use tags to search and
+	// filter your resources or track your Amazon Web Services costs.
+	Tags map[string]string
+
 	noSmithyDocumentSerde
 }
 
 type TerminateSolNetworkInstanceOutput struct {
 
-	// The identifier of the operation occurrence.
+	// The identifier of the network operation.
 	NsLcmOpOccId *string
+
+	// A tag is a label that you assign to an Amazon Web Services resource. Each tag
+	// consists of a key and an optional value. When you use this API, the tags are
+	// transferred to the network operation that is created. Use tags to search and
+	// filter your resources or track your Amazon Web Services costs.
+	Tags map[string]string
 
 	// Metadata pertaining to the operation's result.
 	ResultMetadata middleware.Metadata

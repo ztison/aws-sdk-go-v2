@@ -1,3 +1,23 @@
+# v1.14.2 (2023-04-10)
+
+* No change notes available for this release.
+
+# v1.14.1 (2023-04-07)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.14.0 (2023-03-31)
+
+* **Feature**: In this release, you can now chose between soft delete and hard delete when calling the DeleteRecord API, so you have more flexibility when it comes to managing online store data.
+
+# v1.13.6 (2023-03-21)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.13.5 (2023-03-10)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
 # v1.13.4 (2023-02-22)
 
 * **Bug Fix**: Prevent nil pointer dereference when retrieving error codes.

@@ -1,3 +1,39 @@
+# v1.73.3 (2023-04-10)
+
+* No change notes available for this release.
+
+# v1.73.2 (2023-04-07)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.73.1 (2023-04-06)
+
+* No change notes available for this release.
+
+# v1.73.0 (2023-04-04)
+
+* **Feature**: Amazon SageMaker Asynchronous Inference now allows customer's to receive failure model responses in S3 and receive success/failure model responses in SNS notifications.
+
+# v1.72.2 (2023-03-30)
+
+* No change notes available for this release.
+
+# v1.72.1 (2023-03-27)
+
+* **Documentation**: Fixed some improperly rendered links in SDK documentation.
+
+# v1.72.0 (2023-03-23)
+
+* **Feature**: Amazon SageMaker Autopilot adds two new APIs - CreateAutoMLJobV2 and DescribeAutoMLJobV2. Amazon SageMaker Notebook Instances now supports the ml.geospatial.interactive instance type.
+
+# v1.71.2 (2023-03-21)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.71.1 (2023-03-10)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
 # v1.71.0 (2023-03-09)
 
 * **Feature**: Amazon SageMaker Inference now allows SSM access to customer's model container by setting the "EnableSSMAccess" parameter for a ProductionVariant in CreateEndpointConfig API.

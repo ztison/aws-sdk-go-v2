@@ -12,7 +12,7 @@ import (
 	smithyhttp "github.com/aws/smithy-go/transport/http"
 )
 
-// Lists all PrincipalARNs and corresponding PrincipalTypes associated with the
+// Lists all PrincipalARN s and corresponding PrincipalType s associated with the
 // specified portfolio.
 func (c *Client) ListPrincipalsForPortfolio(ctx context.Context, params *ListPrincipalsForPortfolioInput, optFns ...func(*Options)) (*ListPrincipalsForPortfolioOutput, error) {
 	if params == nil {
@@ -37,12 +37,8 @@ type ListPrincipalsForPortfolioInput struct {
 	PortfolioId *string
 
 	// The language code.
-	//
-	// * en - English (default)
-	//
-	// * jp - Japanese
-	//
-	// * zh - Chinese
+	//   - jp - Japanese
+	//   - zh - Chinese
 	AcceptLanguage *string
 
 	// The maximum number of items to return with this call.
@@ -61,7 +57,7 @@ type ListPrincipalsForPortfolioOutput struct {
 	// additional results, this value is null.
 	NextPageToken *string
 
-	// The PrincipalARNs and corresponding PrincipalTypes associated with the
+	// The PrincipalARN s and corresponding PrincipalType s associated with the
 	// portfolio.
 	Principals []types.Principal
 

@@ -30,7 +30,7 @@ func (c *Client) UpdateStorageVirtualMachine(ctx context.Context, params *Update
 
 type UpdateStorageVirtualMachineInput struct {
 
-	// The ID of the SVM that you want to update, in the format svm-0123456789abcdef0.
+	// The ID of the SVM that you want to update, in the format svm-0123456789abcdef0 .
 	//
 	// This member is required.
 	StorageVirtualMachineId *string
@@ -39,7 +39,7 @@ type UpdateStorageVirtualMachineInput struct {
 	// joined to an AD.
 	ActiveDirectoryConfiguration *types.UpdateSvmActiveDirectoryConfiguration
 
-	// (Optional) An idempotency token for resource creation, in a string of up to 64
+	// (Optional) An idempotency token for resource creation, in a string of up to 63
 	// ASCII characters. This token is automatically filled on your behalf when you use
 	// the Command Line Interface (CLI) or an Amazon Web Services SDK.
 	ClientRequestToken *string

@@ -1,3 +1,23 @@
+# v1.31.2 (2023-04-10)
+
+* No change notes available for this release.
+
+# v1.31.1 (2023-04-07)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.31.0 (2023-03-27)
+
+* **Feature**: AWS Elemental MediaLive now supports ID3 tag insertion for audio only HLS output groups. AWS Elemental Link devices now support tagging.
+
+# v1.30.2 (2023-03-21)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.30.1 (2023-03-10)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
 # v1.30.0 (2023-03-03)
 
 * **Feature**: AWS Elemental MediaLive adds support for Nielsen watermark timezones.

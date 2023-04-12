@@ -3,7 +3,7 @@
 // Package iottwinmaker provides the API client, operations, and parameter types
 // for AWS IoT TwinMaker.
 //
-// IoT TwinMaker is a service that enables you to build operational digital twins
+// IoT TwinMaker is a service with which you can build operational digital twins
 // of physical systems. IoT TwinMaker overlays measurements and analysis from
 // real-world sensors, cameras, and enterprise applications so you can create data
 // visualizations to monitor your physical factory, building, or industrial plant.

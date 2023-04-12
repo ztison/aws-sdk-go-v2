@@ -4,6 +4,7 @@ package mgn
 
 import (
 	"context"
+	cryptorand "crypto/rand"
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/aws/defaults"
 	awsmiddleware "github.com/aws/aws-sdk-go-v2/aws/middleware"
@@ -15,6 +16,7 @@ import (
 	smithydocument "github.com/aws/smithy-go/document"
 	"github.com/aws/smithy-go/logging"
 	"github.com/aws/smithy-go/middleware"
+	smithyrand "github.com/aws/smithy-go/rand"
 	smithyhttp "github.com/aws/smithy-go/transport/http"
 	"net"
 	"net/http"
@@ -24,8 +26,8 @@ import (
 const ServiceID = "mgn"
 const ServiceAPIVersion = "2020-02-26"
 
-// Client provides the API client to make operations call for Application Migration
-// Service.
+// Client provides the API client to make operations call for Application
+// Migration Service.
 type Client struct {
 	options Options
 }
@@ -47,6 +49,8 @@ func New(options Options, optFns ...func(*Options)) *Client {
 	resolveHTTPSignerV4(&options)
 
 	resolveDefaultEndpointConfiguration(&options)
+
+	resolveIdempotencyTokenProvider(&options)
 
 	for _, fn := range optFns {
 		fn(&options)
@@ -84,6 +88,10 @@ type Options struct {
 	// Signature Version 4 (SigV4) Signer
 	HTTPSignerV4 HTTPSignerV4
 
+	// Provides idempotency tokens values that will be automatically populated into
+	// idempotent API operations.
+	IdempotencyTokenProvider IdempotencyTokenProvider
+
 	// The logger writer interface to write logging messages to.
 	Logger logging.Logger
 
@@ -115,7 +123,7 @@ type Options struct {
 	Retryer aws.Retryer
 
 	// The RuntimeEnvironment configuration, only populated if the DefaultsMode is set
-	// to DefaultsModeAuto and is initialized using config.LoadDefaultConfig. You
+	// to DefaultsModeAuto and is initialized using config.LoadDefaultConfig . You
 	// should not populate this structure programmatically, or rely on the values here
 	// within your applications.
 	RuntimeEnvironment aws.RuntimeEnvironment
@@ -378,6 +386,13 @@ func newDefaultV4Signer(o Options) *v4.Signer {
 	})
 }
 
+func resolveIdempotencyTokenProvider(o *Options) {
+	if o.IdempotencyTokenProvider != nil {
+		return
+	}
+	o.IdempotencyTokenProvider = smithyrand.NewUUIDIdempotencyToken(cryptorand.Reader)
+}
+
 func addRetryMiddlewares(stack *middleware.Stack, o Options) error {
 	mo := retry.AddRetryMiddlewaresOptions{
 		Retryer:          o.Retryer,
@@ -414,6 +429,11 @@ func resolveUseFIPSEndpoint(cfg aws.Config, o *Options) error {
 		o.EndpointOptions.UseFIPSEndpoint = value
 	}
 	return nil
+}
+
+// IdempotencyTokenProvider interface for providing idempotency token
+type IdempotencyTokenProvider interface {
+	GetIdempotencyToken() (string, error)
 }
 
 func addRequestIDRetrieverMiddleware(stack *middleware.Stack) error {

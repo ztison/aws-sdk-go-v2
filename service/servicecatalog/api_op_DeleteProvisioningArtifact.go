@@ -43,12 +43,8 @@ type DeleteProvisioningArtifactInput struct {
 	ProvisioningArtifactId *string
 
 	// The language code.
-	//
-	// * en - English (default)
-	//
-	// * jp - Japanese
-	//
-	// * zh - Chinese
+	//   - jp - Japanese
+	//   - zh - Chinese
 	AcceptLanguage *string
 
 	noSmithyDocumentSerde

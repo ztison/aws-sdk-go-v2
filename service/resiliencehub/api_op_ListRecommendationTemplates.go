@@ -12,7 +12,7 @@ import (
 	smithyhttp "github.com/aws/smithy-go/transport/http"
 )
 
-// Lists the recommendation templates for the AWS Resilience Hub applications.
+// Lists the recommendation templates for the Resilience Hub applications.
 func (c *Client) ListRecommendationTemplates(ctx context.Context, params *ListRecommendationTemplatesInput, optFns ...func(*Options)) (*ListRecommendationTemplatesOutput, error) {
 	if params == nil {
 		params = &ListRecommendationTemplatesInput{}
@@ -31,17 +31,16 @@ func (c *Client) ListRecommendationTemplates(ctx context.Context, params *ListRe
 type ListRecommendationTemplatesInput struct {
 
 	// The Amazon Resource Name (ARN) of the assessment. The format for this ARN is:
-	// arn:partition:resiliencehub:region:account:app-assessment/app-id. For more
-	// information about ARNs, see  Amazon Resource Names (ARNs)
-	// (https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in
-	// the AWS General Reference guide.
+	// arn: partition :resiliencehub: region : account :app-assessment/ app-id . For
+	// more information about ARNs, see Amazon Resource Names (ARNs) (https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)
+	// in the AWS General Reference guide.
 	//
 	// This member is required.
 	AssessmentArn *string
 
 	// The maximum number of results to include in the response. If more results exist
-	// than the specified MaxResults value, a token is included in the response so that
-	// the remaining results can be retrieved.
+	// than the specified MaxResults value, a token is included in the response so
+	// that the remaining results can be retrieved.
 	MaxResults *int32
 
 	// The name for one of the listed recommendation templates.
@@ -54,7 +53,7 @@ type ListRecommendationTemplatesInput struct {
 	RecommendationTemplateArn *string
 
 	// The default is to sort by ascending startTime. To sort by descending startTime,
-	// set reverseOrder to true.
+	// set reverseOrder to true .
 	ReverseOrder *bool
 
 	// The status of the action.
@@ -68,7 +67,7 @@ type ListRecommendationTemplatesOutput struct {
 	// The token for the next set of results, or null if there are no more results.
 	NextToken *string
 
-	// The recommendation templates for the AWS Resilience Hub applications.
+	// The recommendation templates for the Resilience Hub applications.
 	RecommendationTemplates []types.RecommendationTemplate
 
 	// Metadata pertaining to the operation's result.
@@ -152,8 +151,8 @@ var _ ListRecommendationTemplatesAPIClient = (*Client)(nil)
 // ListRecommendationTemplates
 type ListRecommendationTemplatesPaginatorOptions struct {
 	// The maximum number of results to include in the response. If more results exist
-	// than the specified MaxResults value, a token is included in the response so that
-	// the remaining results can be retrieved.
+	// than the specified MaxResults value, a token is included in the response so
+	// that the remaining results can be retrieved.
 	Limit int32
 
 	// Set to true if pagination should stop if the service returns a pagination token

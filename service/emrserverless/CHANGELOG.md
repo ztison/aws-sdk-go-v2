@@ -1,3 +1,23 @@
+# v1.6.0 (2023-04-11)
+
+* **Feature**: This release extends GetJobRun API to return job run timeout (executionTimeoutMinutes) specified during StartJobRun call (or default timeout of 720 minutes if none was specified).
+
+# v1.5.8 (2023-04-10)
+
+* No change notes available for this release.
+
+# v1.5.7 (2023-04-07)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.5.6 (2023-03-21)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.5.5 (2023-03-10)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
 # v1.5.4 (2023-02-22)
 
 * **Bug Fix**: Prevent nil pointer dereference when retrieving error codes.

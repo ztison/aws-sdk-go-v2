@@ -16,8 +16,7 @@ import (
 // create a classifier, you provide a set of training documents that labeled with
 // the categories that you want to use. After the classifier is trained you can use
 // it to categorize a set of labeled documents into the categories. For more
-// information, see Document Classification
-// (https://docs.aws.amazon.com/comprehend/latest/dg/how-document-classification.html)
+// information, see Document Classification (https://docs.aws.amazon.com/comprehend/latest/dg/how-document-classification.html)
 // in the Comprehend Developer Guide.
 func (c *Client) CreateDocumentClassifier(ctx context.Context, params *CreateDocumentClassifierInput, optFns ...func(*Options)) (*CreateDocumentClassifierOutput, error) {
 	if params == nil {
@@ -36,8 +35,8 @@ func (c *Client) CreateDocumentClassifier(ctx context.Context, params *CreateDoc
 
 type CreateDocumentClassifierInput struct {
 
-	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM)
-	// role that grants Amazon Comprehend read access to your input data.
+	// The Amazon Resource Name (ARN) of the IAM role that grants Amazon Comprehend
+	// read access to your input data.
 	//
 	// This member is required.
 	DataAccessRoleArn *string
@@ -69,23 +68,19 @@ type CreateDocumentClassifierInput struct {
 	// separated by a delimiter. The default delimiter between labels is a pipe (|).
 	Mode types.DocumentClassifierMode
 
-	// ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to
-	// encrypt trained custom models. The ModelKmsKeyId can be either of the following
-	// formats:
-	//
-	// * KMS Key ID: "1234abcd-12ab-34cd-56ef-1234567890ab"
-	//
-	// * Amazon
-	// Resource Name (ARN) of a KMS Key:
-	// "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+	// ID for the KMS key that Amazon Comprehend uses to encrypt trained custom
+	// models. The ModelKmsKeyId can be either of the following formats:
+	//   - KMS Key ID: "1234abcd-12ab-34cd-56ef-1234567890ab"
+	//   - Amazon Resource Name (ARN) of a KMS Key:
+	//   "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
 	ModelKmsKeyId *string
 
 	// The resource-based policy to attach to your custom document classifier model.
-	// You can use this policy to allow another AWS account to import your custom
-	// model. Provide your policy as a JSON body that you enter as a UTF-8 encoded
-	// string without line breaks. To provide valid JSON, enclose the attribute names
-	// and values in double quotes. If the JSON body is also enclosed in double quotes,
-	// then you must escape the double quotes that are inside the policy:
+	// You can use this policy to allow another Amazon Web Services account to import
+	// your custom model. Provide your policy as a JSON body that you enter as a UTF-8
+	// encoded string without line breaks. To provide valid JSON, enclose the attribute
+	// names and values in double quotes. If the JSON body is also enclosed in double
+	// quotes, then you must escape the double quotes that are inside the policy:
 	// "{\"attribute\": \"value\", \"attribute\": [\"value\"]}" To avoid escaping
 	// quotes, you can use single quotes to enclose the policy and double quotes to
 	// enclose the JSON names and values: '{"attribute": "value", "attribute":
@@ -102,28 +97,26 @@ type CreateDocumentClassifierInput struct {
 	// sales department.
 	Tags []types.Tag
 
-	// The version name given to the newly created classifier. Version names can have a
-	// maximum of 256 characters. Alphanumeric characters, hyphens (-) and underscores
-	// (_) are allowed. The version name must be unique among all models with the same
-	// classifier name in the account/AWS Region.
+	// The version name given to the newly created classifier. Version names can have
+	// a maximum of 256 characters. Alphanumeric characters, hyphens (-) and
+	// underscores (_) are allowed. The version name must be unique among all models
+	// with the same classifier name in the Amazon Web Services account/Amazon Web
+	// Services Region.
 	VersionName *string
 
-	// ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to
-	// encrypt data on the storage volume attached to the ML compute instance(s) that
-	// process the analysis job. The VolumeKmsKeyId can be either of the following
-	// formats:
-	//
-	// * KMS Key ID: "1234abcd-12ab-34cd-56ef-1234567890ab"
-	//
-	// * Amazon
-	// Resource Name (ARN) of a KMS Key:
-	// "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+	// ID for the Amazon Web Services Key Management Service (KMS) key that Amazon
+	// Comprehend uses to encrypt data on the storage volume attached to the ML compute
+	// instance(s) that process the analysis job. The VolumeKmsKeyId can be either of
+	// the following formats:
+	//   - KMS Key ID: "1234abcd-12ab-34cd-56ef-1234567890ab"
+	//   - Amazon Resource Name (ARN) of a KMS Key:
+	//   "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
 	VolumeKmsKeyId *string
 
 	// Configuration parameters for an optional private Virtual Private Cloud (VPC)
 	// containing the resources you are using for your custom classifier. For more
-	// information, see Amazon VPC
-	// (https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html).
+	// information, see Amazon VPC (https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html)
+	// .
 	VpcConfig *types.VpcConfig
 
 	noSmithyDocumentSerde

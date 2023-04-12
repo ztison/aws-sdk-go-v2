@@ -1,3 +1,23 @@
+# v1.22.2 (2023-04-10)
+
+* No change notes available for this release.
+
+# v1.22.1 (2023-04-07)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.22.0 (2023-03-30)
+
+* **Feature**: This release adds support for HDD EBS volume types and io2 Block Express. We are also adding support for 61 new instance types and instances that have non consecutive runtime.
+
+# v1.21.5 (2023-03-21)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.21.4 (2023-03-10)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
 # v1.21.3 (2023-02-22)
 
 * **Bug Fix**: Prevent nil pointer dereference when retrieving error codes.

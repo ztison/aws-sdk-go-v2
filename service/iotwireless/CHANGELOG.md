@@ -1,3 +1,23 @@
+# v1.26.2 (2023-04-10)
+
+* No change notes available for this release.
+
+# v1.26.1 (2023-04-07)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.26.0 (2023-03-27)
+
+* **Feature**: Introducing new APIs that enable Sidewalk devices to communicate with AWS IoT Core through Sidewalk gateways. This will empower AWS customers to connect Sidewalk devices with other AWS IoT Services, creating  possibilities for seamless integration and advanced device management.
+
+# v1.25.2 (2023-03-21)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.25.1 (2023-03-10)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
 # v1.25.0 (2023-02-23)
 
 * **Feature**: In this release, we add additional capabilities for the FUOTA which allows user to configure the fragment size, the sending interval and the redundancy ratio of the FUOTA tasks

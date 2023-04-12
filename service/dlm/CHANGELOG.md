@@ -1,3 +1,26 @@
+# v1.15.1 (2023-04-10)
+
+* No change notes available for this release.
+
+# v1.15.0 (2023-04-07)
+
+* **Announcement**: This release includes breaking changes for the timestamp trait on the data lifecycle management client.
+* **Feature**: Updated timestamp format for GetLifecyclePolicy API
+* **Bug Fix**: Correct timestamp type for data lifecycle manager.
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.14.10 (2023-03-21)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.14.9 (2023-03-16)
+
+* No change notes available for this release.
+
+# v1.14.8 (2023-03-10)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
 # v1.14.7 (2023-02-23)
 
 * No change notes available for this release.

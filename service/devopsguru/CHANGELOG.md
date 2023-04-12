@@ -1,3 +1,19 @@
+# v1.23.4 (2023-04-10)
+
+* No change notes available for this release.
+
+# v1.23.3 (2023-04-07)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.23.2 (2023-03-21)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.23.1 (2023-03-10)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
 # v1.23.0 (2023-02-27)
 
 * **Feature**: This release adds the description field on ListAnomaliesForInsight and DescribeAnomaly API responses for proactive anomalies.

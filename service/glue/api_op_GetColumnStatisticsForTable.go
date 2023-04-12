@@ -12,7 +12,7 @@ import (
 )
 
 // Retrieves table statistics of columns. The Identity and Access Management (IAM)
-// permission required for this operation is GetTable.
+// permission required for this operation is GetTable .
 func (c *Client) GetColumnStatisticsForTable(ctx context.Context, params *GetColumnStatisticsForTableInput, optFns ...func(*Options)) (*GetColumnStatisticsForTableOutput, error) {
 	if params == nil {
 		params = &GetColumnStatisticsForTableInput{}
@@ -54,7 +54,7 @@ type GetColumnStatisticsForTableInput struct {
 
 type GetColumnStatisticsForTableOutput struct {
 
-	// List of ColumnStatistics that failed to be retrieved.
+	// List of ColumnStatistics.
 	ColumnStatisticsList []types.ColumnStatistics
 
 	// List of ColumnStatistics that failed to be retrieved.

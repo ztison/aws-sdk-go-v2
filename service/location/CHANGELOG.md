@@ -1,3 +1,19 @@
+# v1.22.5 (2023-04-10)
+
+* No change notes available for this release.
+
+# v1.22.4 (2023-04-07)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.22.3 (2023-03-21)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.22.2 (2023-03-10)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
 # v1.22.1 (2023-03-07)
 
 * **Documentation**: Documentation update for the release of 3 additional map styles for use with Open Data Maps: Open Data Standard Dark, Open Data Visualization Light & Open Data Visualization Dark.

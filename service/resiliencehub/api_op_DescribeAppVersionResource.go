@@ -11,16 +11,12 @@ import (
 	smithyhttp "github.com/aws/smithy-go/transport/http"
 )
 
-// Describes a resource of the AWS Resilience Hub application. This API accepts
-// only one of the following parameters to descibe the resource:
-//
-// * resourceName
-//
-// *
-// logicalResourceId
-//
-// * physicalResourceId (Along with physicalResourceId, you can
-// also provide awsAccountId, and awsRegion)
+// Describes a resource of the Resilience Hub application. This API accepts only
+// one of the following parameters to descibe the resource:
+//   - resourceName
+//   - logicalResourceId
+//   - physicalResourceId (Along with physicalResourceId , you can also provide
+//     awsAccountId , and awsRegion )
 func (c *Client) DescribeAppVersionResource(ctx context.Context, params *DescribeAppVersionResourceInput, optFns ...func(*Options)) (*DescribeAppVersionResourceOutput, error) {
 	if params == nil {
 		params = &DescribeAppVersionResourceInput{}
@@ -38,16 +34,15 @@ func (c *Client) DescribeAppVersionResource(ctx context.Context, params *Describ
 
 type DescribeAppVersionResourceInput struct {
 
-	// The Amazon Resource Name (ARN) of the AWS Resilience Hub application. The format
-	// for this ARN is: arn:partition:resiliencehub:region:account:app/app-id. For more
-	// information about ARNs, see  Amazon Resource Names (ARNs)
-	// (https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in
-	// the AWS General Reference guide.
+	// The Amazon Resource Name (ARN) of the Resilience Hub application. The format
+	// for this ARN is: arn: partition :resiliencehub: region : account :app/ app-id .
+	// For more information about ARNs, see Amazon Resource Names (ARNs) (https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)
+	// in the AWS General Reference guide.
 	//
 	// This member is required.
 	AppArn *string
 
-	// The AWS Resilience Hub application version.
+	// The Resilience Hub application version.
 	//
 	// This member is required.
 	AppVersion *string
@@ -72,16 +67,15 @@ type DescribeAppVersionResourceInput struct {
 
 type DescribeAppVersionResourceOutput struct {
 
-	// The Amazon Resource Name (ARN) of the AWS Resilience Hub application. The format
-	// for this ARN is: arn:partition:resiliencehub:region:account:app/app-id. For more
-	// information about ARNs, see  Amazon Resource Names (ARNs)
-	// (https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in
-	// the AWS General Reference guide.
+	// The Amazon Resource Name (ARN) of the Resilience Hub application. The format
+	// for this ARN is: arn: partition :resiliencehub: region : account :app/ app-id .
+	// For more information about ARNs, see Amazon Resource Names (ARNs) (https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)
+	// in the AWS General Reference guide.
 	//
 	// This member is required.
 	AppArn *string
 
-	// The AWS Resilience Hub application version.
+	// The Resilience Hub application version.
 	//
 	// This member is required.
 	AppVersion *string

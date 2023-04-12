@@ -12,11 +12,10 @@ import (
 	"time"
 )
 
-// Deletes an event source mapping
-// (https://docs.aws.amazon.com/lambda/latest/dg/intro-invocation-modes.html). You
-// can get the identifier of a mapping from the output of ListEventSourceMappings.
-// When you delete an event source mapping, it enters a Deleting state and might
-// not be completely deleted for several seconds.
+// Deletes an event source mapping (https://docs.aws.amazon.com/lambda/latest/dg/intro-invocation-modes.html)
+// . You can get the identifier of a mapping from the output of
+// ListEventSourceMappings . When you delete an event source mapping, it enters a
+// Deleting state and might not be completely deleted for several seconds.
 func (c *Client) DeleteEventSourceMapping(ctx context.Context, params *DeleteEventSourceMappingInput, optFns ...func(*Options)) (*DeleteEventSourceMappingOutput, error) {
 	if params == nil {
 		params = &DeleteEventSourceMappingInput{}
@@ -43,11 +42,11 @@ type DeleteEventSourceMappingInput struct {
 }
 
 // A mapping between an Amazon Web Services resource and a Lambda function. For
-// details, see CreateEventSourceMapping.
+// details, see CreateEventSourceMapping .
 type DeleteEventSourceMappingOutput struct {
 
-	// Specific configuration settings for an Amazon Managed Streaming for Apache Kafka
-	// (Amazon MSK) event source.
+	// Specific configuration settings for an Amazon Managed Streaming for Apache
+	// Kafka (Amazon MSK) event source.
 	AmazonManagedKafkaEventSourceConfig *types.AmazonManagedKafkaEventSourceConfig
 
 	// The maximum number of records in each batch that Lambda pulls from your stream
@@ -59,12 +58,12 @@ type DeleteEventSourceMappingOutput struct {
 	// MaximumBatchingWindowInSeconds to at least 1.
 	BatchSize *int32
 
-	// (Streams only) If the function returns an error, split the batch in two and
-	// retry. The default value is false.
+	// (Kinesis and DynamoDB Streams only) If the function returns an error, split the
+	// batch in two and retry. The default value is false.
 	BisectBatchOnFunctionError *bool
 
-	// (Streams only) An Amazon SQS queue or Amazon SNS topic destination for discarded
-	// records.
+	// (Kinesis and DynamoDB Streams only) An Amazon SQS queue or Amazon SNS topic
+	// destination for discarded records.
 	DestinationConfig *types.DestinationConfig
 
 	// Specific configuration settings for a DocumentDB event source.
@@ -74,15 +73,15 @@ type DeleteEventSourceMappingOutput struct {
 	EventSourceArn *string
 
 	// An object that defines the filter criteria that determine whether Lambda should
-	// process an event. For more information, see Lambda event filtering
-	// (https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html).
+	// process an event. For more information, see Lambda event filtering (https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html)
+	// .
 	FilterCriteria *types.FilterCriteria
 
 	// The ARN of the Lambda function.
 	FunctionArn *string
 
-	// (Streams and Amazon SQS) A list of current response type enums applied to the
-	// event source mapping.
+	// (Kinesis, DynamoDB Streams, and Amazon SQS) A list of current response type
+	// enums applied to the event source mapping.
 	FunctionResponseTypes []types.FunctionResponseType
 
 	// The date that the event source mapping was last updated or that its state
@@ -96,8 +95,8 @@ type DeleteEventSourceMappingOutput struct {
 	// before invoking the function. You can configure MaximumBatchingWindowInSeconds
 	// to any value from 0 seconds to 300 seconds in increments of seconds. For streams
 	// and Amazon SQS event sources, the default batching window is 0 seconds. For
-	// Amazon MSK, Self-managed Apache Kafka, and Amazon MQ event sources, the default
-	// batching window is 500 ms. Note that because you can only change
+	// Amazon MSK, Self-managed Apache Kafka, Amazon MQ, and DocumentDB event sources,
+	// the default batching window is 500 ms. Note that because you can only change
 	// MaximumBatchingWindowInSeconds in increments of seconds, you cannot revert back
 	// to the 500 ms default batching window after you have changed it. To restore the
 	// default batching window, you must create a new event source mapping. Related
@@ -106,27 +105,27 @@ type DeleteEventSourceMappingOutput struct {
 	// 1.
 	MaximumBatchingWindowInSeconds *int32
 
-	// (Streams only) Discard records older than the specified age. The default value
-	// is -1, which sets the maximum age to infinite. When the value is set to
-	// infinite, Lambda never discards old records.
+	// (Kinesis and DynamoDB Streams only) Discard records older than the specified
+	// age. The default value is -1, which sets the maximum age to infinite. When the
+	// value is set to infinite, Lambda never discards old records.
 	MaximumRecordAgeInSeconds *int32
 
-	// (Streams only) Discard records after the specified number of retries. The
-	// default value is -1, which sets the maximum number of retries to infinite. When
-	// MaximumRetryAttempts is infinite, Lambda retries failed records until the record
-	// expires in the event source.
+	// (Kinesis and DynamoDB Streams only) Discard records after the specified number
+	// of retries. The default value is -1, which sets the maximum number of retries to
+	// infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records
+	// until the record expires in the event source.
 	MaximumRetryAttempts *int32
 
-	// (Streams only) The number of batches to process concurrently from each shard.
-	// The default value is 1.
+	// (Kinesis and DynamoDB Streams only) The number of batches to process
+	// concurrently from each shard. The default value is 1.
 	ParallelizationFactor *int32
 
 	// (Amazon MQ) The name of the Amazon MQ broker destination queue to consume.
 	Queues []string
 
 	// (Amazon SQS only) The scaling configuration for the event source. For more
-	// information, see Configuring maximum concurrency for Amazon SQS event sources
-	// (https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency).
+	// information, see Configuring maximum concurrency for Amazon SQS event sources (https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency)
+	// .
 	ScalingConfig *types.ScalingConfig
 
 	// The self-managed Apache Kafka cluster for your event source.
@@ -141,14 +140,14 @@ type DeleteEventSourceMappingOutput struct {
 
 	// The position in a stream from which to start reading. Required for Amazon
 	// Kinesis, Amazon DynamoDB, and Amazon MSK stream sources. AT_TIMESTAMP is
-	// supported only for Amazon Kinesis streams.
+	// supported only for Amazon Kinesis streams and Amazon DocumentDB.
 	StartingPosition types.EventSourcePosition
 
-	// With StartingPosition set to AT_TIMESTAMP, the time from which to start reading.
+	// With StartingPosition set to AT_TIMESTAMP , the time from which to start reading.
 	StartingPositionTimestamp *time.Time
 
-	// The state of the event source mapping. It can be one of the following: Creating,
-	// Enabling, Enabled, Disabling, Disabled, Updating, or Deleting.
+	// The state of the event source mapping. It can be one of the following: Creating
+	// , Enabling , Enabled , Disabling , Disabled , Updating , or Deleting .
 	State *string
 
 	// Indicates whether a user or Lambda made the last change to the event source
@@ -158,8 +157,9 @@ type DeleteEventSourceMappingOutput struct {
 	// The name of the Kafka topic.
 	Topics []string
 
-	// (Streams only) The duration in seconds of a processing window. The range is
-	// 1–900 seconds.
+	// (Kinesis and DynamoDB Streams only) The duration in seconds of a processing
+	// window for DynamoDB and Kinesis Streams event sources. A value of 0 seconds
+	// indicates no tumbling window.
 	TumblingWindowInSeconds *int32
 
 	// The identifier of the event source mapping.

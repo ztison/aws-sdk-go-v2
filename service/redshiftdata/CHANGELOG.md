@@ -1,3 +1,20 @@
+# v1.19.4 (2023-04-10)
+
+* No change notes available for this release.
+
+# v1.19.3 (2023-04-07)
+
+* **Documentation**: Update documentation of API descriptions as needed in support of temporary credentials with IAM identity.
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.19.2 (2023-03-21)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.19.1 (2023-03-10)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
 # v1.19.0 (2023-03-09)
 
 * **Feature**: Added support for Redshift Serverless workgroup-arn wherever the WorkgroupName parameter is available.

@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-// Summary of the membership details of an AppInstanceUser.
+// Summary of the membership details of an AppInstanceUser .
 type AppInstanceUserMembershipSummary struct {
 
 	// The time at which an AppInstanceUser last marked a channel as read.
@@ -16,7 +16,7 @@ type AppInstanceUserMembershipSummary struct {
 	// The ID of the SubChannel that the AppInstanceUser is a member of.
 	SubChannelId *string
 
-	// The type of ChannelMembership.
+	// The type of ChannelMembership .
 	Type ChannelMembershipType
 
 	noSmithyDocumentSerde
@@ -26,7 +26,7 @@ type AppInstanceUserMembershipSummary struct {
 // membership types.
 type BatchChannelMemberships struct {
 
-	// The ARN of the channel to which you're adding users.
+	// The ARN of the channel to which you're adding members.
 	ChannelArn *string
 
 	// The identifier of the member who invited another member.
@@ -38,7 +38,7 @@ type BatchChannelMemberships struct {
 	// The ID of the SubChannel.
 	SubChannelId *string
 
-	// The membership types set for the channel users.
+	// The membership types set for the channel members.
 	Type ChannelMembershipType
 
 	noSmithyDocumentSerde
@@ -77,6 +77,9 @@ type Channel struct {
 	// The attributes required to configure and create an elastic channel. An elastic
 	// channel can support a maximum of 1-million members.
 	ElasticChannelConfiguration *ElasticChannelConfiguration
+
+	// Settings that control when a channel expires.
+	ExpirationSettings *ExpirationSettings
 
 	// The time at which a member sent the last message in the channel.
 	LastMessageTimestamp *time.Time
@@ -138,7 +141,7 @@ type ChannelBan struct {
 	noSmithyDocumentSerde
 }
 
-// Summary of the details of a ChannelBan.
+// Summary of the details of a ChannelBan .
 type ChannelBanSummary struct {
 
 	// The member being banned from a channel.
@@ -210,19 +213,19 @@ type ChannelMembership struct {
 	noSmithyDocumentSerde
 }
 
-// Summary of the channel membership details of an AppInstanceUser.
+// Summary of the channel membership details of an AppInstanceUser .
 type ChannelMembershipForAppInstanceUserSummary struct {
 
-	// Returns the channel membership data for an AppInstance.
+	// Returns the channel membership data for an AppInstance .
 	AppInstanceUserMembershipSummary *AppInstanceUserMembershipSummary
 
-	// Returns the channel data for an AppInstance.
+	// Returns the channel data for an AppInstance .
 	ChannelSummary *ChannelSummary
 
 	noSmithyDocumentSerde
 }
 
-// The channel membership preferences for an AppInstanceUser.
+// The channel membership preferences for an AppInstanceUser .
 type ChannelMembershipPreferences struct {
 
 	// The push notification configuration of a message.
@@ -231,7 +234,7 @@ type ChannelMembershipPreferences struct {
 	noSmithyDocumentSerde
 }
 
-// Summary of the details of a ChannelMembership.
+// Summary of the details of a ChannelMembership .
 type ChannelMembershipSummary struct {
 
 	// A member's summary data.
@@ -249,6 +252,9 @@ type ChannelMessage struct {
 	// The message content.
 	Content *string
 
+	// The content type of the channel message.
+	ContentType *string
+
 	// The time at which the message was created.
 	CreatedTimestamp *time.Time
 
@@ -259,7 +265,7 @@ type ChannelMessage struct {
 	LastUpdatedTimestamp *time.Time
 
 	// The attributes for the message, used for message filtering along with a
-	// FilterRule defined in the PushNotificationPreferences.
+	// FilterRule defined in the PushNotificationPreferences .
 	MessageAttributes map[string]MessageAttributeValue
 
 	// The ID of a message.
@@ -300,8 +306,11 @@ type ChannelMessageCallback struct {
 	// The message content.
 	Content *string
 
+	// The content type of the call-back message.
+	ContentType *string
+
 	// The attributes for the message, used for message filtering along with a
-	// FilterRule defined in the PushNotificationPreferences.
+	// FilterRule defined in the PushNotificationPreferences .
 	MessageAttributes map[string]MessageAttributeValue
 
 	// The message metadata.
@@ -328,11 +337,14 @@ type ChannelMessageStatusStructure struct {
 	noSmithyDocumentSerde
 }
 
-// Summary of the messages in a Channel.
+// Summary of the messages in a Channel .
 type ChannelMessageSummary struct {
 
 	// The content of the message.
 	Content *string
+
+	// The content type of the channel messsage listed in the summary.
+	ContentType *string
 
 	// The time at which the message summary was created.
 	CreatedTimestamp *time.Time
@@ -372,7 +384,7 @@ type ChannelMessageSummary struct {
 // Summary of the details of a moderated channel.
 type ChannelModeratedByAppInstanceUserSummary struct {
 
-	// Summary of the details of a Channel.
+	// Summary of the details of a Channel .
 	ChannelSummary *ChannelSummary
 
 	noSmithyDocumentSerde
@@ -396,7 +408,7 @@ type ChannelModerator struct {
 	noSmithyDocumentSerde
 }
 
-// Summary of the details of a ChannelModerator.
+// Summary of the details of a ChannelModerator .
 type ChannelModeratorSummary struct {
 
 	// The data for a moderator.
@@ -405,7 +417,7 @@ type ChannelModeratorSummary struct {
 	noSmithyDocumentSerde
 }
 
-// Summary of the details of a Channel.
+// Summary of the details of a Channel .
 type ChannelSummary struct {
 
 	// The ARN of the channel.
@@ -453,7 +465,23 @@ type ElasticChannelConfiguration struct {
 	noSmithyDocumentSerde
 }
 
-// The details of a user.
+// Settings that control the interval after which a channel is deleted.
+type ExpirationSettings struct {
+
+	// The conditions that must be met for a channel to expire.
+	//
+	// This member is required.
+	ExpirationCriterion ExpirationCriterion
+
+	// The period in days after which the system automatically deletes a channel.
+	//
+	// This member is required.
+	ExpirationDays *int32
+
+	noSmithyDocumentSerde
+}
+
+// The details of a user or bot.
 type Identity struct {
 
 	// The ARN in an Identity.
@@ -515,13 +543,13 @@ type Processor struct {
 	// This member is required.
 	ExecutionOrder *int32
 
-	// Determines whether to continue with message processing or stop it in cases where
-	// communication with a processor fails. If a processor has a fallback action of
-	// ABORT and communication with it fails, the processor sets the message status to
-	// FAILED and does not send the message to any recipients. Note that if the last
-	// processor in the channel flow sequence has a fallback action of CONTINUE and
-	// communication with the processor fails, then the message is considered processed
-	// and sent to recipients of the channel.
+	// Determines whether to continue with message processing or stop it in cases
+	// where communication with a processor fails. If a processor has a fallback action
+	// of ABORT and communication with it fails, the processor sets the message status
+	// to FAILED and does not send the message to any recipients. Note that if the
+	// last processor in the channel flow sequence has a fallback action of CONTINUE
+	// and communication with the processor fails, then the message is considered
+	// processed and sent to recipients of the channel.
 	//
 	// This member is required.
 	FallbackAction FallbackAction
@@ -555,7 +583,7 @@ type PushNotificationConfiguration struct {
 	Title *string
 
 	// Enum value that indicates the type of the push notification for a message.
-	// DEFAULT: Normal mobile push notification. VOIP: VOIP mobile push notification.
+	// DEFAULT : Normal mobile push notification. VOIP : VOIP mobile push notification.
 	Type PushNotificationType
 
 	noSmithyDocumentSerde
@@ -590,10 +618,10 @@ type SearchField struct {
 	// This member is required.
 	Key SearchFieldKey
 
-	// The operator used to compare field values, currently EQUALS or INCLUDES. Use the
-	// EQUALS operator to find channels whose memberships equal the specified values.
-	// Use the INCLUDES operator to find channels whose memberships include the
-	// specified values.
+	// The operator used to compare field values, currently EQUALS or INCLUDES . Use
+	// the EQUALS operator to find channels whose memberships equal the specified
+	// values. Use the INCLUDES operator to find channels whose memberships include
+	// the specified values.
 	//
 	// This member is required.
 	Operator SearchFieldOperator
@@ -604,6 +632,22 @@ type SearchField struct {
 	//
 	// This member is required.
 	Values []string
+
+	noSmithyDocumentSerde
+}
+
+// The configuration for connecting a messaging stream to Amazon Kinesis.
+type StreamingConfiguration struct {
+
+	// The data type of the configuration.
+	//
+	// This member is required.
+	DataType MessagingDataType
+
+	// The ARN of the resource in the configuration.
+	//
+	// This member is required.
+	ResourceArn *string
 
 	noSmithyDocumentSerde
 }

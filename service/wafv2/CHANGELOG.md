@@ -1,3 +1,35 @@
+# v1.29.0 (2023-04-11)
+
+* **Feature**: For web ACLs that protect CloudFront protections, the default request body inspection size is now 16 KB, and you can use the new association configuration to increase the inspection size further, up to 64 KB. Sizes over 16 KB can incur additional costs.
+
+# v1.28.2 (2023-04-10)
+
+* No change notes available for this release.
+
+# v1.28.1 (2023-04-07)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.28.0 (2023-04-04)
+
+* **Feature**: This release rolls back association config feature for webACLs that protect CloudFront protections.
+
+# v1.27.0 (2023-04-03)
+
+* **Feature**: For web ACLs that protect CloudFront protections, the default request body inspection size is now 16 KB, and you can use the new association configuration to increase the inspection size further, up to 64 KB. Sizes over 16 KB can incur additional costs.
+
+# v1.26.3 (2023-03-30)
+
+* No change notes available for this release.
+
+# v1.26.2 (2023-03-21)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.26.1 (2023-03-10)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
 # v1.26.0 (2023-02-23)
 
 * **Feature**: You can now associate an AWS WAF v2 web ACL with an AWS App Runner service.

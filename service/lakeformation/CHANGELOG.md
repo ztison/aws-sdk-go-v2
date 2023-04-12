@@ -1,3 +1,31 @@
+# v1.21.2 (2023-04-10)
+
+* No change notes available for this release.
+
+# v1.21.1 (2023-04-07)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.21.0 (2023-04-03)
+
+* **Feature**: Add support for database-level federation
+
+# v1.20.4 (2023-03-30)
+
+* No change notes available for this release.
+
+# v1.20.3 (2023-03-21)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.20.2 (2023-03-13)
+
+* **Documentation**: This release updates the documentation regarding Get/Update DataCellsFilter
+
+# v1.20.1 (2023-03-10)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
 # v1.20.0 (2023-03-08)
 
 * **Feature**: This release adds two new API support "GetDataCellsFiler" and "UpdateDataCellsFilter", and also updates the corresponding documentation.

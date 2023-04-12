@@ -1,3 +1,23 @@
+# v1.23.2 (2023-04-10)
+
+* No change notes available for this release.
+
+# v1.23.1 (2023-04-07)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.23.0 (2023-03-24)
+
+* **Feature**: This release adds a new field (FlywheelArn) to the EntitiesDetectionJobProperties object. The FlywheelArn field is returned in the DescribeEntitiesDetectionJob and ListEntitiesDetectionJobs responses when the EntitiesDetection job is started with a FlywheelArn instead of an EntityRecognizerArn .
+
+# v1.22.2 (2023-03-21)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.22.1 (2023-03-10)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
 # v1.22.0 (2023-02-28)
 
 * **Feature**: Amazon Comprehend now supports flywheels to help you train and manage new model versions for custom models.

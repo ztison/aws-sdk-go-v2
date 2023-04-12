@@ -7,8 +7,8 @@ import (
 	smithy "github.com/aws/smithy-go"
 )
 
-// Concurrent updates caused an exception, for example, if you request an update to
-// an Application Auto Scaling resource that already has a pending update.
+// Concurrent updates caused an exception, for example, if you request an update
+// to an Application Auto Scaling resource that already has a pending update.
 type ConcurrentUpdateException struct {
 	Message *string
 
@@ -37,8 +37,7 @@ func (e *ConcurrentUpdateException) ErrorFault() smithy.ErrorFault { return smit
 // Failed access to resources caused an exception. This exception is thrown when
 // Application Auto Scaling is unable to retrieve the alarms associated with a
 // scaling policy due to a client error, for example, if the role ARN specified for
-// a scalable target does not have permission to call the CloudWatch DescribeAlarms
-// (https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html)
+// a scalable target does not have permission to call the CloudWatch DescribeAlarms (https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html)
 // on your behalf.
 type FailedResourceAccessException struct {
 	Message *string
@@ -118,8 +117,8 @@ func (e *InvalidNextTokenException) ErrorCode() string {
 func (e *InvalidNextTokenException) ErrorFault() smithy.ErrorFault { return smithy.FaultClient }
 
 // A per-account resource limit is exceeded. For more information, see Application
-// Auto Scaling service quotas
-// (https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-limits.html).
+// Auto Scaling service quotas (https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-limits.html)
+// .
 type LimitExceededException struct {
 	Message *string
 
@@ -174,6 +173,62 @@ func (e *ObjectNotFoundException) ErrorCode() string {
 	return *e.ErrorCodeOverride
 }
 func (e *ObjectNotFoundException) ErrorFault() smithy.ErrorFault { return smithy.FaultClient }
+
+// The specified resource doesn't exist.
+type ResourceNotFoundException struct {
+	Message *string
+
+	ErrorCodeOverride *string
+
+	ResourceName *string
+
+	noSmithyDocumentSerde
+}
+
+func (e *ResourceNotFoundException) Error() string {
+	return fmt.Sprintf("%s: %s", e.ErrorCode(), e.ErrorMessage())
+}
+func (e *ResourceNotFoundException) ErrorMessage() string {
+	if e.Message == nil {
+		return ""
+	}
+	return *e.Message
+}
+func (e *ResourceNotFoundException) ErrorCode() string {
+	if e == nil || e.ErrorCodeOverride == nil {
+		return "ResourceNotFoundException"
+	}
+	return *e.ErrorCodeOverride
+}
+func (e *ResourceNotFoundException) ErrorFault() smithy.ErrorFault { return smithy.FaultClient }
+
+// The request contains too many tags. Try the request again with fewer tags.
+type TooManyTagsException struct {
+	Message *string
+
+	ErrorCodeOverride *string
+
+	ResourceName *string
+
+	noSmithyDocumentSerde
+}
+
+func (e *TooManyTagsException) Error() string {
+	return fmt.Sprintf("%s: %s", e.ErrorCode(), e.ErrorMessage())
+}
+func (e *TooManyTagsException) ErrorMessage() string {
+	if e.Message == nil {
+		return ""
+	}
+	return *e.Message
+}
+func (e *TooManyTagsException) ErrorCode() string {
+	if e == nil || e.ErrorCodeOverride == nil {
+		return "TooManyTagsException"
+	}
+	return *e.ErrorCodeOverride
+}
+func (e *TooManyTagsException) ErrorFault() smithy.ErrorFault { return smithy.FaultClient }
 
 // An exception was thrown for a validation issue. Review the available parameters
 // for the API request.

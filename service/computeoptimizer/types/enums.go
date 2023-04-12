@@ -10,9 +10,9 @@ const (
 	AutoScalingConfigurationTargetTrackingScalingMemory AutoScalingConfiguration = "TargetTrackingScalingMemory"
 )
 
-// Values returns all known values for AutoScalingConfiguration. Note that this can
-// be expanded in the future, and so it is only as up to date as the client. The
-// ordering of this slice is not guaranteed to be stable across updates.
+// Values returns all known values for AutoScalingConfiguration. Note that this
+// can be expanded in the future, and so it is only as up to date as the client.
+// The ordering of this slice is not guaranteed to be stable across updates.
 func (AutoScalingConfiguration) Values() []AutoScalingConfiguration {
 	return []AutoScalingConfiguration{
 		"TargetTrackingScalingCpu",
@@ -28,8 +28,8 @@ const (
 	CpuVendorArchitectureCurrent  CpuVendorArchitecture = "CURRENT"
 )
 
-// Values returns all known values for CpuVendorArchitecture. Note that this can be
-// expanded in the future, and so it is only as up to date as the client. The
+// Values returns all known values for CpuVendorArchitecture. Note that this can
+// be expanded in the future, and so it is only as up to date as the client. The
 // ordering of this slice is not guaranteed to be stable across updates.
 func (CpuVendorArchitecture) Values() []CpuVendorArchitecture {
 	return []CpuVendorArchitecture{
@@ -526,6 +526,7 @@ const (
 	ExportableInstanceFieldInferredWorkloadTypes                                           ExportableInstanceField = "InferredWorkloadTypes"
 	ExportableInstanceFieldRecommendationOptionsMigrationEffort                            ExportableInstanceField = "RecommendationOptionsMigrationEffort"
 	ExportableInstanceFieldEffectiveRecommendationPreferencesExternalMetricsSource         ExportableInstanceField = "EffectiveRecommendationPreferencesExternalMetricsSource"
+	ExportableInstanceFieldInstanceState                                                   ExportableInstanceField = "InstanceState"
 )
 
 // Values returns all known values for ExportableInstanceField. Note that this can
@@ -586,6 +587,7 @@ func (ExportableInstanceField) Values() []ExportableInstanceField {
 		"InferredWorkloadTypes",
 		"RecommendationOptionsMigrationEffort",
 		"EffectiveRecommendationPreferencesExternalMetricsSource",
+		"InstanceState",
 	}
 }
 
@@ -688,10 +690,11 @@ const (
 	ExportableVolumeFieldRecommendationOptionsSavingsOpportunityPercentage          ExportableVolumeField = "RecommendationOptionsSavingsOpportunityPercentage"
 	ExportableVolumeFieldRecommendationOptionsEstimatedMonthlySavingsCurrency       ExportableVolumeField = "RecommendationOptionsEstimatedMonthlySavingsCurrency"
 	ExportableVolumeFieldRecommendationOptionsEstimatedMonthlySavingsValue          ExportableVolumeField = "RecommendationOptionsEstimatedMonthlySavingsValue"
+	ExportableVolumeFieldRootVolume                                                 ExportableVolumeField = "RootVolume"
 )
 
-// Values returns all known values for ExportableVolumeField. Note that this can be
-// expanded in the future, and so it is only as up to date as the client. The
+// Values returns all known values for ExportableVolumeField. Note that this can
+// be expanded in the future, and so it is only as up to date as the client. The
 // ordering of this slice is not guaranteed to be stable across updates.
 func (ExportableVolumeField) Values() []ExportableVolumeField {
 	return []ExportableVolumeField{
@@ -723,6 +726,7 @@ func (ExportableVolumeField) Values() []ExportableVolumeField {
 		"RecommendationOptionsSavingsOpportunityPercentage",
 		"RecommendationOptionsEstimatedMonthlySavingsCurrency",
 		"RecommendationOptionsEstimatedMonthlySavingsValue",
+		"RootVolume",
 	}
 }
 
@@ -736,8 +740,8 @@ const (
 	ExternalMetricsSourceInstana   ExternalMetricsSource = "Instana"
 )
 
-// Values returns all known values for ExternalMetricsSource. Note that this can be
-// expanded in the future, and so it is only as up to date as the client. The
+// Values returns all known values for ExternalMetricsSource. Note that this can
+// be expanded in the future, and so it is only as up to date as the client. The
 // ordering of this slice is not guaranteed to be stable across updates.
 func (ExternalMetricsSource) Values() []ExternalMetricsSource {
 	return []ExternalMetricsSource{
@@ -920,6 +924,32 @@ func (InstanceRecommendationFindingReasonCode) Values() []InstanceRecommendation
 	}
 }
 
+type InstanceState string
+
+// Enum values for InstanceState
+const (
+	InstanceStatePending      InstanceState = "pending"
+	InstanceStateRunning      InstanceState = "running"
+	InstanceStateShuttingDown InstanceState = "shutting-down"
+	InstanceStateTerminated   InstanceState = "terminated"
+	InstanceStateStopping     InstanceState = "stopping"
+	InstanceStateStopped      InstanceState = "stopped"
+)
+
+// Values returns all known values for InstanceState. Note that this can be
+// expanded in the future, and so it is only as up to date as the client. The
+// ordering of this slice is not guaranteed to be stable across updates.
+func (InstanceState) Values() []InstanceState {
+	return []InstanceState{
+		"pending",
+		"running",
+		"shutting-down",
+		"terminated",
+		"stopping",
+		"stopped",
+	}
+}
+
 type JobFilterName string
 
 // Enum values for JobFilterName
@@ -948,9 +978,9 @@ const (
 	JobStatusFailed     JobStatus = "Failed"
 )
 
-// Values returns all known values for JobStatus. Note that this can be expanded in
-// the future, and so it is only as up to date as the client. The ordering of this
-// slice is not guaranteed to be stable across updates.
+// Values returns all known values for JobStatus. Note that this can be expanded
+// in the future, and so it is only as up to date as the client. The ordering of
+// this slice is not guaranteed to be stable across updates.
 func (JobStatus) Values() []JobStatus {
 	return []JobStatus{
 		"Queued",
@@ -1006,9 +1036,9 @@ const (
 	LambdaFunctionMetricNameMemory   LambdaFunctionMetricName = "Memory"
 )
 
-// Values returns all known values for LambdaFunctionMetricName. Note that this can
-// be expanded in the future, and so it is only as up to date as the client. The
-// ordering of this slice is not guaranteed to be stable across updates.
+// Values returns all known values for LambdaFunctionMetricName. Note that this
+// can be expanded in the future, and so it is only as up to date as the client.
+// The ordering of this slice is not guaranteed to be stable across updates.
 func (LambdaFunctionMetricName) Values() []LambdaFunctionMetricName {
 	return []LambdaFunctionMetricName{
 		"Duration",
@@ -1043,9 +1073,9 @@ const (
 	LambdaFunctionRecommendationFilterNameFindingReasonCode LambdaFunctionRecommendationFilterName = "FindingReasonCode"
 )
 
-// Values returns all known values for LambdaFunctionRecommendationFilterName. Note
-// that this can be expanded in the future, and so it is only as up to date as the
-// client. The ordering of this slice is not guaranteed to be stable across
+// Values returns all known values for LambdaFunctionRecommendationFilterName.
+// Note that this can be expanded in the future, and so it is only as up to date as
+// the client. The ordering of this slice is not guaranteed to be stable across
 // updates.
 func (LambdaFunctionRecommendationFilterName) Values() []LambdaFunctionRecommendationFilterName {
 	return []LambdaFunctionRecommendationFilterName{
@@ -1215,9 +1245,10 @@ const (
 	RecommendationPreferenceNameExternalMetricsPreference     RecommendationPreferenceName = "ExternalMetricsPreference"
 )
 
-// Values returns all known values for RecommendationPreferenceName. Note that this
-// can be expanded in the future, and so it is only as up to date as the client.
-// The ordering of this slice is not guaranteed to be stable across updates.
+// Values returns all known values for RecommendationPreferenceName. Note that
+// this can be expanded in the future, and so it is only as up to date as the
+// client. The ordering of this slice is not guaranteed to be stable across
+// updates.
 func (RecommendationPreferenceName) Values() []RecommendationPreferenceName {
 	return []RecommendationPreferenceName{
 		"EnhancedInfrastructureMetrics",
@@ -1237,9 +1268,9 @@ const (
 	RecommendationSourceTypeEcsService       RecommendationSourceType = "EcsService"
 )
 
-// Values returns all known values for RecommendationSourceType. Note that this can
-// be expanded in the future, and so it is only as up to date as the client. The
-// ordering of this slice is not guaranteed to be stable across updates.
+// Values returns all known values for RecommendationSourceType. Note that this
+// can be expanded in the future, and so it is only as up to date as the client.
+// The ordering of this slice is not guaranteed to be stable across updates.
 func (RecommendationSourceType) Values() []RecommendationSourceType {
 	return []RecommendationSourceType{
 		"Ec2Instance",
@@ -1262,9 +1293,9 @@ const (
 	ResourceTypeEcsService       ResourceType = "EcsService"
 )
 
-// Values returns all known values for ResourceType. Note that this can be expanded
-// in the future, and so it is only as up to date as the client. The ordering of
-// this slice is not guaranteed to be stable across updates.
+// Values returns all known values for ResourceType. Note that this can be
+// expanded in the future, and so it is only as up to date as the client. The
+// ordering of this slice is not guaranteed to be stable across updates.
 func (ResourceType) Values() []ResourceType {
 	return []ResourceType{
 		"Ec2Instance",
@@ -1285,9 +1316,9 @@ const (
 	ScopeNameResourceArn  ScopeName = "ResourceArn"
 )
 
-// Values returns all known values for ScopeName. Note that this can be expanded in
-// the future, and so it is only as up to date as the client. The ordering of this
-// slice is not guaranteed to be stable across updates.
+// Values returns all known values for ScopeName. Note that this can be expanded
+// in the future, and so it is only as up to date as the client. The ordering of
+// this slice is not guaranteed to be stable across updates.
 func (ScopeName) Values() []ScopeName {
 	return []ScopeName{
 		"Organization",

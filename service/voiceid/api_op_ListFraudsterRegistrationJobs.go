@@ -12,9 +12,9 @@ import (
 	smithyhttp "github.com/aws/smithy-go/transport/http"
 )
 
-// Lists all the fraudster registration jobs in the domain with the given
-// JobStatus. If JobStatus is not provided, this lists all fraudster registration
-// jobs in the given domain.
+// Lists all the fraudster registration jobs in the domain with the given JobStatus
+// . If JobStatus is not provided, this lists all fraudster registration jobs in
+// the given domain.
 func (c *Client) ListFraudsterRegistrationJobs(ctx context.Context, params *ListFraudsterRegistrationJobsInput, optFns ...func(*Options)) (*ListFraudsterRegistrationJobsOutput, error) {
 	if params == nil {
 		params = &ListFraudsterRegistrationJobsInput{}
@@ -32,7 +32,7 @@ func (c *Client) ListFraudsterRegistrationJobs(ctx context.Context, params *List
 
 type ListFraudsterRegistrationJobsInput struct {
 
-	// The identifier of the domain containing the fraudster registration Jobs.
+	// The identifier of the domain that contains the fraudster registration Jobs.
 	//
 	// This member is required.
 	DomainId *string
@@ -41,7 +41,7 @@ type ListFraudsterRegistrationJobsInput struct {
 	JobStatus types.FraudsterRegistrationJobStatus
 
 	// The maximum number of results that are returned per call. You can use NextToken
-	// to obtain further pages of results. The default is 100; the maximum allowed page
+	// to obtain more pages of results. The default is 100; the maximum allowed page
 	// size is also 100.
 	MaxResults *int32
 
@@ -146,7 +146,7 @@ var _ ListFraudsterRegistrationJobsAPIClient = (*Client)(nil)
 // ListFraudsterRegistrationJobs
 type ListFraudsterRegistrationJobsPaginatorOptions struct {
 	// The maximum number of results that are returned per call. You can use NextToken
-	// to obtain further pages of results. The default is 100; the maximum allowed page
+	// to obtain more pages of results. The default is 100; the maximum allowed page
 	// size is also 100.
 	Limit int32
 

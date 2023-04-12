@@ -1,3 +1,35 @@
+# v1.1.13 (2023-04-11)
+
+* No change notes available for this release.
+
+# v1.1.12 (2023-04-10)
+
+* No change notes available for this release.
+
+# v1.1.11 (2023-04-07)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.1.10 (2023-04-05)
+
+* No change notes available for this release.
+
+# v1.1.9 (2023-04-03)
+
+* No change notes available for this release.
+
+# v1.1.8 (2023-03-29)
+
+* No change notes available for this release.
+
+# v1.1.7 (2023-03-21)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.1.6 (2023-03-10)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
 # v1.1.5 (2023-02-22)
 
 * **Bug Fix**: Prevent nil pointer dereference when retrieving error codes.

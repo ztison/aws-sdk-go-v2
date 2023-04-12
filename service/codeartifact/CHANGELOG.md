@@ -1,3 +1,23 @@
+# v1.18.2 (2023-04-10)
+
+* No change notes available for this release.
+
+# v1.18.1 (2023-04-07)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.18.0 (2023-03-23)
+
+* **Feature**: Repository CreationTime is added to the CreateRepository and ListRepositories API responses.
+
+# v1.17.2 (2023-03-21)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.17.1 (2023-03-10)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
 # v1.17.0 (2023-03-09)
 
 * **Feature**: This release introduces the generic package format, a mechanism for storing arbitrary binary assets. It also adds a new API, PublishPackageVersion, to allow for publishing generic packages.

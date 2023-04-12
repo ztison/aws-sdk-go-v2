@@ -31,14 +31,14 @@ func (c *Client) CancelImageCreation(ctx context.Context, params *CancelImageCre
 type CancelImageCreationInput struct {
 
 	// Unique, case-sensitive identifier you provide to ensure idempotency of the
-	// request. For more information, see Ensuring idempotency
-	// (https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html)
+	// request. For more information, see Ensuring idempotency (https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html)
 	// in the Amazon EC2 API Reference.
 	//
 	// This member is required.
 	ClientToken *string
 
-	// The Amazon Resource Name (ARN) of the image whose creation you want to cancel.
+	// The Amazon Resource Name (ARN) of the image that you want to cancel creation
+	// for.
 	//
 	// This member is required.
 	ImageBuildVersionArn *string
@@ -51,7 +51,7 @@ type CancelImageCreationOutput struct {
 	// The idempotency token that was used for this request.
 	ClientToken *string
 
-	// The Amazon Resource Name (ARN) of the image whose creation has been cancelled.
+	// The ARN of the image whose creation this request canceled.
 	ImageBuildVersionArn *string
 
 	// The request ID that uniquely identifies this request.

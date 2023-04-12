@@ -13,8 +13,9 @@ import (
 
 // Associates the specified tags to a resource with the specified resourceArn. If
 // existing tags on a resource are not specified in the request parameters, they
-// are not changed. When a resource is deleted, the tags associated with that
-// resource are deleted as well.
+// are not changed. If existing tags are specified, however, then their values will
+// be updated. When a resource is deleted, the tags associated with that resource
+// are deleted as well.
 func (c *Client) TagResource(ctx context.Context, params *TagResourceInput, optFns ...func(*Options)) (*TagResourceOutput, error) {
 	if params == nil {
 		params = &TagResourceInput{}
@@ -33,8 +34,8 @@ func (c *Client) TagResource(ctx context.Context, params *TagResourceInput, optF
 type TagResourceInput struct {
 
 	// The Amazon Resource Name (ARN) that identifies the resource for which to list
-	// the tags. Currently, the supported resources are ConfigRule,
-	// ConfigurationAggregator and AggregatorAuthorization.
+	// the tags. Currently, the supported resources are ConfigRule ,
+	// ConfigurationAggregator and AggregatorAuthorization .
 	//
 	// This member is required.
 	ResourceArn *string

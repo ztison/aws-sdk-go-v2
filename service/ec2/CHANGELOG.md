@@ -1,3 +1,36 @@
+# v1.93.2 (2023-04-10)
+
+* No change notes available for this release.
+
+# v1.93.1 (2023-04-07)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.93.0 (2023-04-04)
+
+* **Feature**: C6in, M6in, M6idn, R6in and R6idn bare metal instances are powered by 3rd Generation Intel Xeon Scalable processors and offer up to 200 Gbps of network bandwidth.
+
+# v1.92.1 (2023-03-31)
+
+* **Documentation**: Documentation updates for EC2 On Demand Capacity Reservations
+
+# v1.92.0 (2023-03-30)
+
+* **Feature**: This release adds support for Tunnel Endpoint Lifecycle control, a new feature that provides Site-to-Site VPN customers with better visibility and control of their VPN tunnel maintenance updates.
+
+# v1.91.0 (2023-03-21)
+
+* **Feature**: This release adds support for AWS Network Firewall, AWS PrivateLink, and Gateway Load Balancers to Amazon VPC Reachability Analyzer, and it makes the path destination optional as long as a destination address in the filter at source is provided.
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.90.0 (2023-03-14)
+
+* **Feature**: This release adds a new DnsOptions key (PrivateDnsOnlyForInboundResolverEndpoint) to CreateVpcEndpoint and ModifyVpcEndpoint APIs.
+
+# v1.89.1 (2023-03-10)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
 # v1.89.0 (2023-03-08)
 
 * **Feature**: Introducing Amazon EC2 C7g, M7g and R7g instances, powered by the latest generation AWS Graviton3 processors and deliver up to 25% better performance over Graviton2-based instances.

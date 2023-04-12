@@ -12,16 +12,16 @@ import (
 	smithyhttp "github.com/aws/smithy-go/transport/http"
 )
 
-// Creates an AWS Resilience Hub application. An AWS Resilience Hub application is
-// a collection of Amazon Web Services resources structured to prevent and recover
-// Amazon Web Services application disruptions. To describe a AWS Resilience Hub
+// Creates an Resilience Hub application. An Resilience Hub application is a
+// collection of Amazon Web Services resources structured to prevent and recover
+// Amazon Web Services application disruptions. To describe a Resilience Hub
 // application, you provide an application name, resources from one or more–up to
-// five–CloudFormation stacks, and an appropriate resiliency policy. After you
-// create an AWS Resilience Hub application, you publish it so that you can run a
-// resiliency assessment on it. You can then use recommendations from the
-// assessment to improve resiliency by running another assessment, comparing
-// results, and then iterating the process until you achieve your goals for
-// recovery time objective (RTO) and recovery point objective (RPO).
+// 20–CloudFormation stacks, and an appropriate resiliency policy. After you create
+// an Resilience Hub application, you publish it so that you can run a resiliency
+// assessment on it. You can then use recommendations from the assessment to
+// improve resiliency by running another assessment, comparing results, and then
+// iterating the process until you achieve your goals for recovery time objective
+// (RTO) and recovery point objective (RPO).
 func (c *Client) CreateApp(ctx context.Context, params *CreateAppInput, optFns ...func(*Options)) (*CreateAppOutput, error) {
 	if params == nil {
 		params = &CreateAppInput{}
@@ -47,23 +47,22 @@ type CreateAppInput struct {
 	// Assessment execution schedule with 'Daily' or 'Disabled' values.
 	AssessmentSchedule types.AppAssessmentScheduleType
 
-	// Used for an idempotency token. A client token is a unique, case-sensitive string
-	// of up to 64 ASCII characters. You should not reuse the same client token for
-	// other API requests.
+	// Used for an idempotency token. A client token is a unique, case-sensitive
+	// string of up to 64 ASCII characters. You should not reuse the same client token
+	// for other API requests.
 	ClientToken *string
 
 	// The optional description for an app.
 	Description *string
 
-	// The Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN
-	// is: arn:partition:resiliencehub:region:account:resiliency-policy/policy-id. For
-	// more information about ARNs, see  Amazon Resource Names (ARNs)
-	// (https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in
-	// the AWS General Reference guide.
+	// The Amazon Resource Name (ARN) of the resiliency policy. The format for this
+	// ARN is: arn: partition :resiliencehub: region : account :resiliency-policy/
+	// policy-id . For more information about ARNs, see  Amazon Resource Names (ARNs) (https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)
+	// in the AWS General Reference guide.
 	PolicyArn *string
 
-	// The tags assigned to the resource. A tag is a label that you assign to an Amazon
-	// Web Services resource. Each tag consists of a key/value pair.
+	// The tags assigned to the resource. A tag is a label that you assign to an
+	// Amazon Web Services resource. Each tag consists of a key/value pair.
 	Tags map[string]string
 
 	noSmithyDocumentSerde

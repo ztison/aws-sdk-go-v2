@@ -22,12 +22,10 @@ type AuthenticationConfiguration struct {
 // session state and streamed audio of the speaker.
 type AuthenticationResult struct {
 
-	// A timestamp indicating when audio aggregation ended for this authentication
-	// result.
+	// A timestamp of when audio aggregation ended for this authentication result.
 	AudioAggregationEndedAt *time.Time
 
-	// A timestamp indicating when audio aggregation started for this authentication
-	// result.
+	// A timestamp of when audio aggregation started for this authentication result.
 	AudioAggregationStartedAt *time.Time
 
 	// The unique identifier for this authentication result. Because there can be
@@ -55,7 +53,7 @@ type AuthenticationResult struct {
 
 	// The authentication score for the speaker whose authentication result is
 	// produced. This value is only present if the authentication decision is either
-	// ACCEPT or REJECT.
+	// ACCEPT or REJECT .
 	Score *int32
 
 	noSmithyDocumentSerde
@@ -67,19 +65,19 @@ type Domain struct {
 	// The Amazon Resource Name (ARN) for the domain.
 	Arn *string
 
-	// The timestamp at which the domain is created.
+	// The timestamp of when the domain was created.
 	CreatedAt *time.Time
 
-	// The client-provided description of the domain.
+	// The description of the domain.
 	Description *string
 
-	// The service-generated identifier for the domain.
+	// The identifier of the domain.
 	DomainId *string
 
 	// The current status of the domain.
 	DomainStatus DomainStatus
 
-	// The client-provided name for the domain.
+	// The name for the domain.
 	Name *string
 
 	// The server-side encryption configuration containing the KMS key identifier you
@@ -92,8 +90,12 @@ type Domain struct {
 	// the domain's data can only be accessed using the new KMS key.
 	ServerSideEncryptionUpdateDetails *ServerSideEncryptionUpdateDetails
 
-	// The timestamp showing the domain's last update.
+	// The timestamp of when the domain was last update.
 	UpdatedAt *time.Time
+
+	// The watchlist details of a domain. Contains the default watchlist ID of the
+	// domain.
+	WatchlistDetails *WatchlistDetails
 
 	noSmithyDocumentSerde
 }
@@ -104,13 +106,13 @@ type DomainSummary struct {
 	// The Amazon Resource Name (ARN) for the domain.
 	Arn *string
 
-	// The timestamp showing when the domain is created.
+	// The timestamp of when the domain was created.
 	CreatedAt *time.Time
 
-	// The client-provided description of the domain.
+	// The description of the domain.
 	Description *string
 
-	// The service-generated identifier for the domain.
+	// The identifier of the domain.
 	DomainId *string
 
 	// The current status of the domain.
@@ -129,8 +131,11 @@ type DomainSummary struct {
 	// the domain's data can only be accessed using the new KMS key.
 	ServerSideEncryptionUpdateDetails *ServerSideEncryptionUpdateDetails
 
-	// The timestamp showing the domain's last update.
+	// The timestamp of when the domain was last updated.
 	UpdatedAt *time.Time
+
+	// Provides information about watchlistDetails and DefaultWatchlistID .
+	WatchlistDetails *WatchlistDetails
 
 	noSmithyDocumentSerde
 }
@@ -139,7 +144,7 @@ type DomainSummary struct {
 type EnrollmentConfig struct {
 
 	// The action to take when the specified speaker is already enrolled in the
-	// specified domain. The default value is SKIP, which skips the enrollment for the
+	// specified domain. The default value is SKIP , which skips the enrollment for the
 	// existing speaker. Setting the value to OVERWRITE replaces the existing voice
 	// prints and enrollment audio stored for that speaker with new data generated from
 	// the latest audio.
@@ -151,13 +156,12 @@ type EnrollmentConfig struct {
 	noSmithyDocumentSerde
 }
 
-// The configuration defining the action to take when a speaker is flagged by the
-// fraud detection system during a batch speaker enrollment job, and the risk
-// threshold to use for identification.
+// The fraud detection configuration to be used during the batch speaker
+// enrollment job.
 type EnrollmentJobFraudDetectionConfig struct {
 
 	// The action to take when the given speaker is flagged by the fraud detection
-	// system. The default value is FAIL, which fails the speaker enrollment. Changing
+	// system. The default value is FAIL , which fails the speaker enrollment. Changing
 	// this value to IGNORE results in the speaker being enrolled even if they are
 	// flagged by the fraud detection system.
 	FraudDetectionAction FraudDetectionAction
@@ -166,6 +170,9 @@ type EnrollmentJobFraudDetectionConfig struct {
 	// fraudulent. If the detected risk score calculated by Voice ID is greater than or
 	// equal to the threshold, the speaker is considered a fraudster.
 	RiskThreshold *int32
+
+	// The identifier of watchlists against which fraud detection is performed.
+	WatchlistIds []string
 
 	noSmithyDocumentSerde
 }
@@ -189,9 +196,10 @@ type FraudDetectionConfiguration struct {
 	// Threshold value for determining whether the speaker is a fraudster. If the
 	// detected risk score calculated by Voice ID is higher than the threshold, the
 	// speaker is considered a fraudster.
-	//
-	// This member is required.
 	RiskThreshold *int32
+
+	// The identifier of the watchlist against which fraud detection is performed.
+	WatchlistId *string
 
 	noSmithyDocumentSerde
 }
@@ -200,19 +208,17 @@ type FraudDetectionConfiguration struct {
 // session state and streamed audio of the speaker.
 type FraudDetectionResult struct {
 
-	// A timestamp indicating when audio aggregation ended for this fraud detection
-	// result.
+	// A timestamp of when audio aggregation ended for this fraud detection result.
 	AudioAggregationEndedAt *time.Time
 
-	// A timestamp indicating when audio aggregation started for this fraud detection
-	// result.
+	// A timestamp of when audio aggregation started for this fraud detection result.
 	AudioAggregationStartedAt *time.Time
 
 	// The FraudDetectionConfiguration used to generate this fraud detection result.
 	Configuration *FraudDetectionConfiguration
 
-	// The fraud detection decision produced by Voice ID, processed against the current
-	// session state and streamed audio of the speaker.
+	// The fraud detection decision produced by Voice ID, processed against the
+	// current session state and streamed audio of the speaker.
 	Decision FraudDetectionDecision
 
 	// The unique identifier for this fraud detection result. Given there can be
@@ -223,8 +229,8 @@ type FraudDetectionResult struct {
 	FraudDetectionResultId *string
 
 	// The reason speaker was flagged by the fraud detection system. This is only be
-	// populated if fraud detection Decision is HIGH_RISK, and the following possible
-	// values: KNOWN_FRAUDSTER and VOICE_SPOOFING.
+	// populated if fraud detection Decision is HIGH_RISK , and the following possible
+	// values: KNOWN_FRAUDSTER and VOICE_SPOOFING .
 	Reasons []FraudDetectionReason
 
 	// Details about each risk analyzed for this speaker. Currently, this contains
@@ -254,14 +260,17 @@ type FraudRiskDetails struct {
 // Contains all the information about a fraudster.
 type Fraudster struct {
 
-	// The timestamp when Voice ID identified the fraudster.
+	// The timestamp of when Voice ID identified the fraudster.
 	CreatedAt *time.Time
 
-	// The identifier for the domain containing the fraudster.
+	// The identifier of the domain that contains the fraudster.
 	DomainId *string
 
 	// The service-generated identifier for the fraudster.
 	GeneratedFraudsterId *string
+
+	// The identifier of the watchlists the fraudster is a part of.
+	WatchlistIds []string
 
 	noSmithyDocumentSerde
 }
@@ -269,7 +278,7 @@ type Fraudster struct {
 // Contains all the information about a fraudster registration job.
 type FraudsterRegistrationJob struct {
 
-	// A timestamp showing the creation time of the fraudster registration job.
+	// A timestamp of when the fraudster registration job was created.
 	CreatedAt *time.Time
 
 	// The IAM role Amazon Resource Name (ARN) that grants Voice ID permissions to
@@ -277,15 +286,15 @@ type FraudsterRegistrationJob struct {
 	// output file.
 	DataAccessRoleArn *string
 
-	// The identifier of the domain containing the fraudster registration job.
+	// The identifier of the domain that contains the fraudster registration job.
 	DomainId *string
 
-	// A timestamp showing when the fraudster registration job ended.
+	// A timestamp of when the fraudster registration job ended.
 	EndedAt *time.Time
 
 	// Contains details that are populated when an entire batch job fails. In cases of
 	// individual registration job failures, the batch job as a whole doesn't fail; it
-	// is completed with a JobStatus of COMPLETED_WITH_ERRORS. You can use the job
+	// is completed with a JobStatus of COMPLETED_WITH_ERRORS . You can use the job
 	// output file to identify the individual registration requests that failed.
 	FailureDetails *FailureDetails
 
@@ -322,18 +331,18 @@ type FraudsterRegistrationJob struct {
 // Contains a summary of information about a fraudster registration job.
 type FraudsterRegistrationJobSummary struct {
 
-	// A timestamp showing when the fraudster registration job is created.
+	// A timestamp of when the fraudster registration job was created.
 	CreatedAt *time.Time
 
-	// The identifier of the domain containing the fraudster registration job.
+	// The identifier of the domain that contains the fraudster registration job.
 	DomainId *string
 
-	// A timestamp showing when the fraudster registration job ended.
+	// A timestamp of when the fraudster registration job ended.
 	EndedAt *time.Time
 
 	// Contains details that are populated when an entire batch job fails. In cases of
 	// individual registration job failures, the batch job as a whole doesn't fail; it
-	// is completed with a JobStatus of COMPLETED_WITH_ERRORS. You can use the job
+	// is completed with a JobStatus of COMPLETED_WITH_ERRORS . You can use the job
 	// output file to identify the individual registration requests that failed.
 	FailureDetails *FailureDetails
 
@@ -353,11 +362,29 @@ type FraudsterRegistrationJobSummary struct {
 	noSmithyDocumentSerde
 }
 
+// Contains a summary of information about a fraudster.
+type FraudsterSummary struct {
+
+	// The timestamp of when the fraudster summary was created.
+	CreatedAt *time.Time
+
+	// The identifier of the domain that contains the fraudster summary.
+	DomainId *string
+
+	// The service-generated identifier for the fraudster.
+	GeneratedFraudsterId *string
+
+	// The identifier of the watchlists the fraudster is a part of.
+	WatchlistIds []string
+
+	noSmithyDocumentSerde
+}
+
 // The configuration containing input file information for a batch job.
 type InputDataConfig struct {
 
-	// The S3 location for the input manifest file that contains the list of individual
-	// enrollment or registration job requests.
+	// The S3 location for the input manifest file that contains the list of
+	// individual enrollment or registration job requests.
 	//
 	// This member is required.
 	S3Uri *string
@@ -386,7 +413,7 @@ type KnownFraudsterRisk struct {
 
 	// The identifier of the fraudster that is the closest match to the speaker. If
 	// there are no fraudsters registered in a given domain, or if there are no
-	// fraudsters with a non-zero RiskScore, this value is null.
+	// fraudsters with a non-zero RiskScore, this value is null .
 	GeneratedFraudsterId *string
 
 	noSmithyDocumentSerde
@@ -397,8 +424,8 @@ type OutputDataConfig struct {
 
 	// The S3 path of the folder where Voice ID writes the job output file. It has a
 	// *.out extension. For example, if the input file name is input-file.json and the
-	// output folder path is s3://output-bucket/output-folder, the full output file
-	// path is s3://output-bucket/output-folder/job-Id/input-file.json.out.
+	// output folder path is s3://output-bucket/output-folder , the full output file
+	// path is s3://output-bucket/output-folder/job-Id/input-file.json.out .
 	//
 	// This member is required.
 	S3Uri *string
@@ -410,13 +437,12 @@ type OutputDataConfig struct {
 	noSmithyDocumentSerde
 }
 
-// The configuration defining the action to take when a duplicate fraudster is
-// detected, and the similarity threshold to use for detecting a duplicate
-// fraudster during a batch fraudster registration job.
+// The registration configuration to be used during the batch fraudster
+// registration job.
 type RegistrationConfig struct {
 
 	// The action to take when a fraudster is identified as a duplicate. The default
-	// action is SKIP, which skips registering the duplicate fraudster. Setting the
+	// action is SKIP , which skips registering the duplicate fraudster. Setting the
 	// value to REGISTER_AS_NEW always registers a new fraudster into the specified
 	// domain.
 	DuplicateRegistrationAction DuplicateRegistrationAction
@@ -425,11 +451,15 @@ type RegistrationConfig struct {
 	// consider the new fraudster a duplicate.
 	FraudsterSimilarityThreshold *int32
 
+	// The identifiers of watchlists that a fraudster is registered to. If a watchlist
+	// isn't provided, the fraudsters are registered to the default watchlist.
+	WatchlistIds []string
+
 	noSmithyDocumentSerde
 }
 
-// The configuration containing information about the customer managed key used for
-// encrypting customer data.
+// The configuration containing information about the customer managed key used
+// for encrypting customer data.
 type ServerSideEncryptionConfiguration struct {
 
 	// The identifier of the KMS key to use to encrypt data stored by Voice ID. Voice
@@ -468,7 +498,7 @@ type ServerSideEncryptionUpdateDetails struct {
 // Contains all the information about a speaker.
 type Speaker struct {
 
-	// A timestamp showing when the speaker is created.
+	// A timestamp of when the speaker was created.
 	CreatedAt *time.Time
 
 	// The client-provided identifier for the speaker.
@@ -480,14 +510,15 @@ type Speaker struct {
 	// The service-generated identifier for the speaker.
 	GeneratedSpeakerId *string
 
-	// The timestamp when the speaker was last accessed for enrollment, re-enrollment
-	// or a successful authentication. This timestamp is accurate to one hour.
+	// The timestamp of when the speaker was last accessed for enrollment,
+	// re-enrollment or a successful authentication. This timestamp is accurate to one
+	// hour.
 	LastAccessedAt *time.Time
 
 	// The current status of the speaker.
 	Status SpeakerStatus
 
-	// A timestamp showing the speaker's last update.
+	// A timestamp of the speaker's last update.
 	UpdatedAt *time.Time
 
 	noSmithyDocumentSerde
@@ -496,7 +527,7 @@ type Speaker struct {
 // Contains all the information about a speaker enrollment job.
 type SpeakerEnrollmentJob struct {
 
-	// A timestamp showing the creation of the speaker enrollment job.
+	// A timestamp of when the speaker enrollment job was created.
 	CreatedAt *time.Time
 
 	// The IAM role Amazon Resource Name (ARN) that grants Voice ID permissions to
@@ -507,7 +538,7 @@ type SpeakerEnrollmentJob struct {
 	// The identifier of the domain that contains the speaker enrollment job.
 	DomainId *string
 
-	// A timestamp showing when the speaker enrollment job ended.
+	// A timestamp of when the speaker enrollment job ended.
 	EndedAt *time.Time
 
 	// The configuration that defines the action to take when the speaker is already
@@ -516,7 +547,7 @@ type SpeakerEnrollmentJob struct {
 
 	// Contains details that are populated when an entire batch job fails. In cases of
 	// individual registration job failures, the batch job as a whole doesn't fail; it
-	// is completed with a JobStatus of COMPLETED_WITH_ERRORS. You can use the job
+	// is completed with a JobStatus of COMPLETED_WITH_ERRORS . You can use the job
 	// output file to identify the individual registration requests that failed.
 	FailureDetails *FailureDetails
 
@@ -547,18 +578,18 @@ type SpeakerEnrollmentJob struct {
 // Contains a summary of information about a speaker enrollment job.
 type SpeakerEnrollmentJobSummary struct {
 
-	// A timestamp showing the creation time of the speaker enrollment job.
+	// A timestamp of when of the speaker enrollment job was created.
 	CreatedAt *time.Time
 
 	// The identifier of the domain that contains the speaker enrollment job.
 	DomainId *string
 
-	// A timestamp showing when the speaker enrollment job ended.
+	// A timestamp of when the speaker enrollment job ended.
 	EndedAt *time.Time
 
 	// Contains details that are populated when an entire batch job fails. In cases of
 	// individual registration job failures, the batch job as a whole doesn't fail; it
-	// is completed with a JobStatus of COMPLETED_WITH_ERRORS. You can use the job
+	// is completed with a JobStatus of COMPLETED_WITH_ERRORS . You can use the job
 	// output file to identify the individual registration requests that failed.
 	FailureDetails *FailureDetails
 
@@ -632,6 +663,71 @@ type VoiceSpoofingRisk struct {
 	//
 	// This member is required.
 	RiskScore *int32
+
+	noSmithyDocumentSerde
+}
+
+// Contains all the information about a watchlist.
+type Watchlist struct {
+
+	// The timestamp of when the watchlist was created.
+	CreatedAt *time.Time
+
+	// Whether the specified watchlist is the default watchlist of a domain.
+	DefaultWatchlist bool
+
+	// The description of the watchlist.
+	Description *string
+
+	// The identifier of the domain that contains the watchlist.
+	DomainId *string
+
+	// The name for the watchlist.
+	Name *string
+
+	// The timestamp of when the watchlist was updated.
+	UpdatedAt *time.Time
+
+	// The identifier of the watchlist.
+	WatchlistId *string
+
+	noSmithyDocumentSerde
+}
+
+// Details of the watchlists in a domain.
+type WatchlistDetails struct {
+
+	// The identifier of the default watchlist.
+	//
+	// This member is required.
+	DefaultWatchlistId *string
+
+	noSmithyDocumentSerde
+}
+
+// Contains a summary of information about a watchlist.
+type WatchlistSummary struct {
+
+	// The timestamp of when the watchlist was created.
+	CreatedAt *time.Time
+
+	// Whether the specified watchlist is the default watchlist of a domain.
+	DefaultWatchlist bool
+
+	// The description of the watchlist.
+	Description *string
+
+	// The identifier of the domain that contains the watchlist.
+	DomainId *string
+
+	// The name for the watchlist.
+	Name *string
+
+	// The timestamp of when the watchlist was last updated.
+	UpdatedAt *time.Time
+
+	// The identifier of the watchlist.
+	WatchlistId *string
 
 	noSmithyDocumentSerde
 }

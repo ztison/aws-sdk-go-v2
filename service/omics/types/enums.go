@@ -120,9 +120,9 @@ const (
 	JobStatusCompletedWithFailures JobStatus = "COMPLETED_WITH_FAILURES"
 )
 
-// Values returns all known values for JobStatus. Note that this can be expanded in
-// the future, and so it is only as up to date as the client. The ordering of this
-// slice is not guaranteed to be stable across updates.
+// Values returns all known values for JobStatus. Note that this can be expanded
+// in the future, and so it is only as up to date as the client. The ordering of
+// this slice is not guaranteed to be stable across updates.
 func (JobStatus) Values() []JobStatus {
 	return []JobStatus{
 		"SUBMITTED",
@@ -357,9 +357,10 @@ const (
 	ReferenceImportJobItemStatusFailed     ReferenceImportJobItemStatus = "FAILED"
 )
 
-// Values returns all known values for ReferenceImportJobItemStatus. Note that this
-// can be expanded in the future, and so it is only as up to date as the client.
-// The ordering of this slice is not guaranteed to be stable across updates.
+// Values returns all known values for ReferenceImportJobItemStatus. Note that
+// this can be expanded in the future, and so it is only as up to date as the
+// client. The ordering of this slice is not guaranteed to be stable across
+// updates.
 func (ReferenceImportJobItemStatus) Values() []ReferenceImportJobItemStatus {
 	return []ReferenceImportJobItemStatus{
 		"NOT_STARTED",
@@ -382,9 +383,9 @@ const (
 	ReferenceImportJobStatusCompletedWithFailures ReferenceImportJobStatus = "COMPLETED_WITH_FAILURES"
 )
 
-// Values returns all known values for ReferenceImportJobStatus. Note that this can
-// be expanded in the future, and so it is only as up to date as the client. The
-// ordering of this slice is not guaranteed to be stable across updates.
+// Values returns all known values for ReferenceImportJobStatus. Note that this
+// can be expanded in the future, and so it is only as up to date as the client.
+// The ordering of this slice is not guaranteed to be stable across updates.
 func (ReferenceImportJobStatus) Values() []ReferenceImportJobStatus {
 	return []ReferenceImportJobStatus{
 		"SUBMITTED",
@@ -424,9 +425,9 @@ const (
 	RunExportDefinition RunExport = "DEFINITION"
 )
 
-// Values returns all known values for RunExport. Note that this can be expanded in
-// the future, and so it is only as up to date as the client. The ordering of this
-// slice is not guaranteed to be stable across updates.
+// Values returns all known values for RunExport. Note that this can be expanded
+// in the future, and so it is only as up to date as the client. The ordering of
+// this slice is not guaranteed to be stable across updates.
 func (RunExport) Values() []RunExport {
 	return []RunExport{
 		"DEFINITION",
@@ -469,9 +470,9 @@ const (
 	RunStatusFailed    RunStatus = "FAILED"
 )
 
-// Values returns all known values for RunStatus. Note that this can be expanded in
-// the future, and so it is only as up to date as the client. The ordering of this
-// slice is not guaranteed to be stable across updates.
+// Values returns all known values for RunStatus. Note that this can be expanded
+// in the future, and so it is only as up to date as the client. The ordering of
+// this slice is not guaranteed to be stable across updates.
 func (RunStatus) Values() []RunStatus {
 	return []RunStatus{
 		"PENDING",
@@ -640,7 +641,6 @@ const (
 	WorkflowStatusUpdating WorkflowStatus = "UPDATING"
 	WorkflowStatusDeleted  WorkflowStatus = "DELETED"
 	WorkflowStatusFailed   WorkflowStatus = "FAILED"
-	WorkflowStatusInactive WorkflowStatus = "INACTIVE"
 )
 
 // Values returns all known values for WorkflowStatus. Note that this can be
@@ -653,7 +653,6 @@ func (WorkflowStatus) Values() []WorkflowStatus {
 		"UPDATING",
 		"DELETED",
 		"FAILED",
-		"INACTIVE",
 	}
 }
 
@@ -662,15 +661,13 @@ type WorkflowType string
 // Enum values for WorkflowType
 const (
 	WorkflowTypePrivate WorkflowType = "PRIVATE"
-	WorkflowTypeService WorkflowType = "SERVICE"
 )
 
-// Values returns all known values for WorkflowType. Note that this can be expanded
-// in the future, and so it is only as up to date as the client. The ordering of
-// this slice is not guaranteed to be stable across updates.
+// Values returns all known values for WorkflowType. Note that this can be
+// expanded in the future, and so it is only as up to date as the client. The
+// ordering of this slice is not guaranteed to be stable across updates.
 func (WorkflowType) Values() []WorkflowType {
 	return []WorkflowType{
 		"PRIVATE",
-		"SERVICE",
 	}
 }

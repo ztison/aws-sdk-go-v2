@@ -1,3 +1,23 @@
+# v1.51.0 (2023-04-10)
+
+* **Feature**: This release adds the ability to configure an agent's routing profile to receive contacts from multiple channels at the same time via extending the UpdateRoutingProfileConcurrency, CreateRoutingProfile and DescribeRoutingProfile APIs.
+
+# v1.50.1 (2023-04-07)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.50.0 (2023-03-27)
+
+* **Feature**: This release introduces support for RelatedContactId in the StartChatContact API. Interactive message and interactive message response have been added to the list of supported message content types for this API as well.
+
+# v1.49.2 (2023-03-21)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.49.1 (2023-03-10)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
 # v1.49.0 (2023-03-09)
 
 * **Feature**: This release adds a new API, GetMetricDataV2, which returns metric data for Amazon Connect.

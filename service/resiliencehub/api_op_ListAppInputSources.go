@@ -12,10 +12,10 @@ import (
 	smithyhttp "github.com/aws/smithy-go/transport/http"
 )
 
-// Lists all the input sources of the AWS Resilience Hub application. For more
-// information about the input sources supported by AWS Resilience Hub, see
-// Discover the structure and describe your Resilience Hub application
-// (https://docs.aws.amazon.com/resilience-hub/latest/userguide/discover-structure.html).
+// Lists all the input sources of the Resilience Hub application. For more
+// information about the input sources supported by Resilience Hub, see Discover
+// the structure and describe your Resilience Hub application (https://docs.aws.amazon.com/resilience-hub/latest/userguide/discover-structure.html)
+// .
 func (c *Client) ListAppInputSources(ctx context.Context, params *ListAppInputSourcesInput, optFns ...func(*Options)) (*ListAppInputSourcesOutput, error) {
 	if params == nil {
 		params = &ListAppInputSourcesInput{}
@@ -33,22 +33,20 @@ func (c *Client) ListAppInputSources(ctx context.Context, params *ListAppInputSo
 
 type ListAppInputSourcesInput struct {
 
-	// The Amazon Resource Name (ARN) of the AWS Resilience Hub application. The format
-	// for this ARN is: arn:partition:resiliencehub:region:account:app/app-id. For more
-	// information about ARNs, see  Amazon Resource Names (ARNs)
-	// (https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in
-	// the AWS General Reference guide.
+	// The Amazon Resource Name (ARN) of the Resilience Hub application. The format
+	// for this ARN is: arn: partition :resiliencehub: region : account :app/ app-id .
+	// For more information about ARNs, see Amazon Resource Names (ARNs) (https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)
+	// in the AWS General Reference guide.
 	//
 	// This member is required.
 	AppArn *string
 
-	// The AWS Resilience Hub application version.
+	// The Resilience Hub application version.
 	//
 	// This member is required.
 	AppVersion *string
 
-	// Maximum number of input sources to be displayed per AWS Resilience Hub
-	// application.
+	// Maximum number of input sources to be displayed per Resilience Hub application.
 	MaxResults *int32
 
 	// Null, or the token from a previous call to get the next set of results.
@@ -59,7 +57,7 @@ type ListAppInputSourcesInput struct {
 
 type ListAppInputSourcesOutput struct {
 
-	// The list of AWS Resilience Hub application input sources.
+	// The list of Resilience Hub application input sources.
 	//
 	// This member is required.
 	AppInputSources []types.AppInputSource
@@ -136,8 +134,8 @@ func (c *Client) addOperationListAppInputSourcesMiddlewares(stack *middleware.St
 	return nil
 }
 
-// ListAppInputSourcesAPIClient is a client that implements the ListAppInputSources
-// operation.
+// ListAppInputSourcesAPIClient is a client that implements the
+// ListAppInputSources operation.
 type ListAppInputSourcesAPIClient interface {
 	ListAppInputSources(context.Context, *ListAppInputSourcesInput, ...func(*Options)) (*ListAppInputSourcesOutput, error)
 }
@@ -147,8 +145,7 @@ var _ ListAppInputSourcesAPIClient = (*Client)(nil)
 // ListAppInputSourcesPaginatorOptions is the paginator options for
 // ListAppInputSources
 type ListAppInputSourcesPaginatorOptions struct {
-	// Maximum number of input sources to be displayed per AWS Resilience Hub
-	// application.
+	// Maximum number of input sources to be displayed per Resilience Hub application.
 	Limit int32
 
 	// Set to true if pagination should stop if the service returns a pagination token

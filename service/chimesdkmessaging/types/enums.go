@@ -30,8 +30,8 @@ const (
 	ChannelMembershipTypeHidden  ChannelMembershipType = "HIDDEN"
 )
 
-// Values returns all known values for ChannelMembershipType. Note that this can be
-// expanded in the future, and so it is only as up to date as the client. The
+// Values returns all known values for ChannelMembershipType. Note that this can
+// be expanded in the future, and so it is only as up to date as the client. The
 // ordering of this slice is not guaranteed to be stable across updates.
 func (ChannelMembershipType) Values() []ChannelMembershipType {
 	return []ChannelMembershipType{
@@ -156,9 +156,9 @@ const (
 	ErrorCodePhoneNumberAssociationsExist         ErrorCode = "PhoneNumberAssociationsExist"
 )
 
-// Values returns all known values for ErrorCode. Note that this can be expanded in
-// the future, and so it is only as up to date as the client. The ordering of this
-// slice is not guaranteed to be stable across updates.
+// Values returns all known values for ErrorCode. Note that this can be expanded
+// in the future, and so it is only as up to date as the client. The ordering of
+// this slice is not guaranteed to be stable across updates.
 func (ErrorCode) Values() []ErrorCode {
 	return []ErrorCode{
 		"BadRequest",
@@ -176,6 +176,24 @@ func (ErrorCode) Values() []ErrorCode {
 		"Unprocessable",
 		"VoiceConnectorGroupAssociationsExist",
 		"PhoneNumberAssociationsExist",
+	}
+}
+
+type ExpirationCriterion string
+
+// Enum values for ExpirationCriterion
+const (
+	ExpirationCriterionCreatedTimestamp     ExpirationCriterion = "CREATED_TIMESTAMP"
+	ExpirationCriterionLastMessageTimestamp ExpirationCriterion = "LAST_MESSAGE_TIMESTAMP"
+)
+
+// Values returns all known values for ExpirationCriterion. Note that this can be
+// expanded in the future, and so it is only as up to date as the client. The
+// ordering of this slice is not guaranteed to be stable across updates.
+func (ExpirationCriterion) Values() []ExpirationCriterion {
+	return []ExpirationCriterion{
+		"CREATED_TIMESTAMP",
+		"LAST_MESSAGE_TIMESTAMP",
 	}
 }
 
@@ -210,6 +228,24 @@ const (
 func (InvocationType) Values() []InvocationType {
 	return []InvocationType{
 		"ASYNC",
+	}
+}
+
+type MessagingDataType string
+
+// Enum values for MessagingDataType
+const (
+	MessagingDataTypeChannel        MessagingDataType = "Channel"
+	MessagingDataTypeChannelMessage MessagingDataType = "ChannelMessage"
+)
+
+// Values returns all known values for MessagingDataType. Note that this can be
+// expanded in the future, and so it is only as up to date as the client. The
+// ordering of this slice is not guaranteed to be stable across updates.
+func (MessagingDataType) Values() []MessagingDataType {
+	return []MessagingDataType{
+		"Channel",
+		"ChannelMessage",
 	}
 }
 
@@ -273,9 +309,9 @@ const (
 	SortOrderDescending SortOrder = "DESCENDING"
 )
 
-// Values returns all known values for SortOrder. Note that this can be expanded in
-// the future, and so it is only as up to date as the client. The ordering of this
-// slice is not guaranteed to be stable across updates.
+// Values returns all known values for SortOrder. Note that this can be expanded
+// in the future, and so it is only as up to date as the client. The ordering of
+// this slice is not guaranteed to be stable across updates.
 func (SortOrder) Values() []SortOrder {
 	return []SortOrder{
 		"ASCENDING",

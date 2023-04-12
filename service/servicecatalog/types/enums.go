@@ -31,9 +31,9 @@ const (
 	AccessStatusDisabled    AccessStatus = "DISABLED"
 )
 
-// Values returns all known values for AccessStatus. Note that this can be expanded
-// in the future, and so it is only as up to date as the client. The ordering of
-// this slice is not guaranteed to be stable across updates.
+// Values returns all known values for AccessStatus. Note that this can be
+// expanded in the future, and so it is only as up to date as the client. The
+// ordering of this slice is not guaranteed to be stable across updates.
 func (AccessStatus) Values() []AccessStatus {
 	return []AccessStatus{
 		"ENABLED",
@@ -51,9 +51,9 @@ const (
 	ChangeActionRemove ChangeAction = "REMOVE"
 )
 
-// Values returns all known values for ChangeAction. Note that this can be expanded
-// in the future, and so it is only as up to date as the client. The ordering of
-// this slice is not guaranteed to be stable across updates.
+// Values returns all known values for ChangeAction. Note that this can be
+// expanded in the future, and so it is only as up to date as the client. The
+// ordering of this slice is not guaranteed to be stable across updates.
 func (ChangeAction) Values() []ChangeAction {
 	return []ChangeAction{
 		"ADD",
@@ -117,6 +117,24 @@ func (DescribePortfolioShareType) Values() []DescribePortfolioShareType {
 		"ORGANIZATION",
 		"ORGANIZATIONAL_UNIT",
 		"ORGANIZATION_MEMBER_ACCOUNT",
+	}
+}
+
+type EngineWorkflowStatus string
+
+// Enum values for EngineWorkflowStatus
+const (
+	EngineWorkflowStatusSucceeded EngineWorkflowStatus = "SUCCEEDED"
+	EngineWorkflowStatusFailed    EngineWorkflowStatus = "FAILED"
+)
+
+// Values returns all known values for EngineWorkflowStatus. Note that this can be
+// expanded in the future, and so it is only as up to date as the client. The
+// ordering of this slice is not guaranteed to be stable across updates.
+func (EngineWorkflowStatus) Values() []EngineWorkflowStatus {
+	return []EngineWorkflowStatus{
+		"SUCCEEDED",
+		"FAILED",
 	}
 }
 
@@ -236,6 +254,7 @@ type ProductType string
 const (
 	ProductTypeCloudFormationTemplate ProductType = "CLOUD_FORMATION_TEMPLATE"
 	ProductTypeMarketplace            ProductType = "MARKETPLACE"
+	ProductTypeTerraformOpenSource    ProductType = "TERRAFORM_OPEN_SOURCE"
 )
 
 // Values returns all known values for ProductType. Note that this can be expanded
@@ -245,6 +264,7 @@ func (ProductType) Values() []ProductType {
 	return []ProductType{
 		"CLOUD_FORMATION_TEMPLATE",
 		"MARKETPLACE",
+		"TERRAFORM_OPEN_SOURCE",
 	}
 }
 
@@ -320,9 +340,10 @@ const (
 	ProvisionedProductPlanStatusExecuteFailed     ProvisionedProductPlanStatus = "EXECUTE_FAILED"
 )
 
-// Values returns all known values for ProvisionedProductPlanStatus. Note that this
-// can be expanded in the future, and so it is only as up to date as the client.
-// The ordering of this slice is not guaranteed to be stable across updates.
+// Values returns all known values for ProvisionedProductPlanStatus. Note that
+// this can be expanded in the future, and so it is only as up to date as the
+// client. The ordering of this slice is not guaranteed to be stable across
+// updates.
 func (ProvisionedProductPlanStatus) Values() []ProvisionedProductPlanStatus {
 	return []ProvisionedProductPlanStatus{
 		"CREATE_IN_PROGRESS",
@@ -361,9 +382,9 @@ const (
 	ProvisionedProductStatusPlanInProgress ProvisionedProductStatus = "PLAN_IN_PROGRESS"
 )
 
-// Values returns all known values for ProvisionedProductStatus. Note that this can
-// be expanded in the future, and so it is only as up to date as the client. The
-// ordering of this slice is not guaranteed to be stable across updates.
+// Values returns all known values for ProvisionedProductStatus. Note that this
+// can be expanded in the future, and so it is only as up to date as the client.
+// The ordering of this slice is not guaranteed to be stable across updates.
 func (ProvisionedProductStatus) Values() []ProvisionedProductStatus {
 	return []ProvisionedProductStatus{
 		"AVAILABLE",
@@ -399,9 +420,10 @@ const (
 	ProvisioningArtifactGuidanceDeprecated ProvisioningArtifactGuidance = "DEPRECATED"
 )
 
-// Values returns all known values for ProvisioningArtifactGuidance. Note that this
-// can be expanded in the future, and so it is only as up to date as the client.
-// The ordering of this slice is not guaranteed to be stable across updates.
+// Values returns all known values for ProvisioningArtifactGuidance. Note that
+// this can be expanded in the future, and so it is only as up to date as the
+// client. The ordering of this slice is not guaranteed to be stable across
+// updates.
 func (ProvisioningArtifactGuidance) Values() []ProvisioningArtifactGuidance {
 	return []ProvisioningArtifactGuidance{
 		"DEFAULT",
@@ -433,16 +455,18 @@ const (
 	ProvisioningArtifactTypeCloudFormationTemplate ProvisioningArtifactType = "CLOUD_FORMATION_TEMPLATE"
 	ProvisioningArtifactTypeMarketplaceAmi         ProvisioningArtifactType = "MARKETPLACE_AMI"
 	ProvisioningArtifactTypeMarketplaceCar         ProvisioningArtifactType = "MARKETPLACE_CAR"
+	ProvisioningArtifactTypeTerraformOpenSource    ProvisioningArtifactType = "TERRAFORM_OPEN_SOURCE"
 )
 
-// Values returns all known values for ProvisioningArtifactType. Note that this can
-// be expanded in the future, and so it is only as up to date as the client. The
-// ordering of this slice is not guaranteed to be stable across updates.
+// Values returns all known values for ProvisioningArtifactType. Note that this
+// can be expanded in the future, and so it is only as up to date as the client.
+// The ordering of this slice is not guaranteed to be stable across updates.
 func (ProvisioningArtifactType) Values() []ProvisioningArtifactType {
 	return []ProvisioningArtifactType{
 		"CLOUD_FORMATION_TEMPLATE",
 		"MARKETPLACE_AMI",
 		"MARKETPLACE_CAR",
+		"TERRAFORM_OPEN_SOURCE",
 	}
 }
 
@@ -457,9 +481,9 @@ const (
 	RecordStatusFailed            RecordStatus = "FAILED"
 )
 
-// Values returns all known values for RecordStatus. Note that this can be expanded
-// in the future, and so it is only as up to date as the client. The ordering of
-// this slice is not guaranteed to be stable across updates.
+// Values returns all known values for RecordStatus. Note that this can be
+// expanded in the future, and so it is only as up to date as the client. The
+// ordering of this slice is not guaranteed to be stable across updates.
 func (RecordStatus) Values() []RecordStatus {
 	return []RecordStatus{
 		"CREATED",
@@ -545,10 +569,11 @@ const (
 	ServiceActionAssociationErrorCodeLimitExceededException     ServiceActionAssociationErrorCode = "LIMIT_EXCEEDED"
 	ServiceActionAssociationErrorCodeResourceNotFoundException  ServiceActionAssociationErrorCode = "RESOURCE_NOT_FOUND"
 	ServiceActionAssociationErrorCodeThrottlingException        ServiceActionAssociationErrorCode = "THROTTLING"
+	ServiceActionAssociationErrorCodeInvalidParameterException  ServiceActionAssociationErrorCode = "INVALID_PARAMETER"
 )
 
-// Values returns all known values for ServiceActionAssociationErrorCode. Note that
-// this can be expanded in the future, and so it is only as up to date as the
+// Values returns all known values for ServiceActionAssociationErrorCode. Note
+// that this can be expanded in the future, and so it is only as up to date as the
 // client. The ordering of this slice is not guaranteed to be stable across
 // updates.
 func (ServiceActionAssociationErrorCode) Values() []ServiceActionAssociationErrorCode {
@@ -558,6 +583,7 @@ func (ServiceActionAssociationErrorCode) Values() []ServiceActionAssociationErro
 		"LIMIT_EXCEEDED",
 		"RESOURCE_NOT_FOUND",
 		"THROTTLING",
+		"INVALID_PARAMETER",
 	}
 }
 
@@ -631,9 +657,9 @@ const (
 	SortOrderDescending SortOrder = "DESCENDING"
 )
 
-// Values returns all known values for SortOrder. Note that this can be expanded in
-// the future, and so it is only as up to date as the client. The ordering of this
-// slice is not guaranteed to be stable across updates.
+// Values returns all known values for SortOrder. Note that this can be expanded
+// in the future, and so it is only as up to date as the client. The ordering of
+// this slice is not guaranteed to be stable across updates.
 func (SortOrder) Values() []SortOrder {
 	return []SortOrder{
 		"ASCENDING",
@@ -686,8 +712,8 @@ const (
 	StackSetOperationTypeDelete StackSetOperationType = "DELETE"
 )
 
-// Values returns all known values for StackSetOperationType. Note that this can be
-// expanded in the future, and so it is only as up to date as the client. The
+// Values returns all known values for StackSetOperationType. Note that this can
+// be expanded in the future, and so it is only as up to date as the client. The
 // ordering of this slice is not guaranteed to be stable across updates.
 func (StackSetOperationType) Values() []StackSetOperationType {
 	return []StackSetOperationType{

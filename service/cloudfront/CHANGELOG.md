@@ -1,3 +1,19 @@
+# v1.26.4 (2023-04-10)
+
+* No change notes available for this release.
+
+# v1.26.3 (2023-04-07)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.26.2 (2023-03-21)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.26.1 (2023-03-10)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
 # v1.26.0 (2023-02-22)
 
 * **Feature**: CloudFront now supports block lists in origin request policies so that you can forward all headers, cookies, or query string from viewer requests to the origin *except* for those specified in the block list.

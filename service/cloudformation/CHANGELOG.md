@@ -1,3 +1,23 @@
+# v1.27.2 (2023-04-10)
+
+* No change notes available for this release.
+
+# v1.27.1 (2023-04-07)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.27.0 (2023-04-06)
+
+* **Feature**: Including UPDATE_COMPLETE as a failed status for DeleteStack waiter.
+
+# v1.26.6 (2023-03-21)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.26.5 (2023-03-10)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
 # v1.26.4 (2023-02-22)
 
 * **Bug Fix**: Prevent nil pointer dereference when retrieving error codes.

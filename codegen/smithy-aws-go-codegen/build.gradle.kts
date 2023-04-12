@@ -31,6 +31,13 @@ java {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+    testLogging {
+        events("passed", "skipped", "failed")
+        showStandardStreams = true
+        showStackTraces = true
+        showExceptions = true
+        exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
+    }
 }
 
 dependencies {
@@ -40,7 +47,7 @@ dependencies {
     api("software.amazon.smithy.go:smithy-go-codegen:0.1.0")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.4.0")
     testImplementation("org.junit.jupiter:junit-jupiter-engine:5.4.0")
-    testCompileOnly("org.junit.jupiter:junit-jupiter-params:5.4.0")
+    testImplementation("org.junit.jupiter:junit-jupiter-params:5.4.0")
     testImplementation("org.hamcrest:hamcrest:2.1")
 }
 

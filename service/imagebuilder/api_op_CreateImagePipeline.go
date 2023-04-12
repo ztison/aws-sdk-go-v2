@@ -47,8 +47,8 @@ type CreateImagePipelineInput struct {
 	// This member is required.
 	Name *string
 
-	// The Amazon Resource Name (ARN) of the container recipe that is used to configure
-	// images created by this container pipeline.
+	// The Amazon Resource Name (ARN) of the container recipe that is used to
+	// configure images created by this container pipeline.
 	ContainerRecipeArn *string
 
 	// The description of the image pipeline.
@@ -66,6 +66,9 @@ type CreateImagePipelineInput struct {
 	// The Amazon Resource Name (ARN) of the image recipe that will be used to
 	// configure images created by this image pipeline.
 	ImageRecipeArn *string
+
+	// Contains settings for vulnerability scans.
+	ImageScanningConfiguration *types.ImageScanningConfiguration
 
 	// The image test configuration of the image pipeline.
 	ImageTestsConfiguration *types.ImageTestsConfiguration

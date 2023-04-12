@@ -10,7 +10,7 @@ import (
 	smithyhttp "github.com/aws/smithy-go/transport/http"
 )
 
-// Lists the tags for your resources in your AWS Resilience Hub applications.
+// Lists the tags for your resources in your Resilience Hub applications.
 func (c *Client) ListTagsForResource(ctx context.Context, params *ListTagsForResourceInput, optFns ...func(*Options)) (*ListTagsForResourceOutput, error) {
 	if params == nil {
 		params = &ListTagsForResourceInput{}
@@ -28,8 +28,8 @@ func (c *Client) ListTagsForResource(ctx context.Context, params *ListTagsForRes
 
 type ListTagsForResourceInput struct {
 
-	// The Amazon Resource Name (ARN) for a specific resource in your AWS Resilience
-	// Hub application.
+	// The Amazon Resource Name (ARN) for a specific resource in your Resilience Hub
+	// application.
 	//
 	// This member is required.
 	ResourceArn *string
@@ -39,8 +39,8 @@ type ListTagsForResourceInput struct {
 
 type ListTagsForResourceOutput struct {
 
-	// The tags assigned to the resource. A tag is a label that you assign to an Amazon
-	// Web Services resource. Each tag consists of a key/value pair.
+	// The tags assigned to the resource. A tag is a label that you assign to an
+	// Amazon Web Services resource. Each tag consists of a key/value pair.
 	Tags map[string]string
 
 	// Metadata pertaining to the operation's result.

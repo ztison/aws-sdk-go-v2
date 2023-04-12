@@ -42,8 +42,8 @@ type CreateGlobalClusterInput struct {
 	// cluster you are creating.
 	DatabaseName *string
 
-	// The deletion protection setting for the new global database. The global database
-	// can't be deleted when deletion protection is enabled.
+	// The deletion protection setting for the new global database. The global
+	// database can't be deleted when deletion protection is enabled.
 	DeletionProtection *bool
 
 	// The name of the database engine to be used for this DB cluster.
@@ -52,7 +52,8 @@ type CreateGlobalClusterInput struct {
 	// The engine version of the Aurora global database.
 	EngineVersion *string
 
-	// The cluster identifier of the new global database cluster.
+	// The cluster identifier of the new global database cluster. This parameter is
+	// stored as a lowercase string.
 	GlobalClusterIdentifier *string
 
 	// The Amazon Resource Name (ARN) to use as the primary cluster of the global

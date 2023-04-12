@@ -1,3 +1,23 @@
+# v1.11.2 (2023-04-10)
+
+* No change notes available for this release.
+
+# v1.11.1 (2023-04-07)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.11.0 (2023-03-23)
+
+* **Feature**: AppInstanceBots can be used to add a bot powered by Amazon Lex to chat channels.  ExpirationSettings provides automatic resource deletion for AppInstanceUsers.
+
+# v1.10.6 (2023-03-21)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.10.5 (2023-03-10)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
 # v1.10.4 (2023-02-22)
 
 * **Bug Fix**: Prevent nil pointer dereference when retrieving error codes.

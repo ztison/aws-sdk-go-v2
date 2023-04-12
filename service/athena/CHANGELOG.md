@@ -1,3 +1,27 @@
+# v1.25.2 (2023-04-10)
+
+* No change notes available for this release.
+
+# v1.25.1 (2023-04-07)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.25.0 (2023-03-30)
+
+* **Feature**: Make DefaultExecutorDpuSize and CoordinatorDpuSize  fields optional  in StartSession
+
+# v1.24.0 (2023-03-27)
+
+* **Feature**: Enforces a minimal level of encryption for the workgroup for query and calculation results that are written to Amazon S3. When enabled, workgroup users can set encryption only to the minimum level set by the administrator or higher when they submit queries.
+
+# v1.23.2 (2023-03-21)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.23.1 (2023-03-10)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
 # v1.23.0 (2023-03-08)
 
 * **Feature**: A new field SubstatementType is added to GetQueryExecution API, so customers have an error free way to detect the query type and interpret the result.

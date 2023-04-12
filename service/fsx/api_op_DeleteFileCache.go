@@ -15,8 +15,7 @@ import (
 // Deletes an Amazon File Cache resource. After deletion, the cache no longer
 // exists, and its data is gone. The DeleteFileCache operation returns while the
 // cache has the DELETING status. You can check the cache deletion status by
-// calling the DescribeFileCaches
-// (https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeFileCaches.html)
+// calling the DescribeFileCaches (https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeFileCaches.html)
 // operation, which returns a list of caches in your account. If you pass the cache
 // ID for a deleted cache, the DescribeFileCaches operation returns a
 // FileCacheNotFound error. The data in a deleted cache is also deleted and can't
@@ -43,7 +42,7 @@ type DeleteFileCacheInput struct {
 	// This member is required.
 	FileCacheId *string
 
-	// (Optional) An idempotency token for resource creation, in a string of up to 64
+	// (Optional) An idempotency token for resource creation, in a string of up to 63
 	// ASCII characters. This token is automatically filled on your behalf when you use
 	// the Command Line Interface (CLI) or an Amazon Web Services SDK.
 	ClientRequestToken *string
@@ -57,7 +56,7 @@ type DeleteFileCacheOutput struct {
 	FileCacheId *string
 
 	// The cache lifecycle for the deletion request. If the DeleteFileCache operation
-	// is successful, this status is DELETING.
+	// is successful, this status is DELETING .
 	Lifecycle types.FileCacheLifecycle
 
 	// Metadata pertaining to the operation's result.

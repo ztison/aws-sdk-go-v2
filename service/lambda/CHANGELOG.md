@@ -1,3 +1,20 @@
+# v1.31.1 (2023-04-10)
+
+* No change notes available for this release.
+
+# v1.31.0 (2023-04-07)
+
+* **Feature**: This release adds a new Lambda InvokeWithResponseStream API to support streaming Lambda function responses. The release also adds a new InvokeMode parameter to Function Url APIs to control whether the response will be streamed or buffered.
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.30.2 (2023-03-21)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.30.1 (2023-03-10)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
 # v1.30.0 (2023-02-27)
 
 * **Feature**: This release adds the ability to create ESMs with Document DB change streams as event source. For more information see  https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html.

@@ -2,6 +2,40 @@
 
 package types
 
+type ActionCategory string
+
+// Enum values for ActionCategory
+const (
+	ActionCategoryDisasterRecovery       ActionCategory = "DISASTER_RECOVERY"
+	ActionCategoryOperatingSystem        ActionCategory = "OPERATING_SYSTEM"
+	ActionCategoryLicenseAndSubscription ActionCategory = "LICENSE_AND_SUBSCRIPTION"
+	ActionCategoryValidation             ActionCategory = "VALIDATION"
+	ActionCategoryObservability          ActionCategory = "OBSERVABILITY"
+	ActionCategorySecurity               ActionCategory = "SECURITY"
+	ActionCategoryNetworking             ActionCategory = "NETWORKING"
+	ActionCategoryConfiguration          ActionCategory = "CONFIGURATION"
+	ActionCategoryBackup                 ActionCategory = "BACKUP"
+	ActionCategoryOther                  ActionCategory = "OTHER"
+)
+
+// Values returns all known values for ActionCategory. Note that this can be
+// expanded in the future, and so it is only as up to date as the client. The
+// ordering of this slice is not guaranteed to be stable across updates.
+func (ActionCategory) Values() []ActionCategory {
+	return []ActionCategory{
+		"DISASTER_RECOVERY",
+		"OPERATING_SYSTEM",
+		"LICENSE_AND_SUBSCRIPTION",
+		"VALIDATION",
+		"OBSERVABILITY",
+		"SECURITY",
+		"NETWORKING",
+		"CONFIGURATION",
+		"BACKUP",
+		"OTHER",
+	}
+}
+
 type ApplicationHealthStatus string
 
 // Enum values for ApplicationHealthStatus
@@ -144,8 +178,8 @@ const (
 	DataReplicationInitiationStepNameStartDataTransfer               DataReplicationInitiationStepName = "START_DATA_TRANSFER"
 )
 
-// Values returns all known values for DataReplicationInitiationStepName. Note that
-// this can be expanded in the future, and so it is only as up to date as the
+// Values returns all known values for DataReplicationInitiationStepName. Note
+// that this can be expanded in the future, and so it is only as up to date as the
 // client. The ordering of this slice is not guaranteed to be stable across
 // updates.
 func (DataReplicationInitiationStepName) Values() []DataReplicationInitiationStepName {
@@ -227,6 +261,28 @@ func (DataReplicationState) Values() []DataReplicationState {
 	}
 }
 
+type ExportStatus string
+
+// Enum values for ExportStatus
+const (
+	ExportStatusPending   ExportStatus = "PENDING"
+	ExportStatusStarted   ExportStatus = "STARTED"
+	ExportStatusFailed    ExportStatus = "FAILED"
+	ExportStatusSucceeded ExportStatus = "SUCCEEDED"
+)
+
+// Values returns all known values for ExportStatus. Note that this can be
+// expanded in the future, and so it is only as up to date as the client. The
+// ordering of this slice is not guaranteed to be stable across updates.
+func (ExportStatus) Values() []ExportStatus {
+	return []ExportStatus{
+		"PENDING",
+		"STARTED",
+		"FAILED",
+		"SUCCEEDED",
+	}
+}
+
 type FirstBoot string
 
 // Enum values for FirstBoot
@@ -237,15 +293,55 @@ const (
 	FirstBootStopped   FirstBoot = "STOPPED"
 )
 
-// Values returns all known values for FirstBoot. Note that this can be expanded in
-// the future, and so it is only as up to date as the client. The ordering of this
-// slice is not guaranteed to be stable across updates.
+// Values returns all known values for FirstBoot. Note that this can be expanded
+// in the future, and so it is only as up to date as the client. The ordering of
+// this slice is not guaranteed to be stable across updates.
 func (FirstBoot) Values() []FirstBoot {
 	return []FirstBoot{
 		"WAITING",
 		"SUCCEEDED",
 		"UNKNOWN",
 		"STOPPED",
+	}
+}
+
+type ImportErrorType string
+
+// Enum values for ImportErrorType
+const (
+	ImportErrorTypeValidationError ImportErrorType = "VALIDATION_ERROR"
+	ImportErrorTypeProcessingError ImportErrorType = "PROCESSING_ERROR"
+)
+
+// Values returns all known values for ImportErrorType. Note that this can be
+// expanded in the future, and so it is only as up to date as the client. The
+// ordering of this slice is not guaranteed to be stable across updates.
+func (ImportErrorType) Values() []ImportErrorType {
+	return []ImportErrorType{
+		"VALIDATION_ERROR",
+		"PROCESSING_ERROR",
+	}
+}
+
+type ImportStatus string
+
+// Enum values for ImportStatus
+const (
+	ImportStatusPending   ImportStatus = "PENDING"
+	ImportStatusStarted   ImportStatus = "STARTED"
+	ImportStatusFailed    ImportStatus = "FAILED"
+	ImportStatusSucceeded ImportStatus = "SUCCEEDED"
+)
+
+// Values returns all known values for ImportStatus. Note that this can be
+// expanded in the future, and so it is only as up to date as the client. The
+// ordering of this slice is not guaranteed to be stable across updates.
+func (ImportStatus) Values() []ImportStatus {
+	return []ImportStatus{
+		"PENDING",
+		"STARTED",
+		"FAILED",
+		"SUCCEEDED",
 	}
 }
 
@@ -326,9 +422,9 @@ const (
 	JobStatusCompleted JobStatus = "COMPLETED"
 )
 
-// Values returns all known values for JobStatus. Note that this can be expanded in
-// the future, and so it is only as up to date as the client. The ordering of this
-// slice is not guaranteed to be stable across updates.
+// Values returns all known values for JobStatus. Note that this can be expanded
+// in the future, and so it is only as up to date as the client. The ordering of
+// this slice is not guaranteed to be stable across updates.
 func (JobStatus) Values() []JobStatus {
 	return []JobStatus{
 		"PENDING",
@@ -384,9 +480,9 @@ const (
 	LaunchStatusTerminated LaunchStatus = "TERMINATED"
 )
 
-// Values returns all known values for LaunchStatus. Note that this can be expanded
-// in the future, and so it is only as up to date as the client. The ordering of
-// this slice is not guaranteed to be stable across updates.
+// Values returns all known values for LaunchStatus. Note that this can be
+// expanded in the future, and so it is only as up to date as the client. The
+// ordering of this slice is not guaranteed to be stable across updates.
 func (LaunchStatus) Values() []LaunchStatus {
 	return []LaunchStatus{
 		"PENDING",
@@ -401,15 +497,16 @@ type LifeCycleState string
 
 // Enum values for LifeCycleState
 const (
-	LifeCycleStateStopped         LifeCycleState = "STOPPED"
-	LifeCycleStateNotReady        LifeCycleState = "NOT_READY"
-	LifeCycleStateReadyForTest    LifeCycleState = "READY_FOR_TEST"
-	LifeCycleStateTesting         LifeCycleState = "TESTING"
-	LifeCycleStateReadyForCutover LifeCycleState = "READY_FOR_CUTOVER"
-	LifeCycleStateCuttingOver     LifeCycleState = "CUTTING_OVER"
-	LifeCycleStateCutover         LifeCycleState = "CUTOVER"
-	LifeCycleStateDisconnected    LifeCycleState = "DISCONNECTED"
-	LifeCycleStateDiscovered      LifeCycleState = "DISCOVERED"
+	LifeCycleStateStopped             LifeCycleState = "STOPPED"
+	LifeCycleStateNotReady            LifeCycleState = "NOT_READY"
+	LifeCycleStateReadyForTest        LifeCycleState = "READY_FOR_TEST"
+	LifeCycleStateTesting             LifeCycleState = "TESTING"
+	LifeCycleStateReadyForCutover     LifeCycleState = "READY_FOR_CUTOVER"
+	LifeCycleStateCuttingOver         LifeCycleState = "CUTTING_OVER"
+	LifeCycleStateCutover             LifeCycleState = "CUTOVER"
+	LifeCycleStateDisconnected        LifeCycleState = "DISCONNECTED"
+	LifeCycleStateDiscovered          LifeCycleState = "DISCOVERED"
+	LifeCycleStatePendingInstallation LifeCycleState = "PENDING_INSTALLATION"
 )
 
 // Values returns all known values for LifeCycleState. Note that this can be
@@ -426,6 +523,7 @@ func (LifeCycleState) Values() []LifeCycleState {
 		"CUTOVER",
 		"DISCONNECTED",
 		"DISCOVERED",
+		"PENDING_INSTALLATION",
 	}
 }
 

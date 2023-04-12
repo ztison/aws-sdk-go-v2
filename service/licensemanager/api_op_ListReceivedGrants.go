@@ -11,7 +11,9 @@ import (
 	smithyhttp "github.com/aws/smithy-go/transport/http"
 )
 
-// Lists grants that are received but not accepted.
+// Lists grants that are received. Received grants are grants created while
+// specifying the recipient as this Amazon Web Services account, your organization,
+// or an organizational unit (OU) to which this member account belongs.
 func (c *Client) ListReceivedGrants(ctx context.Context, params *ListReceivedGrantsInput, optFns ...func(*Options)) (*ListReceivedGrantsOutput, error) {
 	if params == nil {
 		params = &ListReceivedGrantsInput{}
@@ -30,17 +32,11 @@ func (c *Client) ListReceivedGrants(ctx context.Context, params *ListReceivedGra
 type ListReceivedGrantsInput struct {
 
 	// Filters to scope the results. The following filters are supported:
-	//
-	// *
-	// ProductSKU
-	//
-	// * LicenseIssuerName
-	//
-	// * LicenseArn
-	//
-	// * GrantStatus
-	//
-	// * GranterAccountId
+	//   - ProductSKU
+	//   - LicenseIssuerName
+	//   - LicenseArn
+	//   - GrantStatus
+	//   - GranterAccountId
 	Filters []types.Filter
 
 	// Amazon Resource Names (ARNs) of the grants.

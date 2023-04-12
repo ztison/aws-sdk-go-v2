@@ -1,3 +1,27 @@
+# v1.28.3 (2023-04-10)
+
+* No change notes available for this release.
+
+# v1.28.2 (2023-04-07)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.28.1 (2023-04-04)
+
+* **Documentation**: Documentation updates for Amazon EC2 Auto Scaling
+
+# v1.28.0 (2023-03-30)
+
+* **Feature**: Amazon EC2 Auto Scaling now supports Elastic Load Balancing traffic sources with the AttachTrafficSources, DetachTrafficSources, and DescribeTrafficSources APIs. This release also introduces a new activity status, "WaitingForConnectionDraining", for VPC Lattice to the DescribeScalingActivities API.
+
+# v1.27.4 (2023-03-21)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
+# v1.27.3 (2023-03-10)
+
+* **Dependency Update**: Updated to the latest SDK module versions
+
 # v1.27.2 (2023-02-22)
 
 * **Bug Fix**: Prevent nil pointer dereference when retrieving error codes.
